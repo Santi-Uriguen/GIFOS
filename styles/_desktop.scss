@@ -1,0 +1,105 @@
+@media (min-width: 950px) {
+    header {
+        height: 90px;
+        .logo {
+            img {
+                &:first-child {
+                    display: none;
+                }
+                &:nth-last-child(1) {
+                    display: block;
+                }
+            }
+        }
+        nav {
+            width: 40%;
+            .menu {
+                input {
+                    display: none;
+                }
+                span {
+                    display: none;
+                }
+                ul {
+                    display: flex;
+                    width: 100%;
+                    position: relative;
+                    top: 0;
+                    background: none;
+                    height: auto;
+                    transition: none;
+                    justify-content: space-between;
+                    li {
+                        a {
+                            color: #572ee5;
+                        }
+                    }
+                    button {
+                        background: none;
+                        border: 1px solid #572ee5;
+                        border-radius: 50%;
+                        width: 56px;
+                        height: 56px;
+                        color: #572ee5;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+    main {
+        .headShown {
+            h1 {
+                font-size: 35px;
+                line-height: 50px;
+                font-weight: 700;
+                #br {
+                    display: block;
+                }
+                #gifos {
+                    color: #50e3c2;
+                }
+            }
+            img {
+                width: 27.71%;
+            }
+            .search_btn {
+                width: 38.4%;
+                input::placeholder {
+                    color: #9cafc3;
+                }
+            }
+            .slogan {
+                h3 {
+                    font-size: 18px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .searchShown {
+        .results {
+            h2 {
+                font-size: 35px;
+                color: #572ee5;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+            div {
+                margin: 59px 8.82% 0 156px;
+                img {
+                    width: 260px;
+                    height: 200px;
+                    margin: 29px 29px 0 0px;
+                }
+            }
+            button {
+                font-weight: 700;
+                width: 8.96%;
+            }
+        }
+    }
+}

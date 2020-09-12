@@ -17,7 +17,7 @@
                 input {
                     display: none;
                 }
-                span {
+                .hamb {
                     display: none;
                 }
                 ul {
@@ -30,6 +30,7 @@
                     transition: none;
                     justify-content: space-between;
                     li {
+                        color: #572ee5;
                         a {
                             color: #572ee5;
                         }

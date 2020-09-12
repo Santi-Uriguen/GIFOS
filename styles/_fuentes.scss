@@ -60,6 +60,9 @@ a {
     line-height: 60px;
     text-decoration: none;
 }
+li{
+ @extend a   
+}
 
 input::placeholder {
     font-family: "Roboto", sans-serif;

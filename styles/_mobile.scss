@@ -49,7 +49,7 @@ header {
                 position: absolute;
                 &:checked {
                     ~ ul {
-                        height: 240px;
+                        height: 490px;
                         transition: height 0.5s ease-in-out;
                         -moz-transition: height 0.5s ease-in-out;
                         -o-transition: height 0.5s ease-in-out;
@@ -68,7 +68,7 @@ header {
                     }
                 }
             }
-            span {
+            .hamb {
                 display: block;
                 width: 15px;
                 height: 2.5px;
@@ -102,6 +102,15 @@ header {
                     &:nth-child(2) {
                         display: none;
                     }
+                }
+                span {
+                    margin-top: -7px;
+                    display: flex;
+                    background-color: rgba(999, 999, 999, 0.3);
+                    height: 1.5px;
+                    width: 40px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
                 button {
                     display: none;
@@ -184,10 +193,12 @@ main {
             div {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content:center;
+                margin: 0 2.4% 0 2.4%;
                 img {
-                    width: 156px;
-                    height: 120px;
-                    margin: 25px 0 0 21px;
+                    width: 41.6%;
+                    height: 32vw;
+                    margin: 25px 11px 0 11px;
                 }
             }
             button {
@@ -229,8 +240,11 @@ main {
         align-items: center;
         @extend .searchShown;
     }
-    .mis_gifos {
+    .mis_gifosHidden {
         display: none;
+    }
+    .mis_gifosShown {
+        @extend .searchShown;
     }
     .trending {
         background-color: #f3f5f8;

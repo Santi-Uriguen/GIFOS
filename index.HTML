@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo" id="head">
+            <img src="assets/logo-mobile.svg" alt="logo mobile" id="logo">
+            <img src="assets/logo-desktop-modo-noc.svg" alt="logo desktop nocturno">
+            <img src="assets/logo-desktop.svg" alt="logo desktop">
+
+        </div>
+        <nav>
+            <div class="menu">
+                <input type="checkbox" id="checkbox" />
+                <span class="hamb"></span>
+                <span class="hamb"></span>
+                <span class="hamb"></span>
+                <ul>
+                    <li><a href="#">Modo Nocturno</a></li>
+                    <li><a href="#">Modo Diurno</a></li>
+                    <span></span>
+                    <li id="fav">Favoritos</li>
+                    <span></span>
+                    <li id="mis_gifos">Mis GIFOS</li>
+                    <span></span>
+                    <button>
+                        <img src="assets/button-crear-gifo.svg" alt="">
+                    </button>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="headShown" id="head_section">
+            <h1>Inspírate, busca, guarda, y crea <span id="br">los mejores <span id="gifos"> GIFOS </span></span></h1>
+            <img src="assets/ilustra_header.svg" alt="ilustración header">
+            <div class="search_btn">
+                <input type="search" placeholder="Busca GIFOS y más" id="searchInput">
+                <button id="lupa"><img src="assets/icon-search.svg" alt="" id="search"></button>
+                <!-- <a href="#search_section" ></a> -->
+                <img src="assets/close.svg" alt="" id="close">
+            </div>
+            <div class="slogan">
+                <h3>Trending:</h3>
+                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+            </div>
+        </section>
+        <section class="searchHidden" id="search_section">
+            <span class="line"></span>
+            <div class="results" id="searchContainer">
+                <div id="searchGifs"></div>
+            </div>
+            <div class="no_results" id="noResultsSearch">
+                <img src="assets/icon-busqueda-sin-resultado.svg" alt="">
+                <p>Intenta con otra búsqueda.</p>
+
+            </div>
+        </section>
+        <section class="favHidden" id="fav_section">
+            <img src="assets/icon-favoritos.svg" alt="">
+            <h2>Favoritos</h2>
+            <div class="results">
+                <div>
+                    <img src="https://media.tenor.com/images/74cbf1b0e57f0c8aa40927ec0da57063/tenor.gif" alt="">
+                    <img src="https://data.whicdn.com/images/66986984/original.gif" alt="">
+                    <img src="https://ruinmyweek.com/wp-content/uploads/2016/07/free-animated-gifs-of-funny-movie-gifs-clint-eastwood-jack-sparrow-showdown.gif"
+                        alt="">
+                    <img src="https://media1.giphy.com/media/3jzoNumaV4o80/giphy.gif" alt="">
+                    <img src="https://media1.tenor.com/images/ed0a385da648f33175c2953f74737e45/tenor.gif?itemid=13455626"
+                        alt="">
+                    <img src="https://i0.wp.com/averagenobodies.com/wp-content/uploads/2014/06/bill_murray_gif_2.gif?ssl=1"
+                        alt="">
+                    <img src="https://media1.tenor.com/images/4a127aeb08a0a6caf3504c6f40bc17a0/tenor.gif?itemid=15760606"
+                        alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcbmVeVsfDtnhB8Xjl9D7KDX4aG_PGYxhu3bnnpQmqcRzqIO8&s"
+                        alt="">
+                </div>
+                <button>VER MÁS</button>
+            </div>
+            <div class="no_results">
+                <img src="assets/icon-favoritos.svg" alt="">
+                <p>"¡Guarda tu primer GIFO en Favoritos <br>
+                    para que se muestre aquí!"</p>
+            </div>
+        </section>
+        <section class="mis_gifosHidden" id="mis_gifos_section">
+            <img src="assets/icon-mis-gifos.svg" alt="">
+            <h2>Mis GIFOS</h2>
+            <div class="results">
+                <div>
+                    <img src="https://media.giphy.com/media/8YEeOtkBv2Hy4krDmd/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/W2LMoIExgM1vygHDiv/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/RLE7xyNrw6WKJIY7Zt/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/H0nSjnqmJGrHR5i8jP/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/3o8doT5DaMjfH3paHC/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/l0HU8V1CHKTUFtuFO/giphy.gif" alt="">
+                    <img src="https://media.giphy.com/media/r07K4fvHDD8Z2/giphy.gif" alt="">
+                </div>
+                <button>VER MÁS</button>
+            </div>
+            <div class="no_results">
+                <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="">
+                <p>¡Anímate a crear tu primer GIFO!</p>
+            </div>
+        </section>
+        <section class="trending">
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos <span> GIFOS de nuestra comunidad.</span></p>
+            <div class="gif_container" id="trending">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h5>Compartir en:</h5>
+        <div class="icons">
+            <a href="https://www.facebook.com/" target="_blank"><img src="assets/icon_facebook.svg" alt=""></a>
+            <a href="https://twitter.com/" target="_blank"><img src="assets/icon-twitter.svg" alt=""></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="assets/icon_instagram.svg" alt=""></a>
+        </div>
+        <p>© GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/script1.js"></script>
+</body>
+
+</html>

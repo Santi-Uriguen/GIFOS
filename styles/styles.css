@@ -198,9 +198,11 @@ main {
         width: 100%;
         margin-left: 20px;
         padding-left: 35px; }
-      main .headShown .search_btn #lupa img {
-        width: 20px;
-        margin-right: 20px; }
+      main .headShown .search_btn #lupa {
+        background: none; }
+        main .headShown .search_btn #lupa img {
+          width: 20px;
+          margin-right: 20px; }
       main .headShown .search_btn #close {
         display: none; }
     main .headShown .slogan {
@@ -217,21 +219,23 @@ main {
       width: 30%;
       opacity: 0.5;
       border: 1px solid #9cafc3; }
-    main .searchShown .results, main .favShown .results, main .mis_gifosShown .results {
+    main .searchShown .resultsHidden, main .favShown .resultsHidden, main .mis_gifosShown .resultsHidden {
+      display: none; }
+    main .searchShown .resultsShown, main .favShown .resultsShown, main .mis_gifosShown .resultsShown {
       display: flex;
       flex-direction: column; }
-      main .searchShown .results h2, main .favShown .results h2, main .mis_gifosShown .results h2 {
+      main .searchShown .resultsShown h2, main .favShown .resultsShown h2, main .mis_gifosShown .resultsShown h2 {
         margin: 11.4% 0 3.5% 0; }
-      main .searchShown .results div, main .favShown .results div, main .mis_gifosShown .results div {
+      main .searchShown .resultsShown div, main .favShown .resultsShown div, main .mis_gifosShown .resultsShown div {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin: 0 2.4% 0 2.4%; }
-        main .searchShown .results div img, main .favShown .results div img, main .mis_gifosShown .results div img {
+        main .searchShown .resultsShown div img, main .favShown .resultsShown div img, main .mis_gifosShown .resultsShown div img {
           width: 41.6%;
           height: 32vw;
           margin: 25px 11px 0 11px; }
-      main .searchShown .results button, main .favShown .results button, main .mis_gifosShown .results button {
+      main .searchShown .resultsShown button, main .favShown .resultsShown button, main .mis_gifosShown .resultsShown button {
         margin: 20.8% 0 20.8% 0;
         align-self: center;
         width: 34.4%;
@@ -239,16 +243,18 @@ main {
         border: 1px solid #572ee5;
         border-radius: 25px;
         background: none; }
-    main .searchShown .no_results, main .favShown .no_results, main .mis_gifosShown .no_results {
+    main .searchShown .noResultsHidden, main .favShown .noResultsHidden, main .mis_gifosShown .noResultsHidden {
+      display: none; }
+    main .searchShown .noResultsShown, main .favShown .noResultsShown, main .mis_gifosShown .noResultsShown {
       display: flex;
       flex-direction: column;
       align-items: center; }
-      main .searchShown .no_results h2, main .favShown .no_results h2, main .mis_gifosShown .no_results h2 {
+      main .searchShown .noResultsShown h2, main .favShown .noResultsShown h2, main .mis_gifosShown .noResultsShown h2 {
         margin: 11.4% 0 26% 0; }
-      main .searchShown .no_results img, main .favShown .no_results img, main .mis_gifosShown .no_results img {
+      main .searchShown .noResultsShown img, main .favShown .noResultsShown img, main .mis_gifosShown .noResultsShown img {
         width: 130px;
         margin-bottom: 5%; }
-      main .searchShown .no_results p, main .favShown .no_results p, main .mis_gifosShown .no_results p {
+      main .searchShown .noResultsShown p, main .favShown .noResultsShown p, main .mis_gifosShown .noResultsShown p {
         font-size: 22px;
         color: #50e3c2;
         text-align: center;
@@ -309,6 +315,7 @@ footer {
     letter-spacing: 0;
     line-height: 20px; }
 
+/*---------------------CLASES PARA GIF-MAX-------------*/
 @media (min-width: 950px) {
   header {
     height: 90px; }
@@ -378,5 +385,7 @@ footer {
   .searchShown .results button, main .favShown .results button, main .mis_gifosShown .results button {
     font-weight: 700;
     width: 8.96%; } }
+.dark_body {
+  background-color: #37383c; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -21,23 +21,15 @@ function showSection(ShowClase, HidClase1, HidClase2, HidClase3) {
 
   //condición: si el botón clickeado es search, no afecta a HEAD, caso contrario sí
   if (ShowClase === "search") {
-    showSection.classList.add("searchShown");
-    showSection.classList.remove("searchHidden");
-    hideSection1.classList.add("favHidden");
-    hideSection1.classList.remove("favShown");
-    hideSection3.classList.add("mis_gifosHidden");
-    hideSection3.classList.remove("mis_gifosShown");
+    showSection.className = "searchShown";
+    hideSection1.className = "favHidden";
+    hideSection3.className = "mis_gifosHidden";
   } else {
-    showSection.classList.add(ShowClase + "Shown");
-    showSection.classList.remove(ShowClase + "Hidden");
-    hideSection1.classList.add(HidClase1 + "Hidden");
-    hideSection1.classList.remove(HidClase1 + "Shown");
-    hideSection2.classList.add(HidClase2 + "Hidden");
-    hideSection2.classList.remove(HidClase2 + "Shown");
-    hideSection3.classList.add(HidClase3 + "Hidden");
-    hideSection3.classList.remove(HidClase3 + "Shown");
+    showSection.className = ShowClase + "Shown";
+    hideSection1.className = HidClase1 + "Hidden";
+    hideSection2.className = HidClase2 + "Hidden";
+    hideSection3.className = HidClase3 + "Hidden";
   }
-  console.log(showSection, hideSection1, hideSection2, hideSection3)
 }
 
 //agrego eventos a cada botón, llamando a la función y agregando los correspondientes parámetros

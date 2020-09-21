@@ -156,6 +156,7 @@ main {
                 padding-left: 35px;
             }
             #lupa {
+                background: none;
                 img {
                     width: 20px;
                     margin-right: 20px;
@@ -184,7 +185,10 @@ main {
             opacity: 0.5;
             border: 1px solid #9cafc3;
         }
-        .results {
+        .resultsHidden {
+            display: none;
+        }
+        .resultsShown {
             display: flex;
             flex-direction: column;
             h2 {
@@ -193,7 +197,7 @@ main {
             div {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content:center;
+                justify-content: center;
                 margin: 0 2.4% 0 2.4%;
                 img {
                     width: 41.6%;
@@ -211,7 +215,10 @@ main {
                 background: none;
             }
         }
-        .no_results {
+        .noResultsHidden {
+            display: none;
+        }
+        .noResultsShown {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -304,3 +311,4 @@ footer {
         line-height: 20px;
     }
 }
+/*---------------------CLASES PARA GIF-MAX-------------*/

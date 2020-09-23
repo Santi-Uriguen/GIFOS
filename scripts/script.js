@@ -107,7 +107,7 @@ function searchSuggestion(info) {
   let url =
     "https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q=" +
     info +
-    "&limit=15&offset=0&rating=r&lang=es";
+    "&limit=42&offset=0&rating=r&lang=es";
   console.log(url);
   //búsqueda del valor tipeado
   let fetchSearch = fetch(url);

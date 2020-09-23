@@ -138,34 +138,129 @@ main {
                 display: inline-block;
             }
         }
-        img {
+        #ilustra_header {
             width: 72.8%;
         }
-        .search_btn {
+        .search_bar {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
             background: #ffffff;
             border: 1px solid #572ee5;
             border-radius: 27px;
-            display: flex;
-            justify-content: space-between;
             width: 89.6%;
-            height: 50px;
-            flex-direction: row;
-            input {
+            height: auto;
+            padding: 12.5px 18px 12.5px 18px;
+            .busqueDiv {
+                display: flex;
                 width: 100%;
-                margin-left: 20px;
-                padding-left: 35px;
-            }
-            #lupa {
-                background: none;
-                img {
-                    width: 20px;
-                    margin-right: 20px;
+                .input_ctn {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 22px;
+                    input {
+                        border: none;
+                    }
+                }
+                .lupaImgShow {
+                    background: none;
+                    border: none;
+                    display: flex;
+                    padding: 0;
+                    .search {
+                        width: 20px;
+                    }
+                }
+                .close {
+                    display: none;
                 }
             }
-            #close {
+            .lineaHid {
                 display: none;
             }
+            .suggest_container {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
         }
+
+        .search_bar_clicked {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #572ee5;
+            border-radius: 27px;
+            width: 89.6%;
+            height: auto;
+            padding: 12.5px 18px 12.5px 18px;
+            .busqueDiv {
+                display: flex;
+                flex-direction: row-reverse;
+                width: 100%;
+                .lupaImgHid {
+                    display: none;
+                }
+                .lupaImgShow {
+                    display: flex;
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    margin-right: 14.6px;
+                }
+                .input_ctn {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 22px;
+                    input {
+                        border: none;
+                    }
+                }
+                .close {
+                    display: flex;
+                    padding: 0;
+                    width: 14px;
+                    margin-left: 5px;
+                }
+            }
+            .lineaHid {
+                display: none;
+            }
+            .lineaShow {
+                display: block;
+                width: 100%;
+                opacity: 0.5;
+                border: 1px solid #9cafc3;
+                margin: 10px 0 4px 0;
+            }
+            .suggest_container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                .suggestDiv {
+                    display: flex;
+                    height: 22px;
+                    margin: 10px 0 0 0;
+                    img {
+                        width: 15.8px;
+                        margin-right: 14.6px;
+                    }
+                    p {
+                        margin: 0;
+                        color: #9cafc3;
+                    }
+                }
+            }
+        }
+
         .slogan {
             margin: 8% 20% 12% 20%;
         }

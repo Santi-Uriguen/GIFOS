@@ -183,28 +183,104 @@ main {
         display: inline-block; }
       main .headShown h1 #gifos {
         display: inline-block; }
-    main .headShown img {
+    main .headShown #ilustra_header {
       width: 72.8%; }
-    main .headShown .search_btn {
+    main .headShown .search_bar {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
       background: #ffffff;
       border: 1px solid #572ee5;
       border-radius: 27px;
-      display: flex;
-      justify-content: space-between;
       width: 89.6%;
-      height: 50px;
-      flex-direction: row; }
-      main .headShown .search_btn input {
-        width: 100%;
-        margin-left: 20px;
-        padding-left: 35px; }
-      main .headShown .search_btn #lupa {
-        background: none; }
-        main .headShown .search_btn #lupa img {
-          width: 20px;
-          margin-right: 20px; }
-      main .headShown .search_btn #close {
+      height: auto;
+      padding: 12.5px 18px 12.5px 18px; }
+      main .headShown .search_bar .busqueDiv {
+        display: flex;
+        width: 100%; }
+        main .headShown .search_bar .busqueDiv .input_ctn {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 22px; }
+          main .headShown .search_bar .busqueDiv .input_ctn input {
+            border: none; }
+        main .headShown .search_bar .busqueDiv .lupaImgShow {
+          background: none;
+          border: none;
+          display: flex;
+          padding: 0; }
+          main .headShown .search_bar .busqueDiv .lupaImgShow .search {
+            width: 20px; }
+        main .headShown .search_bar .busqueDiv .close {
+          display: none; }
+      main .headShown .search_bar .lineaHid {
         display: none; }
+      main .headShown .search_bar .suggest_container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+    main .headShown .search_bar_clicked {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid #572ee5;
+      border-radius: 27px;
+      width: 89.6%;
+      height: auto;
+      padding: 12.5px 18px 12.5px 18px; }
+      main .headShown .search_bar_clicked .busqueDiv {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%; }
+        main .headShown .search_bar_clicked .busqueDiv .lupaImgHid {
+          display: none; }
+        main .headShown .search_bar_clicked .busqueDiv .lupaImgShow {
+          display: flex;
+          background: none;
+          border: none;
+          padding: 0;
+          margin-right: 14.6px; }
+        main .headShown .search_bar_clicked .busqueDiv .input_ctn {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 22px; }
+          main .headShown .search_bar_clicked .busqueDiv .input_ctn input {
+            border: none; }
+        main .headShown .search_bar_clicked .busqueDiv .close {
+          display: flex;
+          padding: 0;
+          width: 14px;
+          margin-left: 5px; }
+      main .headShown .search_bar_clicked .lineaHid {
+        display: none; }
+      main .headShown .search_bar_clicked .lineaShow {
+        display: block;
+        width: 100%;
+        opacity: 0.5;
+        border: 1px solid #9cafc3;
+        margin: 10px 0 4px 0; }
+      main .headShown .search_bar_clicked .suggest_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%; }
+        main .headShown .search_bar_clicked .suggest_container .suggestDiv {
+          display: flex;
+          height: 22px;
+          margin: 10px 0 0 0; }
+          main .headShown .search_bar_clicked .suggest_container .suggestDiv img {
+            width: 15.8px;
+            margin-right: 14.6px; }
+          main .headShown .search_bar_clicked .suggest_container .suggestDiv p {
+            margin: 0;
+            color: #9cafc3; }
     main .headShown .slogan {
       margin: 8% 20% 12% 20%; }
   main .headHidden {

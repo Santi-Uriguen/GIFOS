@@ -41,12 +41,19 @@
     <main>
         <section class="headShown" id="head_section">
             <h1>Inspírate, busca, guarda, y crea <span id="br">los mejores <span id="gifos"> GIFOS </span></span></h1>
-            <img src="assets/ilustra_header.svg" alt="ilustración header">
-            <div class="search_btn">
-                <input type="search" placeholder="Busca GIFOS y más" id="searchInput">
-                <button id="lupa"><img src="assets/icon-search.svg" alt="" id="search"></button>
-                <!-- <a href="#search_section" ></a> -->
-                <img src="assets/close.svg" alt="" id="close">
+            <img src="assets/ilustra_header.svg" alt="ilustración header" id="ilustra_header">
+            <div class="search_bar" id="search_bar">
+                <div class="busqueDiv">
+                    <img src="assets/close.svg" alt="" id="close" class="close">
+                    <div id="input_ctn" class="input_ctn">
+                        <input type="search" placeholder="Busca GIFOS y más" id="searchInput">
+                    </div>
+                    <button id="lupa" class="lupaImgShow">
+                        <img src="assets/icon-search.svg" alt="" class="search" id="search">
+                    </button>
+                </div>
+                <span class="lineaHid" id="linea"></span>
+                <div id="suggest_container" class="suggest_container"></div>
             </div>
             <div class="slogan">
                 <h3>Trending:</h3>
@@ -55,13 +62,10 @@
         </section>
         <section class="searchHidden" id="search_section">
             <span class="line"></span>
-            <div class="results" id="searchContainer">
-                <div id="searchGifs"></div>
-            </div>
+            <div class="results" id="searchContainer"> </div>
             <div class="no_results" id="noResultsSearch">
                 <img src="assets/icon-busqueda-sin-resultado.svg" alt="">
                 <p>Intenta con otra búsqueda.</p>
-
             </div>
         </section>
         <section class="favHidden" id="fav_section">
@@ -128,7 +132,7 @@
         <p>© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <script src="scripts/script.js"></script>
-    <script src="scripts/script1.js"></script>
+    <script src="scripts/transiciones.js"></script>
 </body>
 
 </html>

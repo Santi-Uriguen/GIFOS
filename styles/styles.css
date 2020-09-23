@@ -359,7 +359,6 @@ main {
       main .trending p span {
         display: block; }
     main .trending .gif_container {
-      overflow: hidden;
       padding-bottom: 20%; }
       main .trending .gif_container div {
         display: flex;

@@ -156,7 +156,7 @@ function search() {
   let url =
     "https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q=" +
     searchInput +
-    "&limit=15&offset=0&rating=r&lang=es";
+    "&limit=42&offset=0&rating=r&lang=es";
   console.log(url);
   //búsqueda del valor tipeado
   let fetchSearch = fetch(url);
@@ -186,27 +186,54 @@ function search() {
 
 //agregado al DOM de los gifs buscados
 function addSearchToDOM(json, name) {
+  //primero verifica que no haya habido alguna búsqueda antes
   let resultadoViejo = document.getElementById("searchGifs");
   if (resultadoViejo != null) {
+    //si hay una busqueda vieja, elimina sus resultados
     for (let i = 0; i < 4; i++) {
       searchCtn.removeChild(searchCtn.firstChild);
     }
   }
+
   searchSection.className = "searchShown";
   let searchGifCtn = document.createElement("div");
   searchGifCtn.id = "searchGifs";
   let searchTitle = document.createElement("h2");
   let btn = document.createElement("button");
-  for (let i = 0; i < 15; i++) {
+  btn.addEventListener("click", function () {
+    verMas(json, searchGifCtn);
+  });
+  //crea los gifs para 14 elementos de la búsqueda
+  for (let i = 0; i < 14; i++) {
     let gif = document.createElement("img");
 
     searchTitle.textContent = name;
     gif.setAttribute("src", json.data[i].images.original.url);
     btn.textContent = "Ver más";
+    btn.id = "btnVerMas";
 
     searchGifCtn.appendChild(gif);
     searchCtn.appendChild(searchTitle);
     searchCtn.appendChild(searchGifCtn);
     searchCtn.appendChild(btn);
+  }
+}
+let cont = 0;
+function verMas(json, div) {
+  if (cont == 0) {
+    for (let i = 14; i < 28; i++) {
+      let gif = document.createElement("img");
+      gif.setAttribute("src", json.data[i].images.original.url);
+      div.appendChild(gif);
+      cont++;
+    }
+  } else {
+    for (let i = 28; i < 42; i++) {
+      let gif = document.createElement("img");
+      gif.setAttribute("src", json.data[i].images.original.url);
+      div.appendChild(gif);
+    }
+    let button = document.getElementById("btnVerMas");
+    button.remove();
   }
 }

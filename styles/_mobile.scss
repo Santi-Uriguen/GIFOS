@@ -25,6 +25,7 @@ header {
     .logo {
         img {
             float: left;
+            cursor: pointer;
             &:first-child {
                 display: block;
             }
@@ -47,6 +48,7 @@ header {
                 opacity: 0;
                 z-index: 2;
                 position: absolute;
+                cursor: pointer;
                 &:checked {
                     ~ ul {
                         height: 490px;
@@ -99,6 +101,7 @@ header {
                 li {
                     display: flex;
                     justify-content: center;
+                    cursor: pointer;
                     &:nth-child(2) {
                         display: none;
                     }
@@ -170,6 +173,7 @@ main {
                     border: none;
                     display: flex;
                     padding: 0;
+                    cursor: pointer;
                     .search {
                         width: 20px;
                     }
@@ -213,6 +217,7 @@ main {
                     border: none;
                     padding: 0;
                     margin-right: 14.6px;
+                    cursor: pointer;
                 }
                 .input_ctn {
                     width: 100%;
@@ -229,6 +234,7 @@ main {
                     padding: 0;
                     width: 14px;
                     margin-left: 5px;
+                    cursor: pointer;
                 }
             }
             .lineaHid {
@@ -249,6 +255,7 @@ main {
                     display: flex;
                     height: 22px;
                     margin: 10px 0 0 0;
+                    cursor: pointer;
                     img {
                         width: 15.8px;
                         margin-right: 14.6px;
@@ -308,6 +315,7 @@ main {
                 border: 1px solid #572ee5;
                 border-radius: 25px;
                 background: none;
+                cursor: pointer;
             }
         }
         .noResultsHidden {

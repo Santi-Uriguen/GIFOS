@@ -402,7 +402,7 @@ main {
         display: none; }
       main .trending .gif_container .trendCtn {
         display: flex;
-        overflow-x: hidden;
+        overflow-x: scroll;
         width: 100%; }
         main .trending .gif_container .trendCtn img {
           margin: 0 0 0 5.867%;
@@ -542,7 +542,8 @@ footer {
       padding: 12px 15px 12px 15px;
       margin-left: 2.3%; }
     main .trending .gif_container .trendCtn {
-      width: 80%; }
+      width: 80%; 
+  overflow}
       main .trending .gif_container .trendCtn img {
         margin: 0 0 0 2.3%;
         width: 30.989%;

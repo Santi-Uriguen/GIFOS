@@ -72,6 +72,16 @@ button {
   text-align: center;
   font-weight: 700; }
 
+:root {
+  --colorPricipal: #572ee5;
+  --colorSecundario: #50e3c2;
+  --colorBackground: #ffffff;
+  --clPrincTrans: rgba(87, 46, 229, 0.9);
+  --clSpanHamb: rgba(255, 255, 255, 0.3);
+  --colorSearchs: #9cafc3;
+  --trendBackColor: #f3f5f8;
+  --letrasNegras: #000000; }
+
 * {
   margin: 0;
   padding: 0;
@@ -81,7 +91,7 @@ button {
   box-sizing: border-box; }
 
 body {
-  background-color: #572ee5;
+  background-color: var(--colorPricipal);
   padding: 5px 0 5px 0; }
 
 /*-------------------HEADER------------------------*/
@@ -91,7 +101,7 @@ header {
   height: 95px;
   top: 0;
   padding: 10px 6.93%;
-  background: #ffffff;
+  background: var(--colorBackground);
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -136,7 +146,7 @@ header {
         height: 2.5px;
         margin-bottom: 2.5px;
         position: relative;
-        background: #572ee5;
+        background: var(--colorPricipal);
         z-index: 1;
         transform-origin: 3px 0px;
         transition: transform 0.5s ease, opacity 0.55s ease; }
@@ -151,7 +161,7 @@ header {
         right: 0;
         overflow: hidden;
         list-style: none;
-        background: rgba(87, 46, 229, 0.9);
+        background: var(--clPrincTrans);
         height: 0px;
         transition: height 0.5s ease;
         z-index: 1; }
@@ -164,7 +174,7 @@ header {
         header nav .menu ul span {
           margin-top: -7px;
           display: flex;
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: var(--colorSearchs);
           height: 1.5px;
           width: 40px;
           margin-left: auto;
@@ -175,7 +185,7 @@ header {
 /*-------------------MAIN-----------------------*/
 main {
   margin-top: 0;
-  background-color: #ffffff; }
+  background-color: var(--colorBackground); }
   main .headShown {
     display: flex;
     flex-direction: column;
@@ -185,7 +195,7 @@ main {
       main .headShown h1 #br {
         display: inline-block; }
       main .headShown h1 #gifos {
-        display: inline-block; }
+        color: var(--colorSecundario); }
     main .headShown #ilustra_header {
       width: 72.8%; }
     main .headShown .search_bar {
@@ -193,12 +203,15 @@ main {
       flex-direction: column;
       align-items: baseline;
       justify-content: center;
-      background: #ffffff;
-      border: 1px solid #572ee5;
+      background: var(--colorBackground);
+      border: 1px solid var(--colorPricipal);
       border-radius: 27px;
       width: 89.6%;
       height: auto;
-      padding: 12.5px 18px 12.5px 18px; }
+      padding: 12.5px 18px 12.5px 18px;
+      margin-bottom: 8%; }
+      main .headShown .search_bar input::placeholder {
+        color: var(--colorSearchs); }
       main .headShown .search_bar .busqueDiv {
         display: flex;
         width: 100%; }
@@ -232,12 +245,13 @@ main {
       flex-direction: column;
       align-items: baseline;
       justify-content: center;
-      background: #ffffff;
-      border: 1px solid #572ee5;
+      background: var(--colorBackground);
+      border: 1px solid var(--colorPricipal);
       border-radius: 27px;
       width: 89.6%;
       height: auto;
-      padding: 12.5px 18px 12.5px 18px; }
+      padding: 12.5px 18px 12.5px 18px;
+      margin-bottom: 8%; }
       main .headShown .search_bar_clicked .busqueDiv {
         display: flex;
         flex-direction: row-reverse;
@@ -271,7 +285,7 @@ main {
         display: block;
         width: 100%;
         opacity: 0.5;
-        border: 1px solid #9cafc3;
+        border: 1px solid var(--colorSearchs);
         margin: 10px 0 4px 0; }
       main .headShown .search_bar_clicked .suggest_container {
         display: flex;
@@ -279,6 +293,7 @@ main {
         width: 100%; }
         main .headShown .search_bar_clicked .suggest_container .suggestDiv {
           display: flex;
+          align-items: center;
           height: 22px;
           margin: 10px 0 0 0;
           cursor: pointer; }
@@ -287,9 +302,17 @@ main {
             margin-right: 14.6px; }
           main .headShown .search_bar_clicked .suggest_container .suggestDiv p {
             margin: 0;
-            color: #9cafc3; }
-    main .headShown .slogan {
-      margin: 8% 20% 12% 20%; }
+            color: var(--colorSearchs); }
+    main .headShown .trendsShow {
+      margin: 0 20% 12% 20%; }
+      main .headShown .trendsShow .trenDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; }
+        main .headShown .trendsShow .trenDiv p {
+          cursor: pointer; }
+    main .headShown .trendsHidden {
+      display: none; }
   main .headHidden {
     display: none; }
   main .searchHidden {
@@ -299,9 +322,10 @@ main {
     flex-direction: column;
     align-items: center; }
     main .searchShown .line, main .favShown .line, main .mis_gifosShown .line {
-      width: 30%;
+      width: 35%;
       opacity: 0.5;
-      border: 1px solid #9cafc3; }
+      border: 1px solid var(--colorSearchs);
+      margin-top: 10.2%; }
     main .searchShown .resultsHidden, main .favShown .resultsHidden, main .mis_gifosShown .resultsHidden {
       display: none; }
     main .searchShown .resultsShown, main .favShown .resultsShown, main .mis_gifosShown .resultsShown {
@@ -323,7 +347,7 @@ main {
         align-self: center;
         width: 34.4%;
         height: 50px;
-        border: 1px solid #572ee5;
+        border: 1px solid var(--colorPricipal);
         border-radius: 25px;
         background: none;
         cursor: pointer; }
@@ -340,10 +364,11 @@ main {
         margin-bottom: 5%; }
       main .searchShown .noResultsShown p, main .favShown .noResultsShown p, main .mis_gifosShown .noResultsShown p {
         font-size: 22px;
-        color: #50e3c2;
+        color: var(--colorSecundario);
         text-align: center;
         line-height: 25px;
-        margin-bottom: 26%; }
+        margin-bottom: 26%;
+        font-weight: 700; }
   main .favHidden {
     display: none; }
   main .favShown {
@@ -353,7 +378,7 @@ main {
   main .mis_gifosHidden {
     display: none; }
   main .trending {
-    background-color: #f3f5f8; }
+    background-color: var(--trendBackColor); }
     main .trending h2 {
       padding-top: 12%; }
     main .trending p {
@@ -361,45 +386,52 @@ main {
       font-family: "Roboto", sans-serif;
       font-weight: 400;
       font-size: 16px;
-      color: #000000;
+      color: var(--letrasNegras);
       text-align: center;
       line-height: 23px; }
       main .trending p span {
         display: block; }
     main .trending .gif_container {
-      padding-bottom: 20%; }
-      main .trending .gif_container div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 22%; }
+      main .trending .gif_container .trendBtnLt {
+        display: none; }
+      main .trending .gif_container .trendBtnRt {
+        display: none; }
+      main .trending .gif_container .trendCtn {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 4%; }
-        main .trending .gif_container div img {
-          margin: 0 20px 0 20px;
-          width: 243px;
-          height: 187px; }
+        overflow-x: hidden;
+        width: 100%; }
+        main .trending .gif_container .trendCtn img {
+          margin: 0 0 0 5.867%;
+          width: 64.8%;
+          height: 49.87vw;
+          flex-shrink: 0; }
 
 /*----------------------FOOTER--------------------------*/
 footer {
-  background-color: #ffffff;
+  background-color: var(--colorBackground);
   display: flex;
   flex-direction: column;
   align-items: center; }
   footer h5 {
-    margin: 12.5% 0 6.4% 0; }
+    margin: 12.5% 0 6% 0; }
   footer .icons {
     display: flex;
     justify-content: space-evenly;
     width: 30%; }
   footer p {
-    margin: 12.8% 0 6.2% 0;
+    margin: 12% 0 6.2% 0;
     font-family: "Roboto";
     font-size: 14px;
-    color: #000000;
+    color: var(--letrasNegras);
     letter-spacing: 0;
     line-height: 20px; }
 
 /*---------------------CLASES PARA GIF-MAX-------------*/
-@media (min-width: 950px) {
+@media (min-width: 850px) {
   header {
     height: 90px; }
     header .logo img:first-child {
@@ -438,37 +470,97 @@ footer {
   main .headShown h1 {
     font-size: 35px;
     line-height: 50px;
-    font-weight: 700; }
+    font-weight: 700;
+    margin: 76px 0 24px 0; }
     main .headShown h1 #br {
       display: block; }
-    main .headShown h1 #gifos {
-      color: #50e3c2; }
-  main .headShown img {
+  main .headShown #ilustra_header {
     width: 27.71%; }
-  main .headShown .search_btn {
-    width: 38.4%; }
-    main .headShown .search_btn input::placeholder {
-      color: #9cafc3; }
-  main .headShown .slogan h3 {
+  main .headShown .search_bar {
+    width: 38.4%;
+    margin-bottom: 3.82%; }
+  main .headShown .search_bar_clicked {
+    width: 38.4%;
+    margin-bottom: 3.82%; }
+  main .headShown .trendsShow {
+    margin: 1.25% 0 6.6% 0; }
+    main .headShown .trendsShow h3 {
+      font-size: 18px; }
+    main .headShown .trendsShow p {
+      font-size: 16px; }
+  main .searchShown .line, main .favShown .line, main .mis_gifosShown .line {
+    width: 25%;
+    margin-top: 0; }
+  main .searchShown .resultsShown, main .favShown .resultsShown, main .mis_gifosShown .resultsShown {
+    align-items: center; }
+    main .searchShown .resultsShown h2, main .favShown .resultsShown h2, main .mis_gifosShown .resultsShown h2 {
+      font-size: 35px;
+      color: #572ee5;
+      font-weight: 700;
+      margin: 5.7% 0 4.1% 0; }
+    main .searchShown .resultsShown div, main .favShown .resultsShown div, main .mis_gifosShown .resultsShown div {
+      width: 78.264%;
+      height: auto;
+      justify-content: space-between; }
+      main .searchShown .resultsShown div img, main .favShown .resultsShown div img, main .mis_gifosShown .resultsShown div img {
+        width: 23%;
+        height: 13.9vw;
+        margin: 0 0 2.1vw 0; }
+    main .searchShown .resultsShown button, main .favShown .resultsShown button, main .mis_gifosShown .resultsShown button {
+      margin: 3.34% 0 5.5% 0;
+      font-weight: 700;
+      width: 8.96%; }
+  main .searchShown .noResultsShown h2, main .favShown .noResultsShown h2, main .mis_gifosShown .noResultsShown h2 {
+    margin: 20.5% 0 36% 0;
+    font-size: 30px; }
+  main .searchShown .noResultsShown img, main .favShown .noResultsShown img, main .mis_gifosShown .noResultsShown img {
+    width: 150px;
+    margin-bottom: 9.6%; }
+  main .searchShown .noResultsShown p, main .favShown .noResultsShown p, main .mis_gifosShown .noResultsShown p {
+    margin-bottom: 47.7%; }
+  main .trending h2 {
+    padding-top: 4.66%;
+    font-size: 25px; }
+  main .trending p {
+    margin: 0.85% 0 3.7% 0;
     font-size: 18px; }
-  main .headShown .slogan p {
-    font-size: 16px; }
+    main .trending p span {
+      display: inline-block; }
+  main .trending .gif_container {
+    padding-bottom: 12.64%; }
+    main .trending .gif_container .trendBtnLt {
+      display: flex;
+      border: 1px solid #572ee5;
+      width: 40px;
+      height: 40px;
+      padding: 12px 15px 12px 15px; }
+    main .trending .gif_container .trendBtnRt {
+      display: flex;
+      border: 1px solid #572ee5;
+      width: 40px;
+      height: 40px;
+      padding: 12px 15px 12px 15px;
+      margin-left: 2.3%; }
+    main .trending .gif_container .trendCtn {
+      width: 80%; }
+      main .trending .gif_container .trendCtn img {
+        margin: 0 0 0 2.3%;
+        width: 30.989%;
+        height: 19vw; }
 
-  .searchShown .results h2, main .favShown .results h2, main .mis_gifosShown .results h2 {
-    font-size: 35px;
-    color: #572ee5;
-    font-weight: 700;
-    margin-bottom: 0; }
-  .searchShown .results div, main .favShown .results div, main .mis_gifosShown .results div {
-    margin: 59px 8.82% 0 156px; }
-    .searchShown .results div img, main .favShown .results div img, main .mis_gifosShown .results div img {
-      width: 260px;
-      height: 200px;
-      margin: 29px 29px 0 0px; }
-  .searchShown .results button, main .favShown .results button, main .mis_gifosShown .results button {
-    font-weight: 700;
-    width: 8.96%; } }
-.dark_body {
-  background-color: #37383c; }
+  footer {
+    flex-direction: row;
+    justify-content: flex-start; }
+    footer h5 {
+      margin: 50px 1.18% 50px 11%;
+      flex-shrink: 0;
+      font-size: 13px; }
+    footer .icons {
+      flex-shrink: 0;
+      width: 6%; }
+    footer p {
+      margin: 0 11% 0 51%;
+      font-size: 13px;
+      flex-shrink: 0; } }
 
 /*# sourceMappingURL=styles.css.map */

@@ -35,10 +35,20 @@ function showSection(ShowClase, HidClase1, HidClase2, HidClase3) {
 //agrego eventos a cada botón, llamando a la función y agregando los correspondientes parámetros
 headBtn.addEventListener("click", function () {
   showSection(HeadID, FavID, SearchID, misGifosID);
+  let trends = document.getElementById("trends");
+  trends.className = "trendsShow";
+  scroll({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 favBtn.addEventListener("click", function () {
   showSection(FavID, HeadID, SearchID, misGifosID);
+  scroll({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 searchBtn.addEventListener("click", function () {
@@ -47,4 +57,8 @@ searchBtn.addEventListener("click", function () {
 
 misGifosBtn.addEventListener("click", function () {
   showSection(misGifosID, HeadID, FavID, SearchID);
+  scroll({
+    top: 0,
+    behavior: "smooth",
+  });
 });

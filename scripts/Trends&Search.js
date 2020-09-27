@@ -23,7 +23,7 @@ async function addTrending() {
     for (let i = 0; i < 12; i++) {
       let gif = document.createElement("img");
       gif.setAttribute("src", trend.data[i].images.original.url);
-      gif.id = "gif";
+      gif.id = "gif" + i;
       ctn.appendChild(gif);
       TrendingContainer.appendChild(btnLeft);
       TrendingContainer.appendChild(ctn);
@@ -279,6 +279,7 @@ function addSearchToDOM(json, name) {
   searchGifCtn.id = "searchGifs";
   searchGifCtn.className = "searchGifs";
   let searchTitle = document.createElement("h2");
+  //creamos botón y evento de agregar más gifs
   let btn = document.createElement("button");
   btn.addEventListener("click", function () {
     verMas(json, searchGifCtn);
@@ -293,10 +294,9 @@ function addSearchToDOM(json, name) {
     gif.setAttribute("src", json.data[i].images.original.url);
     gif.id = "gif" + i;
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
-    gif.addEventListener("click", () => {
+    gif.addEventListener("mouseover", () => {
       gifCard(json.data[i], searchGifCtn, i);
     });
-    gif.addEventListener("mouseout", gifCardOut);
     btn.textContent = "Ver más";
     btn.id = "btnVerMas";
 
@@ -313,7 +313,10 @@ function verMas(json, div) {
     for (let i = 12; i < 24; i++) {
       let gif = document.createElement("img");
       gif.setAttribute("src", json.data[i].images.original.url);
-      gif.id = "gif";
+      gif.id = "gif" + i;
+      gif.addEventListener("mouseover", () => {
+        gifCard(json.data[i], div, i);
+      });
       div.appendChild(gif);
       cont2++;
     }
@@ -321,7 +324,10 @@ function verMas(json, div) {
     for (let i = 24; i < 36; i++) {
       let gif = document.createElement("img");
       gif.setAttribute("src", json.data[i].images.original.url);
-      gif.id = "gif";
+      gif.id = "gif" + i;
+      gif.addEventListener("mouseover", () => {
+        gifCard(json.data[i], div, i);
+      });
       div.appendChild(gif);
     }
     let button = document.getElementById("btnVerMas");

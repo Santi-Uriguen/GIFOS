@@ -1,11 +1,10 @@
+let count = 0;
 function gifCard(json, parentDiv, i) {
-  console.log(json);
   let gifS = document.getElementById("gif" + i);
   //obtrngo la posición del gif con mouseover
   let top = gifS.offsetTop;
-  console.log(top);
   let left = gifS.offsetLeft;
-  console.log(left);
+
   //creo la tarjeta y sus componentes
   let backDiv = document.createElement("div");
   let divIcons = document.createElement("div");
@@ -15,6 +14,8 @@ function gifCard(json, parentDiv, i) {
   let fullBtn = document.createElement("img");
   let userTitle = document.createElement("p");
   let gifName = document.createElement("p");
+  let gifID = json.id;
+  let IDVieja = sessionStorage.getItem("favGif" + gifID);
 
   //defino los estilos, entre los que están la posición del gif con museover
   backDiv.className = "cardDiv";
@@ -26,11 +27,15 @@ function gifCard(json, parentDiv, i) {
   //resto de los componentes
   divIcons.className = "divIcons";
   divText.className = "divText";
-  favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
   dwlBtn.setAttribute("src", "assets/icon-download.svg");
   fullBtn.setAttribute("src", "assets/icon-max.svg");
   userTitle.innerHTML = json.username;
   gifName.innerHTML = json.title;
+  if (IDVieja == gifID) {
+    favBtn.setAttribute("src", "assets/icon-fav-active.svg");
+  } else {
+    favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
+  }
 
   divIcons.appendChild(favBtn);
   divIcons.appendChild(dwlBtn);
@@ -40,8 +45,35 @@ function gifCard(json, parentDiv, i) {
 
   backDiv.appendChild(divIcons);
   backDiv.appendChild(divText);
+  //eventos
+  backDiv.addEventListener("mouseout", gifCardOut); //elimina la tarjeta al hacer mouseout
+
+  favBtn.addEventListener("click", () => {
+    addFav(gifID, count);
+    if (count == 0) {
+      count++;
+    } else if (count == 1) {
+      count--;
+    } else {
+      console.log("fuuuuck");
+    }
+  });
+  dwlBtn;
 }
 function gifCardOut() {
   let divViejo = document.getElementById("backDiv");
-  divViejo.remove();
+  if (divViejo != null) {
+    divViejo.remove();
+  }
+}
+function addFav(ID, count) {
+  if (count == 0) {
+    sessionStorage.setItem("favGif" + ID, ID);
+    favBtn.setAttribute("src", "assets/icon-fav-active.svg");
+    console.log(sessionStorage);
+  } else {
+    sessionStorage.removeItem("favGif" + ID);
+    favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
+    console.log(sessionStorage);
+  }
 }

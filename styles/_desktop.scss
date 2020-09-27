@@ -94,7 +94,7 @@
                     font-weight: 700;
                     margin: 5.7% 0 4.1% 0;
                 }
-                div {
+                .searchGifs {
                     width: 78.264%;
                     height: auto;
                     justify-content: space-between;
@@ -102,6 +102,53 @@
                         width: 23%;
                         height: 13.9vw;
                         margin: 0 0 2.1vw 0;
+                    }
+                    .cardDiv {
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        background: rgba(87, 46, 229, 0.7);
+                        width: 18%;
+                        height: 13.9vw;
+                        position: absolute;
+                        margin-left: 0;
+                        z-index: 0;
+                        .divIcons {
+                            display: flex;
+                            align-self: end;
+                            img {
+                                opacity: 0.7;
+                                background: #ffffff;
+                                border-radius: 6px;
+                                margin: 10px 10px 0 0;
+                                width: 32px;
+                                height: 32px;
+                                padding: 7px;
+                                &:hover {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        .divText {
+                            display: flex;
+                            flex-direction: column;
+                            align-self: flex-star;
+
+                            :first-child {
+                                font-family: "Roboto";
+                                font-size: 15px;
+                                color: #ffffff;
+                                text-align: left;
+                            }
+                            :last-child {
+                                font-family: "Roboto";
+                                font-size: 16px;
+                                color: #ffffff;
+                                font-weight: 700;
+                                text-align: left;
+                            }
+                        }
                     }
                 }
                 button {
@@ -156,6 +203,7 @@
                 }
                 .trendCtn {
                     width: 80%;
+                    overflow: hidden;
                     img {
                         margin: 0 0 0 2.3%;
                         width: 30.989%;
@@ -185,3 +233,4 @@
         }
     }
 }
+/*---------------------CLASES PARA GIF-MAX-------------*/

@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: var(--colorPricipal);
+    background-color: var(--colorBodyBack);
     padding: 5px 0 5px 0;
 }
 /*-------------------HEADER------------------------*/
@@ -23,6 +23,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
     .logo {
         img {
             float: left;
@@ -406,7 +407,7 @@ main {
             }
             .trendCtn {
                 display: flex;
-                overflow-x: hidden;
+                overflow-x: scroll;
                 width: 100%;
                 img {
                     margin: 0 0 0 5.867%;
@@ -442,4 +443,3 @@ footer {
         line-height: 20px;
     }
 }
-/*---------------------CLASES PARA GIF-MAX-------------*/

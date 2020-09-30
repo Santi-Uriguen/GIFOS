@@ -188,6 +188,60 @@ header {
 main {
   margin-top: 0;
   background-color: var(--colorBackground); }
+  main .gifMax {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 10;
+    padding: 0 27.083% 0 25.65%; }
+    main .gifMax .cross {
+      width: 15.2px;
+      height: 15.2px;
+      margin: 66.4px 0 74.8px 0;
+      align-self: end;
+      cursor: pointer; }
+    main .gifMax .gifMaxed {
+      width: 100%;
+      height: 385px; }
+    main .gifMax .divIcons {
+      display: flex;
+      align-self: end; }
+      main .gifMax .divIcons :last-child {
+        display: none; }
+      main .gifMax .divIcons img {
+        border-radius: 6px;
+        margin: 10px 10px 0 0;
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+        cursor: pointer; }
+    main .gifMax .divText {
+      display: flex;
+      flex-direction: column;
+      height: 35%;
+      margin: -50px 0 0 5%;
+      align-self: flex-start; }
+      main .gifMax .divText :first-child {
+        display: flex;
+        align-items: center;
+        font-family: "Roboto";
+        font-size: 15px;
+        color: #000000;
+        text-align: left;
+        height: 21.5%; }
+      main .gifMax .divText :last-child {
+        font-family: "Roboto";
+        font-size: 16px;
+        color: #000000;
+        font-weight: 700;
+        text-align: left; }
   main .headShown {
     display: flex;
     flex-direction: column;

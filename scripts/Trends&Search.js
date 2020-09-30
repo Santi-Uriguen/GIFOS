@@ -28,8 +28,14 @@ async function addTrending() {
       TrendingContainer.appendChild(btnLeft);
       TrendingContainer.appendChild(ctn);
       TrendingContainer.appendChild(btnRight);
-    }
 
+      //agrego el evento de mostrar la gif card al hacer mouseover
+      gif.addEventListener("mouseover", () => {
+        gifCard(trend.data[i], ctn, i);
+      });
+    }
+    //eventos
+    //eventos para scrollear
     btnRight.addEventListener("click", () => {
       if (cont1 <= 2) {
         //mas de tres clicks ya no tiene nada mas para mostrar
@@ -44,6 +50,19 @@ async function addTrending() {
         scrollLeft(cont1, ctn);
         cont1--;
       }
+    });
+    //eventos para cambiar al hacer hover en botones
+    btnRight.addEventListener("mouseover", () => {
+      btnRight.setAttribute("src", "assets/Button-Slider-right-hover.svg");
+    });
+    btnLeft.addEventListener("mouseover", () => {
+      btnLeft.setAttribute("src", "assets/button-slider-left-hover.svg");
+    });
+    btnRight.addEventListener("mouseout", () => {
+      btnRight.setAttribute("src", "assets/button-right.svg");
+    });
+    btnLeft.addEventListener("mouseout", () => {
+      btnLeft.setAttribute("src", "assets/button-left.svg");
     });
   } catch (err) {
     console.log(err);
@@ -294,8 +313,14 @@ function addSearchToDOM(json, name) {
     gif.setAttribute("src", json.data[i].images.original.url);
     gif.id = "gif" + i;
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
+    let mode;
     gif.addEventListener("mouseover", () => {
-      gifCard(json.data[i], searchGifCtn, i);
+      mode = ""; //función sólo para desktop
+      gifCard(json.data[i], searchGifCtn, i, mode);
+    });
+    gif.addEventListener("click", () => {
+      mode = "mobile";
+      gifCard(json.data[i], searchGifCtn, i, mode);
     });
     btn.textContent = "Ver más";
     btn.id = "btnVerMas";
@@ -314,6 +339,7 @@ function verMas(json, div) {
       let gif = document.createElement("img");
       gif.setAttribute("src", json.data[i].images.original.url);
       gif.id = "gif" + i;
+      //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
       gif.addEventListener("mouseover", () => {
         gifCard(json.data[i], div, i);
       });
@@ -325,6 +351,7 @@ function verMas(json, div) {
       let gif = document.createElement("img");
       gif.setAttribute("src", json.data[i].images.original.url);
       gif.id = "gif" + i;
+      //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
       gif.addEventListener("mouseover", () => {
         gifCard(json.data[i], div, i);
       });
@@ -366,6 +393,11 @@ async function ShowTrends() {
       //busqueda del trend al clickearlo
       trendP.addEventListener("click", () => {
         searchSuggestion(showTrend.data[i]);
+        const offsetTop = document.querySelector("#trends").offsetTop;
+        scroll({
+          top: offsetTop,
+          behavior: "smooth",
+        });
       });
     }
     trendDiv.removeChild(trendDiv.lastChild); //borra la última coma

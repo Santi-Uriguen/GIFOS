@@ -1,7 +1,8 @@
 let count = 0;
-function gifCard(json, parentDiv, i) {
+
+function gifCard(json, parentDiv, i, mode) {
   let gifS = document.getElementById("gif" + i);
-  //obtrngo la posición del gif con mouseover
+  //obtengo la posición del gif con mouseover
   let top = gifS.offsetTop;
   let left = gifS.offsetLeft;
 
@@ -29,8 +30,11 @@ function gifCard(json, parentDiv, i) {
   divText.className = "divText";
   dwlBtn.setAttribute("src", "assets/icon-download.svg");
   fullBtn.setAttribute("src", "assets/icon-max.svg");
-  userTitle.innerHTML = json.username;
-  gifName.innerHTML = json.title;
+  userTitle.innerHTML =
+    json.username.charAt(0).toUpperCase() + json.username.slice(1); //mayúscula primera letra
+  gifName.innerHTML = json.title.charAt(0).toUpperCase() + json.title.slice(1); //mayuscula primera letra
+
+  //cambio de la imágen de botón de favoritos
   if (IDVieja == gifID) {
     favBtn.setAttribute("src", "assets/icon-fav-active.svg");
   } else {
@@ -49,6 +53,7 @@ function gifCard(json, parentDiv, i) {
   backDiv.addEventListener("mouseout", gifCardOut); //elimina la tarjeta al hacer mouseout
 
   favBtn.addEventListener("click", () => {
+    //agregado/quitado de un gif a favortios
     addFav(gifID, count);
     if (count == 0) {
       count++;
@@ -59,13 +64,27 @@ function gifCard(json, parentDiv, i) {
     }
   });
   dwlBtn;
+  fullBtn.addEventListener("click", () => {
+    gifMax(json, backDiv);
+    backDiv.removeEventListener("mouseout", gifCardOut);
+    console.log("acá sí");
+  });
+
+  //mobile
+  if (mode == "mobile") {
+    gifMax(json, backDiv);
+  }
 }
+
+//FUNCIONES
+//elimina la tarjeta si sacamos el mouse de encima
 function gifCardOut() {
   let divViejo = document.getElementById("backDiv");
   if (divViejo != null) {
     divViejo.remove();
   }
 }
+//agrega el gif a favoritos o lo elimina si ya estaba
 function addFav(ID, count) {
   if (count == 0) {
     sessionStorage.setItem("favGif" + ID, ID);
@@ -77,3 +96,47 @@ function addFav(ID, count) {
     console.log(sessionStorage);
   }
 }
+//muestra el gif grande
+function gifMax(json, back) {
+  let newBack = back.cloneNode(true);
+  let main = document.querySelector("main");
+  let gif = document.createElement("img");
+  let cross = document.createElement("img");
+  newBack.removeEventListener("mouseout", gifCardOut);
+
+  gif.setAttribute("src", json.images.original.url);
+  gif.className = "gifMaxed";
+  cross.setAttribute("src", "assets/close.svg");
+  cross.className = "cross";
+  newBack.className = "gifMax";
+
+  main.insertBefore(newBack, main.children[0]);
+  newBack.insertBefore(cross, newBack.children[0]);
+  newBack.insertBefore(gif, newBack.children[1]);
+
+  cross.addEventListener("click", () => {
+    newBack.remove();
+  });
+}
+/*//muestra el gif grande
+function fullGif(json, userTitle, gifName) {
+  let background = document.createElement("div");
+  let divInfo = document.createElement("div");
+  let divIcons = document.createElement("div");
+  let gifMax = document.createElement("img");
+  let username = userTitle.cloneNode();
+  let name = gifName.cloneNode();
+
+  gifMax.setAttribute("src", json.images.original.url);
+
+  divInfo.appendChild(username);
+  divInfo.appendChild(name);
+
+  background.appendChild(gifMax);
+  background.appendChild(divInfo);
+  background.appendChild(divIcons);
+}
+*/
+
+//Funciones para crear la tarjeta en mobile
+function gifCardMobile(json, parentDiv, i) {}

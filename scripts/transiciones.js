@@ -41,14 +41,17 @@ headBtn.addEventListener("click", function () {
     top: 0,
     behavior: "smooth",
   });
+  favBtn.style.color = "var(--colorPricipal)";
 });
 
 favBtn.addEventListener("click", function () {
+  addFavorito(); //función para mostrar los favoritos(en archivo fav.js)
   showSection(FavID, HeadID, SearchID, misGifosID);
   scroll({
     top: 0,
     behavior: "smooth",
   });
+  favBtn.style.color = "var(--colorSearchs)";
 });
 
 searchBtn.addEventListener("click", function () {

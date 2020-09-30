@@ -1,3 +1,4 @@
+@import "variables.scss";
 @media (min-width: 850px) {
     header {
         height: 90px;
@@ -12,7 +13,7 @@
             }
         }
         nav {
-            width: 40%;
+            width: auto;
             .menu {
                 input {
                     display: none;
@@ -30,26 +31,34 @@
                     transition: none;
                     justify-content: space-between;
                     li {
-                        color: #572ee5;
+                        color: var(--colorPricipal);
                         a {
-                            color: #572ee5;
+                            color: var(--colorPricipal);
+                        }
+                        &:hover {
+                            text-decoration: underline;
+                            text-decoration-color: var(--colorSecundario);
                         }
                     }
                     button {
                         background: none;
-                        border: 1px solid #572ee5;
+                        border: 1px solid var(--colorPricipal);
                         border-radius: 50%;
                         width: 56px;
                         height: 56px;
-                        color: #572ee5;
+                        color: var(--colorPricipal);
                         display: flex;
                         justify-content: center;
+                        cursor: pointer;
                     }
                 }
             }
         }
     }
     main {
+        .gifMax {
+            @include gifMax;
+        }
         .headShown {
             h1 {
                 font-size: 35px;
@@ -90,7 +99,7 @@
                 align-items: center;
                 h2 {
                     font-size: 35px;
-                    color: #572ee5;
+                    color: var(--colorPricipal);
                     font-weight: 700;
                     margin: 5.7% 0 4.1% 0;
                 }
@@ -104,51 +113,10 @@
                         margin: 0 0 2.1vw 0;
                     }
                     .cardDiv {
-                        display: flex;
-                        flex-direction: column;
-                        flex-wrap: nowrap;
-                        justify-content: space-between;
-                        background: rgba(87, 46, 229, 0.7);
-                        width: 18%;
-                        height: 13.9vw;
-                        position: absolute;
-                        margin-left: 0;
-                        z-index: 0;
-                        .divIcons {
-                            display: flex;
-                            align-self: end;
-                            img {
-                                opacity: 0.7;
-                                background: #ffffff;
-                                border-radius: 6px;
-                                margin: 10px 10px 0 0;
-                                width: 32px;
-                                height: 32px;
-                                padding: 7px;
-                                &:hover {
-                                    opacity: 1;
-                                }
-                            }
-                        }
-                        .divText {
-                            display: flex;
-                            flex-direction: column;
-                            align-self: flex-star;
-
-                            :first-child {
-                                font-family: "Roboto";
-                                font-size: 15px;
-                                color: #ffffff;
-                                text-align: left;
-                            }
-                            :last-child {
-                                font-family: "Roboto";
-                                font-size: 16px;
-                                color: #ffffff;
-                                font-weight: 700;
-                                text-align: left;
-                            }
-                        }
+                        @include gifCard(18%, 13.9vw);
+                    }
+                    .gifMax {
+                        @include gifMax;
                     }
                 }
                 button {
@@ -172,6 +140,34 @@
                 }
             }
         }
+        .favShown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .resultsShown {
+                align-items: center;
+                .favDivCtn {
+                    width: 78.264%;
+                    height: auto;
+                    justify-content: space-between;
+                    img {
+                        width: 23%;
+                        height: 13.9vw;
+                        margin: 0 0 2.1vw 0;
+                    }
+                    .cardDiv {
+                        @include gifCard(18%, 13.9vw);
+                    }
+                    .gifMax {
+                        @include gifMax;
+                    }
+                }
+            }
+            .noResultsShown {
+                @include noResultsDesktop;
+            }
+        }
+
         .trending {
             h2 {
                 padding-top: 4.66%;
@@ -188,18 +184,16 @@
                 padding-bottom: 12.64%;
                 .trendBtnLt {
                     display: flex;
-                    border: 1px solid #572ee5;
+                    border: 1px solid var(--colorPricipal);
                     width: 40px;
                     height: 40px;
                     padding: 12px 15px 12px 15px;
-                }
-                .trendBtnRt {
-                    display: flex;
-                    border: 1px solid #572ee5;
-                    width: 40px;
-                    height: 40px;
-                    padding: 12px 15px 12px 15px;
-                    margin-left: 2.3%;
+                    cursor: pointer;
+                    &:hover {
+                        border: none;
+                        background-color: var(--colorPricipal);
+                        padding: 0;
+                    }
                 }
                 .trendCtn {
                     width: 80%;
@@ -208,6 +202,26 @@
                         margin: 0 0 0 2.3%;
                         width: 30.989%;
                         height: 19vw;
+                    }
+                    .cardDiv {
+                        @include gifCard(24.791%, 19vw);
+                    }
+                    .gifMax {
+                        @include gifMax;
+                    }
+                }
+                .trendBtnRt {
+                    display: flex;
+                    border: 1px solid var(--colorPricipal);
+                    width: 40px;
+                    height: 40px;
+                    padding: 12px 15px 12px 15px;
+                    margin-left: 2.3%;
+                    cursor: pointer;
+                    &:hover {
+                        border: none;
+                        background-color: var(--colorPricipal);
+                        padding: 0;
                     }
                 }
             }

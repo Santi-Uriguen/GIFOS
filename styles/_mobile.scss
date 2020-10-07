@@ -335,11 +335,11 @@ main {
                 }
                 .cardDiv {
                     display: none;
-                }
+                }}
                 .maxed {
                     @include maxed(block);
                 }
-            }
+            
             button {
                 margin: 20.8% 0 20.8% 0;
                 align-self: center;

@@ -351,58 +351,58 @@ main {
           margin: 25px 11px 0 11px; }
         main .searchShown .resultsShown .searchGifs .cardDiv, main .mis_gifosShown .resultsShown .searchGifs .cardDiv {
           display: none; }
-        main .searchShown .resultsShown .searchGifs .maxed, main .mis_gifosShown .resultsShown .searchGifs .maxed {
-          position: fixed;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: auto;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          z-index: 2;
-          background-color: #ffffff; }
-          main .searchShown .resultsShown .searchGifs .maxed img, main .mis_gifosShown .resultsShown .searchGifs .maxed img {
-            display: none; }
-          main .searchShown .resultsShown .searchGifs .maxed .cardDiv, main .mis_gifosShown .resultsShown .searchGifs .maxed .cardDiv {
-            display: none; }
-          main .searchShown .resultsShown .searchGifs .maxed .close, main .mis_gifosShown .resultsShown .searchGifs .maxed .close {
+      main .searchShown .resultsShown .maxed, main .mis_gifosShown .resultsShown .maxed {
+        position: fixed;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        background-color: #ffffff; }
+        main .searchShown .resultsShown .maxed img, main .mis_gifosShown .resultsShown .maxed img {
+          display: none; }
+        main .searchShown .resultsShown .maxed .cardDiv, main .mis_gifosShown .resultsShown .maxed .cardDiv {
+          display: none; }
+        main .searchShown .resultsShown .maxed .close, main .mis_gifosShown .resultsShown .maxed .close {
+          display: block;
+          grid-column: 4/5;
+          justify-self: start;
+          align-self: center;
+          cursor: pointer; }
+        main .searchShown .resultsShown .maxed #lftBtn, main .mis_gifosShown .resultsShown .maxed #lftBtn {
+          display: block;
+          grid-column: 1/2;
+          justify-self: end;
+          align-self: center;
+          cursor: pointer; }
+        main .searchShown .resultsShown .maxed .gifMaxed, main .mis_gifosShown .resultsShown .maxed .gifMaxed {
+          display: block;
+          grid-column: 2/4;
+          width: 90%;
+          margin: 0 5% 0 5%;
+          height: auto;
+          align-self: center; }
+        main .searchShown .resultsShown .maxed #rgtBtn, main .mis_gifosShown .resultsShown .maxed #rgtBtn {
+          display: block;
+          grid-column: 4/5;
+          justify-self: start;
+          align-self: center;
+          cursor: pointer; }
+        main .searchShown .resultsShown .maxed .divText, main .mis_gifosShown .resultsShown .maxed .divText {
+          grid-column: 2/3;
+          align-self: start;
+          justify-self: self-start; }
+        main .searchShown .resultsShown .maxed .divIcons, main .mis_gifosShown .resultsShown .maxed .divIcons {
+          grid-column: 3/4;
+          align-self: flex-start;
+          justify-self: end;
+          display: flex; }
+          main .searchShown .resultsShown .maxed .divIcons img, main .mis_gifosShown .resultsShown .maxed .divIcons img {
             display: block;
-            grid-column: 4/5;
-            justify-self: start;
-            align-self: center;
             cursor: pointer; }
-          main .searchShown .resultsShown .searchGifs .maxed #lftBtn, main .mis_gifosShown .resultsShown .searchGifs .maxed #lftBtn {
-            display: block;
-            grid-column: 1/2;
-            justify-self: end;
-            align-self: center;
-            cursor: pointer; }
-          main .searchShown .resultsShown .searchGifs .maxed .gifMaxed, main .mis_gifosShown .resultsShown .searchGifs .maxed .gifMaxed {
-            display: block;
-            grid-column: 2/4;
-            width: 90%;
-            margin: 0 5% 0 5%;
-            height: auto;
-            align-self: center; }
-          main .searchShown .resultsShown .searchGifs .maxed #rgtBtn, main .mis_gifosShown .resultsShown .searchGifs .maxed #rgtBtn {
-            display: block;
-            grid-column: 4/5;
-            justify-self: start;
-            align-self: center;
-            cursor: pointer; }
-          main .searchShown .resultsShown .searchGifs .maxed .divText, main .mis_gifosShown .resultsShown .searchGifs .maxed .divText {
-            grid-column: 2/3;
-            align-self: start;
-            justify-self: self-start; }
-          main .searchShown .resultsShown .searchGifs .maxed .divIcons, main .mis_gifosShown .resultsShown .searchGifs .maxed .divIcons {
-            grid-column: 3/4;
-            align-self: flex-start;
-            justify-self: end;
-            display: flex; }
-            main .searchShown .resultsShown .searchGifs .maxed .divIcons img, main .mis_gifosShown .resultsShown .searchGifs .maxed .divIcons img {
-              display: block;
-              cursor: pointer; }
       main .searchShown .resultsShown button, main .mis_gifosShown .resultsShown button {
         margin: 20.8% 0 20.8% 0;
         align-self: center;

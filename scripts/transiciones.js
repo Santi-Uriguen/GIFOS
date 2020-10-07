@@ -11,6 +11,8 @@ let FavID = favBtn.id;
 let misGifosBtn = document.getElementById("mis_gifos");
 let misGifosID = misGifosBtn.id;
 
+//otras variables
+let searchGIfs = document.getElementById("searchGifs");
 //función para mostrar la sección clickeada y ocultar las demás
 
 function showSection(ShowClase, HidClase1, HidClase2, HidClase3) {
@@ -46,6 +48,7 @@ headBtn.addEventListener("click", function () {
 
 favBtn.addEventListener("click", function () {
   addFavorito(); //función para mostrar los favoritos(en archivo fav.js)
+  searchGifs.innerHTML = "";
   showSection(FavID, HeadID, SearchID, misGifosID);
   scroll({
     top: 0,

@@ -8,9 +8,9 @@ async function addFavorito() {
     let favString = "";
     favArray = [];
     //pasamos los ID de los gifs selecconados como fav a un array
-    for (let i = 1; i < sessionStorage.length; i++) {
-      let key = sessionStorage.key(i);
-      let favorito = sessionStorage.getItem(key);
+    for (let i = 1; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      let favorito = localStorage.getItem(key);
       favArray.push(favorito);
     }
 
@@ -47,7 +47,7 @@ async function addFavorito() {
         favResults.appendChild(divCtn);
         //los gifs de favoritos tmb tienen que tener tarjeta
         gif.addEventListener("mouseover", () => {
-          gifCard(favs.data[i], divCtn, i);
+          gifCard(favs, divCtn, i);
         });
       }
     }

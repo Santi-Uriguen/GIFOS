@@ -118,25 +118,6 @@ function gifMax(json, back) {
     newBack.remove();
   });
 }
-/*//muestra el gif grande
-function fullGif(json, userTitle, gifName) {
-  let background = document.createElement("div");
-  let divInfo = document.createElement("div");
-  let divIcons = document.createElement("div");
-  let gifMax = document.createElement("img");
-  let username = userTitle.cloneNode();
-  let name = gifName.cloneNode();
-
-  gifMax.setAttribute("src", json.images.original.url);
-
-  divInfo.appendChild(username);
-  divInfo.appendChild(name);
-
-  background.appendChild(gifMax);
-  background.appendChild(divInfo);
-  background.appendChild(divIcons);
-}
-*/
 
 //Funciones para crear la tarjeta en mobile
 function gifCardMobile(json, parentDiv, i) {}

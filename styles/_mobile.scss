@@ -128,9 +128,6 @@ header {
 /*-------------------MAIN-----------------------*/
 
 main {
-    .gifMax {
-        @include gifMax;
-    }
     margin-top: 0;
     background-color: var(--colorBackground);
     .headShown {
@@ -239,6 +236,12 @@ main {
                         border: none;
                         outline: none;
                     }
+                    input::placeholder {
+                        color: var(--colorSearchs);
+                    }
+                    input::-webkit-clear-button {
+                        display: none;
+                    }
                 }
                 .close {
                     display: flex;
@@ -332,6 +335,9 @@ main {
                 }
                 .cardDiv {
                     display: none;
+                }
+                .maxed {
+                    @include maxed(block);
                 }
             }
             button {

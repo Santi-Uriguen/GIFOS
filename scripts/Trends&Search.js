@@ -20,10 +20,11 @@ async function addTrending() {
     btnLeft.setAttribute("src", "assets/button-left.svg");
     btnRight.setAttribute("src", "assets/button-right.svg");
     ctn.className = "trendCtn";
+    ctn.id = "trendCtn";
     for (let i = 0; i < 12; i++) {
       let gif = document.createElement("img");
       gif.setAttribute("src", trend.data[i].images.original.url);
-      gif.id = "gif" + i;
+      gif.id = "trendGif" + i;
       ctn.appendChild(gif);
       TrendingContainer.appendChild(btnLeft);
       TrendingContainer.appendChild(ctn);
@@ -31,10 +32,10 @@ async function addTrending() {
 
       //agrego el evento de mostrar la gif card al hacer mouseover
       gif.addEventListener("mouseover", () => {
-        gifCard(trend.data[i], ctn, i);
+        gifCard(trend, ctn, i, mode);
       });
     }
-    //eventos
+    //EVENTOS
     //eventos para scrollear
     btnRight.addEventListener("click", () => {
       if (cont1 <= 2) {
@@ -140,7 +141,6 @@ async function suggest() {
       //creamos los elementos para mostrar cada una de las sugerencias
       let suggestionDiv = document.createElement("div");
       let suggestionA = document.createElement("p");
-
       let lupita = document.createElement("img");
 
       suggestionA.textContent = element.name;
@@ -148,13 +148,12 @@ async function suggest() {
       suggestionDiv.id = "suggestDiv";
 
       lupita.setAttribute("src", "assets/icon-search-active.svg");
-      // suggestionA.setAttribute("href", "#searchContainer");
 
       suggestionDiv.appendChild(lupita);
       suggestionDiv.appendChild(suggestionA);
-
       suggestCtn.appendChild(suggestionDiv);
 
+      //evento buscar la sugerencia
       suggestionDiv.addEventListener("click", function () {
         searchSuggestion(element.name);
         hidSuggest();
@@ -184,7 +183,7 @@ async function searchSuggestion(info) {
     searchSection.className = "searchShown";
     //búsqueda del valor tipeado
     const response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q="${info}&limit=36&offset=0&rating=r&lang=es`
+      `https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q="${info}&offset=0&rating=r&lang=es`
     );
     const busqueda = await response.json();
 
@@ -216,11 +215,13 @@ function hidSuggest() {
   }
   contador = 0;
 }
+
 //busqueda de palabra tipeada
 lupaImg.addEventListener("click", function () {
   search(); //busca
   hidSuggest(); //borra sugerencias
   inputSearch.value = ""; //borra lo que está escrito en el input
+  //nos leva smoooooth a la parte donde muestra los resultados
   const offsetTop = document.querySelector("#trends").offsetTop;
   scroll({
     top: offsetTop,
@@ -234,9 +235,9 @@ inputSearch.addEventListener("keyup", function (event) {
     search(); //busca
     hidSuggest(); //borra sugerencias
     inputSearch.value = ""; //borra lo que está escrito en el input
+    //nos leva smoooooth a la parte donde muestra los resultados
     const offsetTop = document.querySelector("#trends").offsetTop;
     scroll({
-      //nos leva smoooooth a la parte donde muestra los resultados
       top: offsetTop,
       behavior: "smooth",
     });
@@ -250,12 +251,12 @@ async function search() {
     let tipeado = inputSearch.value;
     //búsqueda del valor tipeado
     const response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q=${tipeado}&limit=36&offset=0&rating=r&lang=es`
+      `https://api.giphy.com/v1/gifs/search?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&q=${tipeado}&offset=0&rating=r&lang=es`
     );
 
     const busqueda = await response.json();
-    console.log(busqueda);
 
+    //verifica si hay resultados para la búsqueda o no
     if (busqueda.pagination.total_count == 0) {
       //borra búsquedas anteriores
       let resultadoViejo = document.getElementById("searchTitle");
@@ -271,12 +272,11 @@ async function search() {
       searchTitle.id = "searchTitle";
       noResultsSearch.insertBefore(searchTitle, noResultsSearch.childNodes[0]);
     } else {
-      //si encuetra los muestra por pantalla
+      //si encuetra, los muestra por pantalla
       searchCtn.className = "resultsShown";
 
       noResultsSearch.className = "noResultsHidden";
-      trends.className = "trendsHidden";
-      console.log("else " + tipeado);
+      trends.className = "trendsHidden"; //esconde la sección de las trending words
       addSearchToDOM(busqueda, tipeado);
     }
   } catch (err) {
@@ -284,9 +284,9 @@ async function search() {
   }
 }
 
+let mode; //usado en la función para indicar si esta en mobile o desktop
 //agregado al DOM de los gifs buscados
 function addSearchToDOM(json, name) {
-  //esconde la sección de las trending words
   //primero verifica que no haya habido alguna búsqueda antes
   let resultadoViejo = document.getElementById("searchGifs");
   if (resultadoViejo != null) {
@@ -313,15 +313,19 @@ function addSearchToDOM(json, name) {
     gif.setAttribute("src", json.data[i].images.original.url);
     gif.id = "gif" + i;
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
-    let mode;
-    gif.addEventListener("mouseover", () => {
-      mode = ""; //función sólo para desktop
-      gifCard(json.data[i], searchGifCtn, i, mode);
-    });
-    gif.addEventListener("click", () => {
+    //los eventos están definidos así para poder aplicarles removeEvent más adelante
+    //función sólo para desktop
+    let desktopCard = () => {
+      mode = "";
+      gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
+    };
+    //función para mobiles
+    let mobileCard = () => {
       mode = "mobile";
-      gifCard(json.data[i], searchGifCtn, i, mode);
-    });
+      gifCard(json, searchGifCtn, i, mode);
+    };
+    gif.addEventListener("mouseover", desktopCard);
+    gif.addEventListener("click", mobileCard);
     btn.textContent = "Ver más";
     btn.id = "btnVerMas";
 
@@ -332,34 +336,34 @@ function addSearchToDOM(json, name) {
   }
 }
 
-let cont2 = 0;
+let cont2 = 1;
+
 function verMas(json, div) {
-  if (cont2 == 0) {
-    for (let i = 12; i < 24; i++) {
-      let gif = document.createElement("img");
-      gif.setAttribute("src", json.data[i].images.original.url);
-      gif.id = "gif" + i;
-      //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
-      gif.addEventListener("mouseover", () => {
-        gifCard(json.data[i], div, i);
-      });
-      div.appendChild(gif);
-      cont2++;
-    }
-  } else {
-    for (let i = 24; i < 36; i++) {
-      let gif = document.createElement("img");
-      gif.setAttribute("src", json.data[i].images.original.url);
-      gif.id = "gif" + i;
-      //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
-      gif.addEventListener("mouseover", () => {
-        gifCard(json.data[i], div, i);
-      });
-      div.appendChild(gif);
-    }
+  let endCont = Math.ceil(json.data.length / 12 - 1);
+
+  if (cont2 == endCont) {
     let button = document.getElementById("btnVerMas");
     button.remove();
+  } else {
+    let base = 12 * cont2;
+    let techo = 12 * (cont2 + 1);
+
+    for (let j = base; j < techo; j++) {
+      let gif = document.createElement("img");
+      gif.setAttribute("src", json.data[j].images.original.url);
+      gif.id = "gif" + j;
+      //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
+      gif.addEventListener("mouseover", () => {
+        gifCard(json, div, j, mode);
+      });
+      gif.addEventListener("click", () => {
+        mode = "mobile"; //función para mobile
+        gifCard(json, searchGifCtn, j, mode);
+      });
+      div.appendChild(gif);
+    }
   }
+  cont2++;
 }
 
 //------------------------------TRENDING WORDS-------------------------------
@@ -393,6 +397,7 @@ async function ShowTrends() {
       //busqueda del trend al clickearlo
       trendP.addEventListener("click", () => {
         searchSuggestion(showTrend.data[i]);
+        //smooth scroll a los resultados
         const offsetTop = document.querySelector("#trends").offsetTop;
         scroll({
           top: offsetTop,

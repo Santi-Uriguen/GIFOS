@@ -69,66 +69,65 @@
         margin-bottom: 47.7%;
     }
 }
-@mixin gifMax {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    background-color: #ffffff;
+@mixin maxed($fullBtn) {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 10;
-    padding: 0 27.083% 0 25.65%;
-    .cross {
-        width: 15.2px;
-        height: 15.2px;
-        margin: 66.4px 0 74.8px 0;
-        align-self: end;
+    z-index: 2;
+    background-color: #ffffff;
+    img {
+        display: none;
+    }
+    .cardDiv {
+        display: none;
+    }
+    .close {
+        display: block;
+        grid-column: 4/5;
+        justify-self: start;
+        align-self: center;
+        cursor: pointer;
+    }
+    #lftBtn {
+        display: block;
+        grid-column: 1/2;
+        justify-self: end;
+        align-self: center;
         cursor: pointer;
     }
     .gifMaxed {
-        width: 100%;
-        height: 385px;
+        display: block;
+        grid-column: 2/4;
+        width: 90%;
+        margin: 0 5% 0 5%;
+        height: auto;
+        align-self: center;
     }
-    .divIcons {
-        display: flex;
-        align-self: end;
-        :last-child {
-            display: none;
-        }
-        img {
-            border-radius: 6px;
-            margin: 10px 10px 0 0;
-            width: 36px;
-            height: 36px;
-            padding: 6px;
-            cursor: pointer;
-        }
+    #rgtBtn {
+        display: block;
+        grid-column: 4/5;
+        justify-self: start;
+        align-self: center;
+        cursor: pointer;
     }
     .divText {
-        display: flex;
-        flex-direction: column;
-        height: 35%;
-        margin: -50px 0 0 5%;
+        grid-column: 2/3;
+        align-self: start;
+        justify-self: self-start;
+    }
+    .divIcons {
+        grid-column: 3/4;
         align-self: flex-start;
-        :first-child {
-            display: flex;
-            align-items: center;
-            font-family: "Roboto";
-            font-size: 15px;
-            color: #000000;
-            text-align: left;
-            height: 21.5%;
-        }
-        :last-child {
-            font-family: "Roboto";
-            font-size: 16px;
-            color: #000000;
-            font-weight: 700;
-            text-align: left;
+        justify-self: end;
+        display: flex;
+        img {
+            display: block;
+            cursor: pointer;
         }
     }
 }
@@ -145,7 +144,7 @@
     z-index: 0;
     .divIcons {
         display: flex;
-        align-self: end;
+        align-self: flex-end;
         img {
             opacity: 0.7;
             background: #ffffff;
@@ -165,21 +164,22 @@
         flex-direction: column;
         height: 35%;
         margin-left: 5%;
-
         :first-child {
             display: flex;
             align-items: center;
             font-family: "Roboto";
-            font-size: 15px;
+            font-size: 1.0416vw;
+            line-height: 1.736vw;
             color: #ffffff;
             text-align: left;
             height: 21.5%;
         }
         :last-child {
             font-family: "Roboto";
-            font-size: 16px;
+            font-size: 1.111vw;
             color: #ffffff;
             font-weight: 700;
+            line-height: 1.736vw;
             text-align: left;
         }
     }

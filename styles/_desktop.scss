@@ -2,6 +2,7 @@
 @media (min-width: 850px) {
     header {
         height: 90px;
+        padding: 10px 10.833vw;
         .logo {
             img {
                 &:first-child {
@@ -172,8 +173,10 @@
                 @include noResultsDesktop;
             }
         }
-
-        .trending {
+        .crateGifHidden {
+            display: none;
+        }
+        .trendingShown {
             h2 {
                 padding-top: 4.66%;
                 font-size: 25px;

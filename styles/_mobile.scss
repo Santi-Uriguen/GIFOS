@@ -335,11 +335,12 @@ main {
                 }
                 .cardDiv {
                     display: none;
-                }}
-                .maxed {
-                    @include maxed(block);
                 }
-            
+            }
+            .maxed {
+                @include maxed(block);
+            }
+
             button {
                 margin: 20.8% 0 20.8% 0;
                 align-self: center;
@@ -406,7 +407,13 @@ main {
     .mis_gifosShown {
         @extend .searchShown;
     }
-    .trending {
+    .crateGifHidden {
+        display: none;
+    }
+    .crateGifShown {
+        display: flex;
+    }
+    .trendingShown {
         background-color: var(--trendBackColor);
         h2 {
             padding-top: 12%;
@@ -446,6 +453,9 @@ main {
                 }
             }
         }
+    }
+    .trendingHidden {
+        display: none;
     }
 }
 

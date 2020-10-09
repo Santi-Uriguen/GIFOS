@@ -60,7 +60,9 @@ function gifCard(json, divContainer, i, mode, desktopCard, mobileCard) {
     json.data[i].title.charAt(0).toUpperCase() + json.data[i].title.slice(1); //mayuscula primera letra
   //defino el botón de descarga
   a.download = gifName.innerHTML;
-  getUrl(gifS, a);
+  a.addEventListener("mouseover", () => {
+    getUrl(gifS, a);
+  });
 
   //cambio de la imágen de botón de favoritos
   if (IDVieja == gifID) {
@@ -230,8 +232,6 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   console.log(containerDiv);
 }
 
-//Funciones para crear la tarjeta en mobile
-function gifCardMobile(json, parentDiv, i) {}
 function closeMaxed(
   container,
   btnRight,

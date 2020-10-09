@@ -473,11 +473,15 @@ main {
         font-weight: 700; }
   main .mis_gifosHidden {
     display: none; }
-  main .trending {
+  main .crateGifHidden {
+    display: none; }
+  main .crateGifShown {
+    display: flex; }
+  main .trendingShown {
     background-color: var(--trendBackColor); }
-    main .trending h2 {
+    main .trendingShown h2 {
       padding-top: 12%; }
-    main .trending p {
+    main .trendingShown p {
       margin: 2% 0 8.6% 0;
       font-family: "Roboto", sans-serif;
       font-weight: 400;
@@ -485,26 +489,28 @@ main {
       color: var(--letrasNegras);
       text-align: center;
       line-height: 23px; }
-      main .trending p span {
+      main .trendingShown p span {
         display: block; }
-    main .trending .gif_container {
+    main .trendingShown .gif_container {
       display: flex;
       align-items: center;
       justify-content: center;
       padding-bottom: 22%; }
-      main .trending .gif_container .trendBtnLt {
+      main .trendingShown .gif_container .trendBtnLt {
         display: none; }
-      main .trending .gif_container .trendBtnRt {
+      main .trendingShown .gif_container .trendBtnRt {
         display: none; }
-      main .trending .gif_container .trendCtn {
+      main .trendingShown .gif_container .trendCtn {
         display: flex;
         overflow-x: scroll;
         width: 100%; }
-        main .trending .gif_container .trendCtn img {
+        main .trendingShown .gif_container .trendCtn img {
           margin: 0 0 0 5.867%;
           width: 64.8%;
           height: 49.87vw;
           flex-shrink: 0; }
+  main .trendingHidden {
+    display: none; }
 
 /*----------------------FOOTER--------------------------*/
 footer {
@@ -539,7 +545,8 @@ footer {
 
 @media (min-width: 850px) {
   header {
-    height: 90px; }
+    height: 90px;
+    padding: 10px 10.833vw; }
     header .logo img:first-child {
       display: none; }
     header .logo img:nth-last-child(1) {
@@ -853,35 +860,37 @@ footer {
       margin-bottom: 9.6%; }
     main .favShown .noResultsShown p {
       margin-bottom: 47.7%; }
-  main .trending h2 {
+  main .crateGifHidden {
+    display: none; }
+  main .trendingShown h2 {
     padding-top: 4.66%;
     font-size: 25px; }
-  main .trending p {
+  main .trendingShown p {
     margin: 0.85% 0 3.7% 0;
     font-size: 18px; }
-    main .trending p span {
+    main .trendingShown p span {
       display: inline-block; }
-  main .trending .gif_container {
+  main .trendingShown .gif_container {
     padding-bottom: 12.64%; }
-    main .trending .gif_container .trendBtnLt {
+    main .trendingShown .gif_container .trendBtnLt {
       display: flex;
       border: 1px solid var(--colorPricipal);
       width: 40px;
       height: 40px;
       padding: 12px 15px 12px 15px;
       cursor: pointer; }
-      main .trending .gif_container .trendBtnLt:hover {
+      main .trendingShown .gif_container .trendBtnLt:hover {
         border: none;
         background-color: var(--colorPricipal);
         padding: 0; }
-    main .trending .gif_container .trendCtn {
+    main .trendingShown .gif_container .trendCtn {
       width: 80%;
       overflow: hidden; }
-      main .trending .gif_container .trendCtn img {
+      main .trendingShown .gif_container .trendCtn img {
         margin: 0 0 0 2.3%;
         width: 30.989%;
         height: 19vw; }
-      main .trending .gif_container .trendCtn .cardDiv {
+      main .trendingShown .gif_container .trendCtn .cardDiv {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -892,10 +901,10 @@ footer {
         position: absolute;
         margin-left: 0;
         z-index: 0; }
-        main .trending .gif_container .trendCtn .cardDiv .divIcons {
+        main .trendingShown .gif_container .trendCtn .cardDiv .divIcons {
           display: flex;
           align-self: flex-end; }
-          main .trending .gif_container .trendCtn .cardDiv .divIcons img {
+          main .trendingShown .gif_container .trendCtn .cardDiv .divIcons img {
             opacity: 0.7;
             background: #ffffff;
             border-radius: 6px;
@@ -904,14 +913,14 @@ footer {
             height: 32px;
             padding: 7px;
             cursor: pointer; }
-            main .trending .gif_container .trendCtn .cardDiv .divIcons img:hover {
+            main .trendingShown .gif_container .trendCtn .cardDiv .divIcons img:hover {
               opacity: 1; }
-        main .trending .gif_container .trendCtn .cardDiv .divText {
+        main .trendingShown .gif_container .trendCtn .cardDiv .divText {
           display: flex;
           flex-direction: column;
           height: 35%;
           margin-left: 5%; }
-          main .trending .gif_container .trendCtn .cardDiv .divText :first-child {
+          main .trendingShown .gif_container .trendCtn .cardDiv .divText :first-child {
             display: flex;
             align-items: center;
             font-family: "Roboto";
@@ -920,14 +929,14 @@ footer {
             color: #ffffff;
             text-align: left;
             height: 21.5%; }
-          main .trending .gif_container .trendCtn .cardDiv .divText :last-child {
+          main .trendingShown .gif_container .trendCtn .cardDiv .divText :last-child {
             font-family: "Roboto";
             font-size: 1.111vw;
             color: #ffffff;
             font-weight: 700;
             line-height: 1.736vw;
             text-align: left; }
-    main .trending .gif_container .maxed {
+    main .trendingShown .gif_container .maxed {
       position: fixed;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -938,48 +947,48 @@ footer {
       height: 100vh;
       z-index: 2;
       background-color: #ffffff; }
-      main .trending .gif_container .maxed img {
+      main .trendingShown .gif_container .maxed img {
         display: none; }
-      main .trending .gif_container .maxed .cardDiv {
+      main .trendingShown .gif_container .maxed .cardDiv {
         display: none; }
-      main .trending .gif_container .maxed .close {
+      main .trendingShown .gif_container .maxed .close {
         display: block;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         cursor: pointer; }
-      main .trending .gif_container .maxed #lftBtn {
+      main .trendingShown .gif_container .maxed #lftBtn {
         display: block;
         grid-column: 1/2;
         justify-self: end;
         align-self: center;
         cursor: pointer; }
-      main .trending .gif_container .maxed .gifMaxed {
+      main .trendingShown .gif_container .maxed .gifMaxed {
         display: block;
         grid-column: 2/4;
         width: 90%;
         margin: 0 5% 0 5%;
         height: auto;
         align-self: center; }
-      main .trending .gif_container .maxed #rgtBtn {
+      main .trendingShown .gif_container .maxed #rgtBtn {
         display: block;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         cursor: pointer; }
-      main .trending .gif_container .maxed .divText {
+      main .trendingShown .gif_container .maxed .divText {
         grid-column: 2/3;
         align-self: start;
         justify-self: self-start; }
-      main .trending .gif_container .maxed .divIcons {
+      main .trendingShown .gif_container .maxed .divIcons {
         grid-column: 3/4;
         align-self: flex-start;
         justify-self: end;
         display: flex; }
-        main .trending .gif_container .maxed .divIcons img {
+        main .trendingShown .gif_container .maxed .divIcons img {
           display: block;
           cursor: pointer; }
-    main .trending .gif_container .trendBtnRt {
+    main .trendingShown .gif_container .trendBtnRt {
       display: flex;
       border: 1px solid var(--colorPricipal);
       width: 40px;
@@ -987,7 +996,7 @@ footer {
       padding: 12px 15px 12px 15px;
       margin-left: 2.3%;
       cursor: pointer; }
-      main .trending .gif_container .trendBtnRt:hover {
+      main .trendingShown .gif_container .trendBtnRt:hover {
         border: none;
         background-color: var(--colorPricipal);
         padding: 0; }
@@ -1007,5 +1016,118 @@ footer {
       font-size: 13px;
       flex-shrink: 0; } }
 /*---------------------CLASES PARA GIF-MAX-------------*/
+main .crateGifShown {
+  display: grid;
+  row-gap: 22px;
+  grid-template-columns: 22.36vw auto 22.36vw;
+  margin-right: 4.16vw; }
+  main .crateGifShown .camera {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end; }
+    main .crateGifShown .camera #light {
+      background-image: linear-gradient(267deg, rgba(136, 243, 226, 0) 22%, #50e3c2 100%);
+      clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 62%);
+      width: 91px;
+      height: 151px; }
+  main .crateGifShown .recuadro {
+    border: 1px solid #572ee5;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 24px;
+    width: 47.22vw;
+    justify-self: center; }
+    main .crateGifShown .recuadro .corner {
+      width: 27px;
+      height: 25px;
+      background-color: #50e3c2;
+      clip-path: polygon(0 0, 100% 0, 100% 5%, 5% 5%, 5% 100%, 0 100%); }
+    main .crateGifShown .recuadro #corn2 {
+      grid-column: 3;
+      transform: rotate(-270deg);
+      justify-self: end; }
+    main .crateGifShown .recuadro .textCrearHid {
+      display: none; }
+    main .crateGifShown .recuadro .textCrearSw {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      main .crateGifShown .recuadro .textCrearSw h2 span {
+        color: var(--colorSecundario);
+        text-align: center; }
+      main .crateGifShown .recuadro .textCrearSw h4 {
+        text-align: center;
+        font-family: "Roboto";
+        font-size: 16px;
+        color: #000000;
+        text-align: center;
+        line-height: 29px; }
+    main .crateGifShown .recuadro .videoHid {
+      display: none; }
+    main .crateGifShown .recuadro .videoSw {
+      display: block;
+      grid-column: 2; }
+      main .crateGifShown .recuadro .videoSw video {
+        width: 100%; }
+      main .crateGifShown .recuadro .videoSw .videoTextSw {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(87, 46, 229, 0.6); }
+    main .crateGifShown .recuadro #corn3 {
+      grid-column: 1;
+      grid-row: 3;
+      transform: rotate(270deg);
+      align-self: end; }
+    main .crateGifShown .recuadro #corn4 {
+      grid-column: 3;
+      grid-row: 3;
+      transform: rotate(180deg);
+      justify-self: end;
+      align-self: end; }
+  main .crateGifShown .steps {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    main .crateGifShown .steps div {
+      display: flex; }
+      main .crateGifShown .steps div p {
+        justify-self: center;
+        border: 1px solid #572ee5;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-weight: 400;
+        font-family: "Roboto";
+        font-size: 18px;
+        color: #572ee5;
+        text-align: center;
+        margin: 12px; }
+      main .crateGifShown .steps div .numInactive {
+        color: #572ee5; }
+      main .crateGifShown .steps div .numActive {
+        color: white;
+        background-color: var(--colorPricipal); }
+    main .crateGifShown .steps span {
+      background: #572ee5;
+      height: 7px;
+      width: 55.24vw;
+      margin-bottom: 20px; }
+    main .crateGifShown .steps button {
+      border: 1px solid #572ee5;
+      border-radius: 25px;
+      border-radius: 25px;
+      width: 127px;
+      height: 50px;
+      background: none; }
+  main .crateGifShown .pelicula {
+    margin-top: -2.43vw; }
 
 /*# sourceMappingURL=styles.css.map */

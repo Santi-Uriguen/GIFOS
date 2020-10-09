@@ -15,7 +15,6 @@
             <img src="assets/logo-mobile.svg" alt="logo mobile" id="logo">
             <img src="assets/logo-desktop-modo-noc.svg" alt="logo desktop nocturno">
             <img src="assets/logo-desktop.svg" alt="logo desktop">
-
         </div>
         <nav>
             <div class="menu">
@@ -30,7 +29,7 @@
                     <span></span>
                     <li id="mis_gifos">Mis GIFOS</li>
                     <span></span>
-                    <button>
+                    <button id="crateGif">
                         <img src="assets/button-crear-gifo.svg" alt="">
                     </button>
                 </ul>
@@ -99,7 +98,52 @@
                 <p>¡Anímate a crear tu primer GIFO!</p>
             </div>
         </section>
-        <section class="trending">
+        <section id="crateGif_section" class="crateGifHidden">
+            <div class="camera">
+                <img src="assets/camara.svg" alt="">
+                <div id="light"></div>
+            </div>
+            <div class="recuadro" id="recuadro">
+                <div class="corner" id="corn1"></div>
+                <div class="corner" id="corn2"></div>
+                <div class="textCrearSw" id="text1">
+                    <h2>Aquí podrás <br> crear tus propios <span> GIFOS</span></h2>
+                    <h4>¡Crea tu GIFO en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)</h4>
+                </div>
+                <div class="textCrearHid" id="text2">
+                    <h2>¿Nos das acceso a tu cámara?</h2>
+                    <h4>El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.</h4>
+                </div>
+                <div id="video" class="videoHid">
+                    <video src="" autoplay loop></video>
+                    <div class="textCrearHid" id="text3">
+                        <img src="assets/loader.svg" alt="">
+                        <h4> Estamos subiendo tu GIFO</h4>
+                    </div>
+                    <div class="textCrearHid" id="text4">
+                        <img src="assets/icon-download.svg" alt="">
+                        <img src="assets/icon-link-normal.svg" alt="">
+                        <img src="assets/check.svg" alt="">
+                        <h4>GIFO subido con éxito</h4>
+                    </div>
+                </div>
+                <div class="corner" id="corn3"></div>
+                <div class="corner" id="corn4"></div>
+            </div>
+            <div class="steps">
+                <div id="nums">
+                    <p class="numInactive" id="p0">1</p>
+                    <p class="numInactive" id="p1">2</p>
+                    <p class="numInactive" id="p2">3</p>
+                </div>
+                <span></span>
+                <button id="grabarBtn">COMENZAR</button>
+            </div>
+            <div class="pelicula">
+                <img src="assets/pelicula.svg" alt="">
+            </div>
+        </section>
+        <section class="trendingShown" id="trendings">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos <span> GIFOS de nuestra comunidad.</span></p>
             <div class="gif_container" id="trending">
@@ -119,6 +163,13 @@
     <script src="scripts/transiciones.js"></script>
     <script src="scripts/cards2.js"></script>
     <script src="scripts/fav.js"></script>
+    <script src="scripts/misGifos.js"></script>
+    <!-- recommended -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+
+    <!-- use 5.5.6 or any other version on cdnjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
+
 </body>
 
 </html>

@@ -15,7 +15,6 @@ async function addFavorito() {
     }
 
     favString = favArray.join(); //pasa el array a un string separando cada ID por coma
-    console.log(favString);
     //json con cada uno de los ID faveados
     if (favString == "") {
       favResults.className = "resultsHidden";
@@ -29,17 +28,15 @@ async function addFavorito() {
       const favs = await response.json();
       favResults.innerHTML = "";
       console.log(favs);
-
       //mostramos los gifs por pantalla
       let divCtn = document.createElement("div");
       divCtn.id = "favDivCtn";
       divCtn.className = "favDivCtn";
-
-      for (let i = 0; i < favs.data.length; i++) {
+      for (let i = 0; i < 12; i++) {
         //crea los nodos para c/u de los gifs
         let gif = document.createElement("img");
 
-        gif.setAttribute("src", favs.data[i].images.original.url);
+        gif.setAttribute("src", favs.data[i].images.downsized_medium.url);
         gif.id = "gif" + i;
         gif.className = "favGif";
 
@@ -47,8 +44,22 @@ async function addFavorito() {
         favResults.appendChild(divCtn);
         //los gifs de favoritos tmb tienen que tener tarjeta
         gif.addEventListener("mouseover", () => {
+          mode = "";
           gifCard(favs, divCtn, i);
         });
+        gif.addEventListener("click", () => {
+          mode = "mobile";
+          gifCard(favs, divCtn, i);
+        });
+      }
+      if (favs.data.length > 12) {
+        let btn = document.createElement("button");
+        btn.addEventListener("click", () => {
+          verMas(favs, divCtn);
+        });
+        btn.textContent = "Ver más";
+        btn.id = "btnVerMas";
+        favResults.appendChild(btn);
       }
     }
   } catch (err) {

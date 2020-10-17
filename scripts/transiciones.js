@@ -17,9 +17,9 @@ let createGifID = createGifBtn.id;
 let trendings = document.getElementById("trendings");
 
 //otras variables
-let searchGIfs = document.getElementById("searchGifs");
-//función para mostrar la sección clickeada y ocultar las demás
+let searchContainer = document.getElementById("searchContainer");
 
+//función para mostrar la sección clickeada y ocultar las demás
 function showSection(ShowClase, HidClase1, HidClase2, HidClase3, HidClase4) {
   let showSection = document.getElementById(ShowClase + "_section");
   let hideSection1 = document.getElementById(HidClase1 + "_section");
@@ -57,7 +57,7 @@ headBtn.addEventListener("click", function () {
 
 favBtn.addEventListener("click", function () {
   addFavorito(); //función para mostrar los favoritos(en archivo fav.js)
-  searchGifs.innerHTML = "";
+  searchContainer.innerHTML = "";
   showSection(FavID, HeadID, SearchID, misGifosID, createGifID);
   scroll({
     top: 0,

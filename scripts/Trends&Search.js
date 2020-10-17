@@ -1,7 +1,7 @@
 //---------------TRENDING GIFS---------------
 
 let TrendingContainer = document.getElementById("trending");
-window.addEventListener("load", addTrending);
+addTrending();
 let cont1 = 0;
 
 //funcion para agregar los gifs a la página
@@ -23,7 +23,7 @@ async function addTrending() {
     ctn.id = "trendCtn";
     for (let i = 0; i < 12; i++) {
       let gif = document.createElement("img");
-      gif.setAttribute("src", trend.data[i].images.original.url);
+      gif.setAttribute("src", trend.data[i].images.downsized_medium.url);
       gif.id = "trendGif" + i;
       ctn.appendChild(gif);
       TrendingContainer.appendChild(btnLeft);
@@ -99,7 +99,7 @@ function scrollLeft(cont1, ctn) {
   });
 }
 
-//------------BUSCADOR-----------------------
+//----------------------------BUSCADOR-----------------------------------
 
 //Funciones para agregar sugerencias a la barra de búsqueda
 let SearchBar = document.getElementById("search_bar");
@@ -111,7 +111,6 @@ let closeImg = document.getElementById("close");
 let linea = document.getElementById("linea");
 let suggestCtn = document.getElementById("suggest_container");
 let searchSection = document.getElementById("search_section");
-//let searchInput = inputSearch.value; //valor tipeado
 
 inputSearch.addEventListener("focus", ShowSuggest);
 
@@ -154,7 +153,7 @@ async function suggest() {
       suggestCtn.appendChild(suggestionDiv);
 
       //evento buscar la sugerencia
-      suggestionDiv.addEventListener("click", function () {
+      suggestionDiv.addEventListener("click", () => {
         searchSuggestion(element.name);
         hidSuggest();
         inputSearch.value = "";
@@ -201,6 +200,7 @@ closeImg.addEventListener("click", function () {
 });
 
 function hidSuggest() {
+  //función que esconde la barra de sugerencias
   linea.className = "lineaHid"; //esconde el span
   SearchBar.className = "search_bar";
   lupaImg.className = "lupaImgShow";
@@ -287,6 +287,7 @@ async function search() {
 let mode; //usado en la función para indicar si esta en mobile o desktop
 //agregado al DOM de los gifs buscados
 function addSearchToDOM(json, name) {
+  cont2 = 1;
   //primero verifica que no haya habido alguna búsqueda antes
   let resultadoViejo = document.getElementById("searchGifs");
   if (resultadoViejo != null) {
@@ -310,7 +311,7 @@ function addSearchToDOM(json, name) {
     //Mostrar el texto con mayúscula al principio
     name = name.charAt(0).toUpperCase() + name.slice(1);
     searchTitle.textContent = name;
-    gif.setAttribute("src", json.data[i].images.original.url);
+    gif.setAttribute("src", json.data[i].images.downsized_medium.url);
     gif.id = "gif" + i;
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
     //los eventos están definidos así para poder aplicarles removeEvent más adelante
@@ -322,7 +323,7 @@ function addSearchToDOM(json, name) {
     //función para mobiles
     let mobileCard = () => {
       mode = "mobile";
-      gifCard(json, searchGifCtn, i, mode);
+      gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
     };
     gif.addEventListener("mouseover", desktopCard);
     gif.addEventListener("click", mobileCard);
@@ -339,18 +340,13 @@ function addSearchToDOM(json, name) {
 let cont2 = 1;
 
 function verMas(json, div) {
-  let endCont = Math.ceil(json.data.length / 12 - 1);
-
-  if (cont2 == endCont) {
-    let button = document.getElementById("btnVerMas");
-    button.remove();
-  } else {
-    let base = 12 * cont2;
-    let techo = 12 * (cont2 + 1);
-
-    for (let j = base; j < techo; j++) {
-      let gif = document.createElement("img");
-      gif.setAttribute("src", json.data[j].images.original.url);
+  let endCont = Math.floor(json.data.length / 12);
+  let base = 12 * cont2;
+  let techo = 12 * (cont2 + 1);
+  for (let j = base; j < techo; j++) {
+    let gif = document.createElement("img");
+    if (json.data[j] != undefined) {
+      gif.setAttribute("src", json.data[j].images.downsized_medium.url);
       gif.id = "gif" + j;
       //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
       gif.addEventListener("mouseover", () => {
@@ -364,6 +360,13 @@ function verMas(json, div) {
     }
   }
   cont2++;
+  if (cont2 >= endCont) {
+    //elimina el botón de ver más al mostrar los últimos gifs
+    let button = document.getElementById("btnVerMas");
+    button.remove();
+    cont2 = 1;
+    return cont2;
+  }
 }
 
 //------------------------------TRENDING WORDS-------------------------------

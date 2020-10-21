@@ -26,7 +26,7 @@ function showSection(ShowClase, HidClase1, HidClase2, HidClase3, HidClase4) {
   let hideSection2 = document.getElementById(HidClase2 + "_section");
   let hideSection3 = document.getElementById(HidClase3 + "_section");
   let hideSection4 = document.getElementById(HidClase4 + "_section");
-
+  restoreRecord();
   //condición: si el botón clickeado es search, no afecta a HEAD, caso contrario sí
   if (ShowClase === "search") {
     showSection.className = "searchShown";

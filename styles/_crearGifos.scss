@@ -65,8 +65,12 @@ main {
             .videoSw {
                 display: block;
                 grid-column: 2;
-                video {
+                .videoActive {
+                    display: block;
                     width: 100%;
+                }
+                .videoHid {
+                    display: none;
                 }
                 .videoTextSw {
                     display: flex;

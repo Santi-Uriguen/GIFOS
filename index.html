@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIFOS</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -80,18 +80,9 @@
         </section>
         <section class="mis_gifosHidden" id="mis_gifos_section">
             <img src="assets/icon-mis-gifos.svg" alt="">
-            <h2>Mis GIFOS</h2>
+            <h2>Mis Gifos</h2>
             <div class="results">
-                <div>
-                    <img src="https://media.giphy.com/media/8YEeOtkBv2Hy4krDmd/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/W2LMoIExgM1vygHDiv/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/RLE7xyNrw6WKJIY7Zt/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/H0nSjnqmJGrHR5i8jP/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/3o8doT5DaMjfH3paHC/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/l0HU8V1CHKTUFtuFO/giphy.gif" alt="">
-                    <img src="https://media.giphy.com/media/r07K4fvHDD8Z2/giphy.gif" alt="">
-                </div>
-                <button>VER MÁS</button>
+                <div id="misGifosShown"></div>
             </div>
             <div class="no_results">
                 <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="">
@@ -116,6 +107,7 @@
                 </div>
                 <div id="video" class="videoHid">
                     <video src="" autoplay loop></video>
+                    <img id="gifCreado" src="" alt="">
                     <div class="textCrearHid" id="text3">
                         <img src="assets/loader.svg" alt="">
                         <h4> Estamos subiendo tu GIFO</h4>
@@ -132,9 +124,9 @@
             </div>
             <div class="steps">
                 <div id="nums">
-                    <p class="numInactive" id="p0">1</p>
-                    <p class="numInactive" id="p1">2</p>
-                    <p class="numInactive" id="p2">3</p>
+                    <p class="numInactive" id="p1">1</p>
+                    <p class="numInactive" id="p2">2</p>
+                    <p class="numInactive" id="p3">3</p>
                 </div>
                 <span></span>
                 <button id="grabarBtn">COMENZAR</button>

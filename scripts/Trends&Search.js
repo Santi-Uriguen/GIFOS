@@ -3,7 +3,9 @@
 let TrendingContainer = document.getElementById("trending");
 addTrending();
 let cont1 = 0;
-
+let btnLeft = document.createElement("img");
+let btnRight = document.createElement("img");
+let ctn = document.createElement("div");
 //funcion para agregar los gifs a la página
 async function addTrending() {
   try {
@@ -11,14 +13,10 @@ async function addTrending() {
       `https://api.giphy.com/v1/gifs/trending?api_key=DFJMwNpnYUlQLGLD8NaC15hkWGAi8IMN&limit=12`
     );
     const trend = await response.json();
-    let btnLeft = document.createElement("img");
-    let ctn = document.createElement("div");
-    let btnRight = document.createElement("img");
 
     btnLeft.className = "trendBtnLt";
     btnRight.className = "trendBtnRt";
-    btnLeft.setAttribute("src", "assets/button-left.svg");
-    btnRight.setAttribute("src", "assets/button-right.svg");
+
     ctn.className = "trendCtn";
     ctn.id = "trendCtn";
     for (let i = 0; i < 12; i++) {
@@ -51,19 +49,6 @@ async function addTrending() {
         scrollLeft(cont1, ctn);
         cont1--;
       }
-    });
-    //eventos para cambiar al hacer hover en botones
-    btnRight.addEventListener("mouseover", () => {
-      btnRight.setAttribute("src", "assets/Button-Slider-right-hover.svg");
-    });
-    btnLeft.addEventListener("mouseover", () => {
-      btnLeft.setAttribute("src", "assets/button-slider-left-hover.svg");
-    });
-    btnRight.addEventListener("mouseout", () => {
-      btnRight.setAttribute("src", "assets/button-right.svg");
-    });
-    btnLeft.addEventListener("mouseout", () => {
-      btnLeft.setAttribute("src", "assets/button-left.svg");
     });
   } catch (err) {
     console.log(err);
@@ -204,7 +189,6 @@ function hidSuggest() {
   linea.className = "lineaHid"; //esconde el span
   SearchBar.className = "search_bar";
   lupaImg.className = "lupaImgShow";
-  searchLupa.setAttribute("src", "assets/icon-search.svg");
 
   for (let i = 0; i < contador; i++) {
     let suggestDivs = document.getElementById("suggestDiv"); //elije c/u de las sugerencias

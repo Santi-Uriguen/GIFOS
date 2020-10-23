@@ -32,9 +32,9 @@
                     transition: none;
                     justify-content: space-between;
                     li {
-                        color: var(--colorPricipal);
+                        color: var(--colorPrincipal);
                         a {
-                            color: var(--colorPricipal);
+                            color: var(--colorPrincipal);
                         }
                         &:hover {
                             text-decoration: underline;
@@ -42,12 +42,12 @@
                         }
                     }
                     button {
-                        background: none;
-                        border: 1px solid var(--colorPricipal);
+                        background-color: var(--colorBackground);
+                        border: 1px solid var(--colorPrincipal);
                         border-radius: 50%;
                         width: 56px;
                         height: 56px;
-                        color: var(--colorPricipal);
+                        color: var(--colorPrincipal);
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -98,7 +98,7 @@
                 align-items: center;
                 h2 {
                     font-size: 35px;
-                    color: var(--colorPricipal);
+                    color: var(--colorPrincipal);
                     font-weight: 700;
                     margin: 5.7% 0 4.1% 0;
                 }
@@ -192,14 +192,14 @@
                 padding-bottom: 12.64%;
                 .trendBtnLt {
                     display: flex;
-                    border: 1px solid var(--colorPricipal);
+                    border: 1px solid var(--colorPrincipal);
                     width: 40px;
                     height: 40px;
                     padding: 12px 15px 12px 15px;
                     cursor: pointer;
                     &:hover {
                         border: none;
-                        background-color: var(--colorPricipal);
+                        background-color: var(--colorPrincipal);
                         padding: 0;
                     }
                 }
@@ -220,7 +220,7 @@
                 }
                 .trendBtnRt {
                     display: flex;
-                    border: 1px solid var(--colorPricipal);
+                    border: 1px solid var(--colorPrincipal);
                     width: 40px;
                     height: 40px;
                     padding: 12px 15px 12px 15px;
@@ -228,7 +228,7 @@
                     cursor: pointer;
                     &:hover {
                         border: none;
-                        background-color: var(--colorPricipal);
+                        background-color: var(--colorPrincipal);
                         padding: 0;
                     }
                 }

@@ -1,5 +1,8 @@
-:root {
-    --colorPricipal: #572ee5;
+//---------------------------------------COLORES----------------------------------------------
+
+//Light mode
+html {
+    --colorPrincipal: #572ee5;
     --colorSecundario: #50e3c2;
     --colorBackground: #ffffff;
     --clPrincTrans: rgba(87, 46, 229, 0.9);
@@ -7,9 +10,26 @@
     --colorSearchs: #9cafc3;
     --trendBackColor: #f3f5f8;
     --letrasNegras: #000000;
-    --cardColor: ;
+    --inputColor: #6b7989;
+    --backgrounds: #572ee5;
+    //--searchBarColor:;
+}
+//colores del modo oscuro
+html[mode="dark"] {
+    --colorPrincipal: #ffffff;
+    --colorBackground: #37383c;
+    --backgrounds: #000000;
+    --clPrincTrans: #000000;
+    --colorSearchs: #ffffff;
+    --trendBackColor: #222326;
+    --letrasNegras: #ffffff;
+}
+html.transicion * {
+    //transición entre un modo y el otro
+    transition: all 250ms;
 }
 
+//---------------------------------------MIXINES-------------------------------------
 @mixin mobileShown {
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +49,7 @@
     align-self: center;
     width: 34.4%;
     height: 50px;
-    border: 1px solid var(--colorPricipal);
+    border: 1px solid var(--colorPrincipal);
     border-radius: 25px;
     background: none;
     cursor: pointer;

@@ -9,7 +9,6 @@
     <g id="GIFOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="16-UI-Kit-Modo-Nocturno" transform="translate(-176.000000, -2847.000000)">
             <g id="Button-close-modo-noc" transform="translate(176.000000, 2847.000000)">
-                <rect id="Rectangle-Copy-8" stroke="#FFFFFF" fill-rule="nonzero" x="0.5" y="0.5" width="39" height="39"></rect>
                 <g id="close" transform="translate(13.000000, 13.000000)">
                     <mask id="mask-2" fill="white">
                         <use xlink:href="#path-1"></use>

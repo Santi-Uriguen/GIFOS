@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@500&display=swap");
 html {
   --colorPrincipal: #572ee5;
@@ -221,10 +222,7 @@ header {
         header nav .menu ul li {
           display: flex;
           justify-content: center;
-          cursor: pointer;
-          /*&:last-child {
-              display: none;
-          }*/ }
+          cursor: pointer; }
           header nav .menu ul li span {
             margin-top: -7px;
             display: flex;
@@ -233,6 +231,15 @@ header {
             width: 40px;
             margin-left: auto;
             margin-right: auto; }
+          header nav .menu ul li:last-child {
+            background: none; }
+            header nav .menu ul li:last-child button {
+              color: var(--colorPrincipal);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 5%;
+              background: none; }
 
 .headerFix {
   position: relative; }
@@ -918,16 +925,10 @@ html[mode="dark"] {
         header nav .menu ul li:hover {
           text-decoration: underline;
           text-decoration-color: var(--colorSecundario); }
-        header nav .menu ul li:last-child {
-          display: block; }
-          header nav .menu ul li:last-child button {
-            width: 56px;
-            height: 56px;
-            color: var(--colorPrincipal);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer; }
+        header nav .menu ul li:last-child button {
+          width: 56px;
+          height: 56px;
+          cursor: pointer; }
         header nav .menu ul .li_normal {
           color: var(--colorPrincipal); }
           header nav .menu ul .li_normal button {
@@ -1815,6 +1816,7 @@ main .crateGifShown {
         width: 100%; }
       main .crateGifShown .recuadro .videoSw .textUploadGif {
         display: flex;
+        color: #ffffff;
         position: absolute;
         width: 33.333vw;
         height: 22.22vw;
@@ -1853,6 +1855,7 @@ main .crateGifShown {
               transform: scale(1.25); }
         main .crateGifShown .recuadro .videoSw .textUploaded .txt {
           display: flex;
+          color: #ffffff;
           flex-direction: column;
           align-items: center; }
     main .crateGifShown .recuadro #corn3 {
@@ -1949,5 +1952,40 @@ main .crateGifShown {
     transform: rotate(0); }
   to {
     transform: rotate(360deg); } }
+/*-----------------VERSIÓN MOBILE-----------------*/
+@media (max-width: 850px) {
+  main .crateGifShown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0 0 0;
+    margin: 0; }
+    main .crateGifShown .camera {
+      display: none; }
+    main .crateGifShown .recuadro {
+      width: 85%;
+      height: auto;
+      padding: 18%;
+      justify-content: center; }
+      main .crateGifShown .recuadro .videoSw {
+        margin: -7% -5% -7% -5%;
+        width: 73.33vw;
+        justify-content: center; }
+        main .crateGifShown .recuadro .videoSw .videoActive {
+          width: 100%;
+          height: auto; }
+        main .crateGifShown .recuadro .videoSw .textUploadGif {
+          width: 73.33vw;
+          height: 23%; }
+        main .crateGifShown .recuadro .videoSw .textUploaded {
+          width: 73.33vw;
+          height: 23%; }
+          main .crateGifShown .recuadro .videoSw .textUploaded .btns img {
+            width: 25px;
+            height: 25px; }
+    main .crateGifShown .steps {
+      margin-bottom: 5%; }
+    main .crateGifShown .pelicula {
+      display: none; } }
 
 /*# sourceMappingURL=styles.css.map */

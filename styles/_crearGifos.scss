@@ -79,6 +79,7 @@ main {
                 }
                 .textUploadGif {
                     display: flex;
+                    color: #ffffff;
                     position: absolute;
                     width: 33.333vw;
                     height: 22.22vw;
@@ -124,6 +125,7 @@ main {
                     }
                     .txt {
                         display: flex;
+                        color: #ffffff;
                         flex-direction: column;
                         align-items: center;
                     }
@@ -246,5 +248,56 @@ main {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+/*-----------------VERSIÓN MOBILE-----------------*/
+@media (max-width: 850px) {
+    main {
+        .crateGifShown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5% 0 0 0;
+            margin: 0;
+            .camera {
+                display: none;
+            }
+            .recuadro {
+                width: 85%;
+                height: auto;
+                padding: 18%;
+                justify-content: center;
+                .videoSw {
+                    margin: -7% -5% -7% -5%;
+                    width: 73.33vw;
+                    justify-content: center;
+                    .videoActive {
+                        width: 100%;
+                        height: auto;
+                    }
+                    .textUploadGif {
+                        width: 73.33vw;
+                        height: 23%;
+                    }
+                    .textUploaded {
+                        width: 73.33vw;
+                        height: 23%;
+                        .btns {
+                            img {
+                                width: 25px;
+                                height: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+            .steps {
+                margin-bottom: 5%;
+            }
+            .pelicula {
+                display: none;
+            }
+        }
     }
 }

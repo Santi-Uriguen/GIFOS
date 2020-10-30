@@ -37,14 +37,9 @@
                             text-decoration-color: var(--colorSecundario);
                         }
                         &:last-child {
-                            display: block;
                             button {
                                 width: 56px;
                                 height: 56px;
-                                color: var(--colorPrincipal);
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
                                 cursor: pointer;
                             }
                         }

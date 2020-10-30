@@ -157,7 +157,7 @@ function toggleMode() {
   }
   setTimeout(() => {
     hambMenu.checked = false;
-  }, 500);
+  }, 300);
 }
 
 function transicion() {

@@ -238,7 +238,7 @@ header {
               display: flex;
               justify-content: center;
               align-items: center;
-              margin-top: 5%;
+              margin-top: 15px;
               background: none; }
 
 .headerFix {
@@ -1816,7 +1816,6 @@ main .crateGifShown {
         width: 100%; }
       main .crateGifShown .recuadro .videoSw .textUploadGif {
         display: flex;
-        color: #ffffff;
         position: absolute;
         width: 33.333vw;
         height: 22.22vw;
@@ -1826,6 +1825,8 @@ main .crateGifShown {
         background-color: rgba(87, 46, 229, 0.6); }
         main .crateGifShown .recuadro .videoSw .textUploadGif img {
           animation: rotateLoader 1.5s linear infinite; }
+        main .crateGifShown .recuadro .videoSw .textUploadGif p {
+          color: #ffffff; }
       main .crateGifShown .recuadro .videoSw .textUploadHid {
         display: none; }
       main .crateGifShown .recuadro .videoSw .textUploaded {
@@ -1855,9 +1856,10 @@ main .crateGifShown {
               transform: scale(1.25); }
         main .crateGifShown .recuadro .videoSw .textUploaded .txt {
           display: flex;
-          color: #ffffff;
           flex-direction: column;
           align-items: center; }
+          main .crateGifShown .recuadro .videoSw .textUploaded .txt p {
+            color: #ffffff; }
     main .crateGifShown .recuadro #corn3 {
       grid-column: 1;
       grid-row: 3;
@@ -1910,7 +1912,7 @@ main .crateGifShown {
         width: 11.2vw;
         border: none; }
         main .crateGifShown .steps .nums .time p {
-          text-align: right;
+          display: flex;
           width: 8.9vw;
           margin: 0;
           color: var(--colorPrincipal);
@@ -1964,27 +1966,41 @@ main .crateGifShown {
       display: none; }
     main .crateGifShown .recuadro {
       width: 85%;
-      height: auto;
-      padding: 18%;
-      justify-content: center; }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 55vw;
+      padding: 10%; }
+      main .crateGifShown .recuadro .corner {
+        display: none; }
       main .crateGifShown .recuadro .videoSw {
-        margin: -7% -5% -7% -5%;
+        margin: 0;
         width: 73.33vw;
-        justify-content: center; }
+        justify-content: center;
+        padding: 5%; }
         main .crateGifShown .recuadro .videoSw .videoActive {
           width: 100%;
           height: auto; }
         main .crateGifShown .recuadro .videoSw .textUploadGif {
-          width: 73.33vw;
-          height: 23%; }
+          width: 68vw;
+          height: 45vw; }
         main .crateGifShown .recuadro .videoSw .textUploaded {
-          width: 73.33vw;
-          height: 23%; }
-          main .crateGifShown .recuadro .videoSw .textUploaded .btns img {
-            width: 25px;
-            height: 25px; }
+          width: 68vw;
+          height: 45vw; }
+          main .crateGifShown .recuadro .videoSw .textUploaded .btns {
+            margin-bottom: 10vw; }
+            main .crateGifShown .recuadro .videoSw .textUploaded .btns img {
+              margin: 7px 7px 0 0;
+              width: 25px;
+              height: 25px;
+              padding: 4.5px; }
     main .crateGifShown .steps {
       margin-bottom: 5%; }
+      main .crateGifShown .steps .nums {
+        padding: 0 3.819vw 0 14vw; }
+        main .crateGifShown .steps .nums .time .timeRepeat {
+          font-size: 9px; }
     main .crateGifShown .pelicula {
       display: none; } }
 

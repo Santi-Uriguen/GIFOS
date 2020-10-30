@@ -32,26 +32,29 @@
                     transition: none;
                     justify-content: space-between;
                     li {
-                        color: var(--colorPrincipal);
-                        a {
-                            color: var(--colorPrincipal);
-                        }
                         &:hover {
                             text-decoration: underline;
                             text-decoration-color: var(--colorSecundario);
                         }
+                        &:last-child {
+                            display: block;
+                            button {
+                                width: 56px;
+                                height: 56px;
+                                color: var(--colorPrincipal);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                cursor: pointer;
+                            }
+                        }
                     }
-                    button {
-                        background-color: var(--colorBackground);
-                        border: 1px solid var(--colorPrincipal);
-                        border-radius: 50%;
-                        width: 56px;
-                        height: 56px;
+                    .li_normal {
                         color: var(--colorPrincipal);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: pointer;
+                        button {
+                            border: 1px solid var(--colorPrincipal);
+                            border-radius: 50%;
+                        }
                     }
                 }
             }
@@ -103,78 +106,107 @@
                     margin: 5.7% 0 4.1% 0;
                 }
                 .searchGifs {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 2.1vw;
-                    width: 78.264%;
-                    height: auto;
-                    justify-content: space-between;
-                    img {
-                        width: 100%;
-                        height: 13.9vw;
-                        margin: 0 0 0 0;
-                    }
-                    .cardDiv {
-                        @include gifCard(18%, 13.9vw);
-                    }
+                    @include desktopShown;
                 }
                 .maxed {
-                    @include maxed(none);
+                    @include maxed(block, 0, start);
+                    .gifMaxed {
+                        grid-column: 2/4;
+                    }
+                    .divText {
+                        grid-column: 2/3;
+                    }
+                    .divIcons {
+                        grid-column: 3/4;
+                    }
                 }
-
                 button {
                     margin: 3.34% 0 5.5% 0;
                     font-weight: 700;
                     width: 8.96%;
-                }
-            }
-            .noResultsShown {
-                h2 {
-                    margin: 20.5% 0 36% 0;
-                    font-size: 30px;
-                }
-                img {
-                    width: 150px;
-                    margin-bottom: 9.6%;
-                }
-
-                p {
-                    margin-bottom: 47.7%;
-                }
-            }
-        }
-        .favShown {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .resultsShown {
-                align-items: center;
-                .favDivCtn {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 2.1vw;
-                    width: 78.264%;
-                    height: auto;
-                    justify-content: space-between;
-                    img {
-                        width: 100%;
-                        height: 13.9vw;
-                        margin: 0 0 0 0;
+                    &:hover {
+                        color: var(--colorBackground);
+                        background-color: var(--colorPrincipal);
                     }
-                    .cardDiv {
-                        @include gifCard(18%, 13.9vw);
-                    }
-                }
-                .maxed {
-                    @include maxed(none);
                 }
             }
             .noResultsShown {
                 @include noResultsDesktop;
             }
         }
-        .crateGifHidden {
-            display: none;
+        .favShown {
+            .resultsShown {
+                align-items: center;
+                .favDivCtn {
+                    @include desktopShown;
+                }
+                button {
+                    margin: 3.34% 0 5.5% 0;
+                    font-weight: 700;
+                    width: 8.96%;
+                    &:hover {
+                        color: var(--colorBackground);
+                        background-color: var(--colorPrincipal);
+                    }
+                }
+
+                .maxed {
+                    @include maxed(block, 0, start);
+                    .gifMaxed {
+                        grid-column: 2/4;
+                    }
+                    .divText {
+                        grid-column: 2/3;
+                    }
+                    .divIcons {
+                        grid-column: 3/4;
+                    }
+                }
+            }
+            .noResultsShown {
+                @include noResultsDesktop;
+            }
+            .maxed {
+                @include maxed(block, 0, start);
+                .gifMaxed {
+                    grid-column: 2/4;
+                }
+                .divText {
+                    grid-column: 2/3;
+                }
+                .divIcons {
+                    grid-column: 3/4;
+                }
+            }
+        }
+        .mis_gifosShown {
+            .resultsShown {
+                align-items: center;
+                .misGifosCtn {
+                    @include desktopShown;
+                }
+                button {
+                    margin: 3.34% 0 5.5% 0;
+                    font-weight: 700;
+                    width: 8.96%;
+                    &:hover {
+                        color: var(--colorBackground);
+                        background-color: var(--colorPrincipal);
+                    }
+                }
+            }
+            .maxed {
+                @include maxed(block, 0, start);
+                .gifMaxed {
+                    grid-column: 2/4;
+                }
+                .divText {
+                    grid-column: 2/3;
+                }
+                .divIcons {
+                    grid-column: 3/4;
+                }
+            }
         }
         .trendingShown {
             h2 {
@@ -216,7 +248,16 @@
                     }
                 }
                 .maxed {
-                    @include maxed(none);
+                    @include maxed(block, 0, start);
+                    .gifMaxed {
+                        grid-column: 2/4;
+                    }
+                    .divText {
+                        grid-column: 2/3;
+                    }
+                    .divIcons {
+                        grid-column: 3/4;
+                    }
                 }
                 .trendBtnRt {
                     display: flex;
@@ -255,4 +296,3 @@
         }
     }
 }
-/*---------------------CLASES PARA GIF-MAX-------------*/

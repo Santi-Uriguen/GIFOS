@@ -1,29 +1,48 @@
-let count = 0;
+let favBtn;
+let gifID;
 
-function gifCard(json, parentDiv, i, mode) {
-  let gifS = document.getElementById("gif" + i);
+function gifCard(json, divContainer, i, mode, desktopCard, mobileCard) {
+  let gifS;
+  let idContainer = divContainer.id;
+  //indico a qué gifs hace referencia para calcular la posición de la tarjeta
+  if (idContainer === "trendCtn") {
+    gifS = document.getElementById("trendGif" + i);
+  } else {
+    gifS = document.getElementById("gif" + i);
+  }
   //obtengo la posición del gif con mouseover
-  let top = gifS.offsetTop;
-  let left = gifS.offsetLeft;
+  let top = gifS.offsetTop; //obtiene altura en px
+  let left = gifS.offsetLeft; //obtiene left en px
+  let width = divContainer.offsetWidth; //obtiene width en px
+  //identifico desde dónde se llamó a la función y recalculo las distancias si fue desde el slide del trending
+  if (idContainer === "trendCtn") {
+    if (i === 3 || i === 4 || i === 5) {
+      left = left - width;
+    } else if (i === 6 || i === 7 || i === 8) {
+      left = left - width * 2;
+    } else if (i === 9 || i === 10 || i === 11) {
+      left = left - width * 3;
+    } else {
+    }
+  }
 
   //creo la tarjeta y sus componentes
   let backDiv = document.createElement("div");
   let divIcons = document.createElement("div");
   let divText = document.createElement("div");
-  let favBtn = document.createElement("img");
+  favBtn = document.createElement("img");
   let dwlBtn = document.createElement("img");
   let fullBtn = document.createElement("img");
   let userTitle = document.createElement("p");
   let gifName = document.createElement("p");
-  let gifID = json.id;
-  let IDVieja = sessionStorage.getItem("favGif" + gifID);
+  gifID = json.data[i].id;
 
-  //defino los estilos, entre los que están la posición del gif con museover
+  //defino los estilos, entre los que están la posición del gif con mouseover
   backDiv.className = "cardDiv";
   backDiv.id = "backDiv";
   backDiv.style.top = top + "px";
   backDiv.style.left = left + "px";
-  parentDiv.insertBefore(backDiv, parentDiv.children[i]);
+  divContainer.insertBefore(backDiv, divContainer.children[i]);
 
   //resto de los componentes
   divIcons.className = "divIcons";
@@ -31,93 +50,261 @@ function gifCard(json, parentDiv, i, mode) {
   dwlBtn.setAttribute("src", "assets/icon-download.svg");
   fullBtn.setAttribute("src", "assets/icon-max.svg");
   userTitle.innerHTML =
-    json.username.charAt(0).toUpperCase() + json.username.slice(1); //mayúscula primera letra
-  gifName.innerHTML = json.title.charAt(0).toUpperCase() + json.title.slice(1); //mayuscula primera letra
-
+    json.data[i].username.charAt(0).toUpperCase() +
+    json.data[i].username.slice(1); //mayúscula primera letra
+  gifName.innerHTML =
+    json.data[i].title.charAt(0).toUpperCase() + json.data[i].title.slice(1); //mayuscula primera letra
+  //defino el botón de descarga
+  dwlBtn.addEventListener("click", () => downloadGif(gifS, gifName.innerHTML));
   //cambio de la imágen de botón de favoritos
-  if (IDVieja == gifID) {
-    favBtn.setAttribute("src", "assets/icon-fav-active.svg");
-  } else {
-    favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
-  }
-
+  changeFavBtn(favBtn);
   divIcons.appendChild(favBtn);
   divIcons.appendChild(dwlBtn);
   divIcons.appendChild(fullBtn);
   divText.appendChild(userTitle);
   divText.appendChild(gifName);
 
-  backDiv.appendChild(divIcons);
-  backDiv.appendChild(divText);
+  //mobile
+  if (mode == "mobile") {
+    gifMax(divContainer, i, json, divIcons, desktopCard, mobileCard);
+    backDiv.remove();
+  } else {
+    backDiv.appendChild(divIcons);
+    backDiv.appendChild(divText);
+  }
   //eventos
   backDiv.addEventListener("mouseout", gifCardOut); //elimina la tarjeta al hacer mouseout
 
   favBtn.addEventListener("click", () => {
     //agregado/quitado de un gif a favortios
-    addFav(gifID, count);
-    if (count == 0) {
-      count++;
-    } else if (count == 1) {
-      count--;
-    } else {
-      console.log("fuuuuck");
-    }
+    addFav(gifID);
   });
-  dwlBtn;
   fullBtn.addEventListener("click", () => {
-    gifMax(json, backDiv);
+    gifMax(divContainer, i, json, divIcons, desktopCard, mobileCard);
     backDiv.removeEventListener("mouseout", gifCardOut);
-    console.log("acá sí");
+    backDiv.remove();
   });
-
-  //mobile
-  if (mode == "mobile") {
-    gifMax(json, backDiv);
-  }
 }
 
 //FUNCIONES
+//cambio de imagen del botón fav
+function changeFavBtn(favBtn) {
+  let IDVieja = localStorage.getItem("favGifs");
+  if (IDVieja != null) {
+    //si hay gifs guardados
+    if (IDVieja.includes(gifID)) {
+      //el gif está en favoritos
+      favBtn.setAttribute("src", "assets/icon-fav-active.svg");
+    } else {
+      //el gif no está en favoritos
+      favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
+    }
+  } else {
+    //no hay gifs guardados
+    favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
+  }
+}
 //elimina la tarjeta si sacamos el mouse de encima
 function gifCardOut() {
-  let divViejo = document.getElementById("backDiv");
+  let divViejo = document.querySelectorAll("#backDiv");
   if (divViejo != null) {
-    divViejo.remove();
+    divViejo.forEach((element) => {
+      element.remove();
+    });
   }
 }
 //agrega el gif a favoritos o lo elimina si ya estaba
-function addFav(ID, count) {
-  if (count == 0) {
-    sessionStorage.setItem("favGif" + ID, ID);
+function addFav(ID) {
+  let key = "favGifs";
+  let allMyFavs = localStorage.getItem(key);
+  if (allMyFavs === null) {
+    //si no había gifs guardados
+    localStorage.setItem(key, ID);
     favBtn.setAttribute("src", "assets/icon-fav-active.svg");
-    console.log(sessionStorage);
   } else {
-    sessionStorage.removeItem("favGif" + ID);
-    favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
-    console.log(sessionStorage);
+    let favArray = allMyFavs.split(",");
+    if (favArray.includes(ID)) {
+      //si ya está, lo saca del array
+      let index = favArray.indexOf(ID);
+      favArray.splice(index, 1);
+      favBtn.setAttribute("src", "assets/icon-fav-hover.svg");
+    } else {
+      //si no está, lo agrega
+      favArray.push(ID);
+      favBtn.setAttribute("src", "assets/icon-fav-active.svg");
+    }
+    allMyFavs = favArray.join(",");
+    localStorage.setItem(key, allMyFavs);
   }
 }
 //muestra el gif grande
-function gifMax(json, back) {
-  let newBack = back.cloneNode(true);
-  let main = document.querySelector("main");
-  let gif = document.createElement("img");
-  let cross = document.createElement("img");
-  newBack.removeEventListener("mouseout", gifCardOut);
+function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
+  containerDiv.className = "maxed"; //clases para mostrar el gif grande
 
-  gif.setAttribute("src", json.images.original.url);
-  gif.className = "gifMaxed";
-  cross.setAttribute("src", "assets/close.svg");
-  cross.className = "cross";
-  newBack.className = "gifMax";
+  let gifMaxed = document.getElementById("gif" + i);
+  if (gifMaxed == null) {
+    return;
+  }
+  gifMaxed.className = "gifMaxed";
+  //crea todos los elementos de la card
+  let btnRight = document.createElement("img");
+  let btnLeft = document.createElement("img");
+  let closeBtn = document.createElement("img");
+  let text = document.createElement("div");
+  let username = document.createElement("p");
+  let gifName = document.createElement("p");
+  let btn = botones.cloneNode(true);
+  let next = i + 4;
 
-  main.insertBefore(newBack, main.children[0]);
-  newBack.insertBefore(cross, newBack.children[0]);
-  newBack.insertBefore(gif, newBack.children[1]);
+  text.className = "divText";
+  username.innerHTML =
+    json.data[i].username.charAt(0).toUpperCase() +
+    json.data[i].username.slice(1); //mayúscula primera letra
+  gifName.innerHTML =
+    json.data[i].title.charAt(0).toUpperCase() + json.data[i].title.slice(1); //mayuscula primera letra
+  //elimino funciones viejas
 
-  cross.addEventListener("click", () => {
-    newBack.remove();
+  gifMaxed.removeEventListener("mouseover", desktopCard);
+  gifMaxed.removeEventListener("click", mobileCard);
+
+  btn.lastChild.remove(); //el boton de pantalla completa ya no está
+  btn.addEventListener("click", () => {
+    changeFavBtn(btn.firstChild);
   });
+  changeFavBtn(btn.firstChild); //imagen del botón favoritos
+  btn.firstChild.addEventListener("click", () => {
+    //agregado/quitado de un gif a favortios
+    addFav(json.data[i].id);
+  });
+  btn.lastChild.addEventListener("click", () =>
+    downloadGif(gifMaxed, gifName.innerHTML)
+  );
+  closeBtn.setAttribute("src", "assets/close.svg");
+  closeBtn.className = "close";
+  closeBtn.addEventListener("click", () => {
+    //evento para cerrar la vista ampliada
+    closeMaxed(containerDiv, btnRight, btnLeft, text, btn, gifMaxed, closeBtn);
+    //vuelve a poner los eventos de la card
+    gifMaxed.addEventListener("mouseover", desktopCard);
+    gifMaxed.addEventListener("click", mobileCard);
+  });
+
+  btnRight.setAttribute("src", "assets/button-slider-right.svg");
+  btnRight.id = "rgtBtn";
+  //evento al clickear la flecha de la derecha
+  //tengo que agregarle la función del botón "ver más" para poder ver más de los 12 primeros gifs mostrados
+  if (i === 11 || i === 23 || i === 35) {
+    btnRight.addEventListener("click", () => {
+      gifCardOut();
+      verMas(json, containerDiv);
+      i++;
+      closeMaxed(
+        containerDiv,
+        btnRight,
+        btnLeft,
+        text,
+        btn,
+        gifMaxed,
+        closeBtn
+      );
+      gifMax(containerDiv, i, json, botones, desktopCard, mobileCard);
+    });
+  } else {
+    btnRight.addEventListener("click", () => {
+      i++;
+      gifCardOut();
+      closeMaxed(
+        containerDiv,
+        btnRight,
+        btnLeft,
+        text,
+        btn,
+        gifMaxed,
+        closeBtn
+      );
+      gifMax(containerDiv, i, json, botones, desktopCard, mobileCard);
+    });
+  }
+  btnLeft.setAttribute("src", "assets/button-slider-left.svg");
+  btnLeft.id = "lftBtn";
+  btnLeft.addEventListener("click", () => {
+    i--;
+    closeMaxed(containerDiv, btnRight, btnLeft, text, btn, gifMaxed, closeBtn);
+    gifMax(containerDiv, i, json, botones, desktopCard, mobileCard);
+  });
+  btnRight.className = "maxButtons";
+  btnLeft.className = "maxButtons";
+
+  //agregado al DOM
+  text.appendChild(username);
+  text.appendChild(gifName);
+  //límite izquierdo
+  if (i === 0) {
+    btnLeft.remove();
+  } else {
+    containerDiv.insertBefore(btnLeft, containerDiv.children[i]);
+  }
+  containerDiv.insertBefore(closeBtn, containerDiv.children[i]);
+  //límite derecho
+  if (gifMaxed.id === "gif47") {
+    btnRight.remove();
+  } else {
+    containerDiv.insertBefore(btnRight, containerDiv.children[next]);
+  }
+  containerDiv.appendChild(text);
+  containerDiv.appendChild(btn);
 }
 
-//Funciones para crear la tarjeta en mobile
-function gifCardMobile(json, parentDiv, i) {}
+function closeMaxed(
+  container,
+  btnRight,
+  btnLeft,
+  text,
+  btn,
+  gifMaxed,
+  closeBtn
+) {
+  switch (container.id) {
+    case "searchGifs":
+      container.className = "searchGifs";
+      break;
+    case ctn:
+      container.className = "trendCtn";
+      break;
+    case "misGifosCtn":
+      container.className = "resultsShown";
+      break;
+    case "favDivCtn":
+      container.className = "favDivCtn";
+      break;
+  }
+  gifMaxed.classList.remove("gifMaxed");
+  btnRight.remove();
+  btnLeft.remove();
+  closeBtn.remove();
+  text.remove();
+  btn.remove();
+}
+//función para descargar el gif
+
+async function downloadGif(gifS, gifName, mode) {
+  try {
+    let a = document.createElement("a");
+    let url;
+    if (mode != "myGifs" || mode === undefined) {
+      //si viene desde una card
+      let src = gifS.getAttribute("src");
+      //busco el nombre del gif
+      let response = await fetch(src);
+      url = await response.blob();
+    } else {
+      //si viene desde la creacion de gifs
+      url = gifS;
+    }
+    a.href = window.URL.createObjectURL(url);
+    a.download = gifName;
+    a.click();
+  } catch (err) {
+    console.log(err);
+  }
+}

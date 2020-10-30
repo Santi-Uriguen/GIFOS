@@ -7,6 +7,10 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+html.transicion * {
+    //transición entre un modo y el otro
+    transition: all 250ms;
+}
 body {
     background-color: var(--backgrounds);
     padding: 5px 0 5px 0;
@@ -15,7 +19,6 @@ body {
 
 header {
     width: 100%;
-    position: sticky;
     height: 95px;
     top: 0;
     padding: 10px 6.93%;
@@ -30,9 +33,6 @@ header {
             cursor: pointer;
             &:first-child {
                 display: block;
-            }
-            &:nth-last-child(2) {
-                display: none;
             }
             &:nth-last-child(1) {
                 display: none;
@@ -53,7 +53,7 @@ header {
                 cursor: pointer;
                 &:checked {
                     ~ ul {
-                        height: 490px;
+                        height: 100vh;
                         transition: height 0.5s ease-in-out;
                         -moz-transition: height 0.5s ease-in-out;
                         -o-transition: height 0.5s ease-in-out;
@@ -104,25 +104,28 @@ header {
                     display: flex;
                     justify-content: center;
                     cursor: pointer;
-                    &:nth-child(2) {
+                    &:last-child {
                         display: none;
                     }
-                }
-                span {
-                    margin-top: -7px;
-                    display: flex;
-                    background-color: var(--colorSearchs);
-                    height: 1.5px;
-                    width: 40px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                button {
-                    display: none;
+                    span {
+                        margin-top: -7px;
+                        display: flex;
+                        background-color: var(--colorSearchs);
+                        height: 1.5px;
+                        width: 40px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
                 }
             }
         }
     }
+}
+.headerFix {
+    position: relative;
+}
+.headerSticky {
+    position: sticky;
 }
 
 /*-------------------MAIN-----------------------*/
@@ -340,22 +343,19 @@ main {
                 }
             }
             .maxed {
-                @include maxed(block);
-            }
-
-            button {
-                margin: 20.8% 0 20.8% 0;
-                align-self: center;
-                width: 34.4%;
-                height: 50px;
-                border: 1px solid var(--colorPrincipal);
-                border-radius: 25px;
-                background: none;
-                cursor: pointer;
-                &:hover {
-                    color: #ffffff;
-                    background-color: var(--colorPrincipal);
+                @include maxed(none, (0 5% 0 5%), end);
+                .gifMaxed {
+                    grid-column: 1/5;
                 }
+                .divText {
+                    grid-column: 1/4;
+                }
+                .divIcons {
+                    grid-column: 4/5;
+                }
+            }
+            button {
+                @include button;
             }
         }
         .noResultsHidden {
@@ -395,6 +395,21 @@ main {
             .favDivCtn {
                 @include mobileShown;
             }
+            button {
+                @include button;
+            }
+            .maxed {
+                @include maxed(none, (0 5% 0 5%), end);
+                .gifMaxed {
+                    grid-column: 1/5;
+                }
+                .divText {
+                    grid-column: 1/4;
+                }
+                .divIcons {
+                    grid-column: 4/5;
+                }
+            }
         }
         .noResultsHidden {
             display: none;
@@ -407,7 +422,25 @@ main {
         display: none;
     }
     .mis_gifosShown {
-        @extend .searchShown;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .resultsShown {
+            display: flex;
+            flex-direction: column;
+            .misGifosCtn {
+                @include mobileShown;
+            }
+            button {
+                @include button;
+            }
+        }
+        .noResultsHidden {
+            display: none;
+        }
+        .noResultsShown {
+            @include noResults;
+        }
     }
     .crateGifHidden {
         display: none;
@@ -452,6 +485,18 @@ main {
                     width: 64.8%;
                     height: 49.87vw;
                     flex-shrink: 0;
+                }
+            }
+            .maxed {
+                @include maxed(none, (0 5% 0 5%), end);
+                .gifMaxed {
+                    grid-column: 1/5;
+                }
+                .divText {
+                    grid-column: 1/4;
+                }
+                .divIcons {
+                    grid-column: 4/5;
                 }
             }
         }

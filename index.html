@@ -10,11 +10,10 @@
 </head>
 
 <body>
-    <header>
+    <header class="headerSticky">
         <div class="logo" id="head">
-            <img src="assets/logo-mobile.svg" alt="logo mobile" id="logo">
-            <img src="assets/logo-desktop-modo-noc.svg" alt="logo desktop nocturno">
-            <img src="assets/logo-desktop.svg" alt="logo desktop">
+            <img alt="logo mobile" id="logoMob">
+            <img alt="logo desktop" id="logoDesk">
         </div>
         <nav>
             <div class="menu">
@@ -22,16 +21,16 @@
                 <span class="hamb"></span>
                 <span class="hamb"></span>
                 <span class="hamb"></span>
-                <ul>
-                    <li id="toggleModes">Dark Mode</li>
-                    <span></span>
-                    <li id="fav">Favoritos</li>
-                    <span></span>
-                    <li id="mis_gifos">Mis GIFOS</li>
-                    <span></span>
-                    <button id="crateGif">
-                        <img src="" alt="" id="btn-crear">
-                    </button>
+                <ul id="menuUl">
+                    <li id="toggleModes" class="li_normal">Dark Mode</li>
+                    <li><span></span></li>
+                    <li id="fav" class="li_normal">Favoritos</li>
+                    <li><span></span></li>
+                    <li id="mis_gifos" class="li_normal">Mis GIFOS</li>
+                    <li><span></span></li>
+                    <li class="li_normal"><button id="crateGif">
+                            <img alt="button_crear_gifs" id="btn-crear">
+                        </button></li>
                 </ul>
             </div>
         </nav>
@@ -62,36 +61,34 @@
             <span class="line"></span>
             <div class="resultsHidden" id="searchContainer"> </div>
             <div class="noResultsHidden" id="noResultsSearch">
-                <img src="assets/icon-busqueda-sin-resultado.svg" alt="">
+                <img src="assets/icon-busqueda-sin-resultado.svg" alt="busqueda_sin_resultados">
                 <p>Intenta con otra búsqueda.</p>
             </div>
         </section>
         <section class="favHidden" id="fav_section">
-            <img src="assets/icon-favoritos.svg" alt="">
+            <img src="assets/icon-favoritos.svg" alt="favoritos.svg">
             <h2>Favoritos</h2>
             <div class="resultsHidden" id="favContainer">
-
             </div>
             <div class="noResultsHidden" id="noFavsContainer">
-                <img src="assets/icon-fav-sin-contenido.svg" alt="">
+                <img src="assets/icon-fav-sin-contenido.svg" alt="fav_sin_contenido">
                 <p>"¡Guarda tu primer GIFO en Favoritos <br>
                     para que se muestre aquí!"</p>
             </div>
         </section>
         <section class="mis_gifosHidden" id="mis_gifos_section">
-            <img src="assets/icon-mis-gifos.svg" alt="">
+            <img src="assets/icon-mis-gifos.svg" alt="mis_gifos">
             <h2>Mis Gifos</h2>
-            <div class="results">
-                <div id="misGifosShown"></div>
+            <div class="resultsHidden" id="misGifosCtn">
             </div>
-            <div class="no_results">
-                <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="">
+            <div class="noResultsHidden" id="noGifosCtn">
+                <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="Mis_gifos_sin_contenido">
                 <p>¡Anímate a crear tu primer GIFO!</p>
             </div>
         </section>
         <section id="crateGif_section" class="crateGifHidden">
             <div class="camera">
-                <img src="assets/camara.svg" alt="">
+                <img src="assets/camara.svg" alt="camera" id="cameraSvg">
                 <div id="light"></div>
             </div>
             <div class="recuadro" id="recuadro">
@@ -99,40 +96,45 @@
                 <div class="corner" id="corn2"></div>
                 <div class="textCrearSw" id="text1">
                     <h2>Aquí podrás <br> crear tus propios <span> GIFOS</span></h2>
-                    <h4>¡Crea tu GIFO en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)</h4>
+                    <p>¡Crea tu GIFO en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)</p>
                 </div>
                 <div class="textCrearHid" id="text2">
                     <h2>¿Nos das acceso a tu cámara?</h2>
-                    <h4>El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.</h4>
+                    <p>El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.</p>
                 </div>
                 <div id="video" class="videoHid">
-                    <video src="" autoplay loop></video>
-                    <img id="gifCreado" src="" alt="">
                     <div class="textCrearHid" id="text3">
-                        <img src="assets/loader.svg" alt="">
-                        <h4> Estamos subiendo tu GIFO</h4>
+                        <img src="assets/loader.svg" alt="loader">
+                        <p> Estamos subiendo tu GIFO</p>
                     </div>
                     <div class="textCrearHid" id="text4">
-                        <img src="assets/icon-download.svg" alt="">
-                        <img src="assets/icon-link-normal.svg" alt="">
-                        <img src="assets/check.svg" alt="">
-                        <h4>GIFO subido con éxito</h4>
+                        <div class="btns">
+                            <img src="assets/icon-download.svg" alt="download" id="myGifDwl">
+                            <img src="assets/icon-link.svg" alt="link" id="myLink"></div>
+                        <div class="txt">
+                            <img src="assets/check.svg" alt="check">
+                            <p>GIFO subido con éxito</p>
+                        </div>
                     </div>
                 </div>
                 <div class="corner" id="corn3"></div>
                 <div class="corner" id="corn4"></div>
             </div>
             <div class="steps">
-                <div id="nums">
-                    <p class="numInactive" id="p1">1</p>
-                    <p class="numInactive" id="p2">2</p>
-                    <p class="numInactive" id="p3">3</p>
+                <div class="nums">
+                    <div class="dir">
+                        <p class="numInactive" id="p1">1</p>
+                        <p class="numInactive" id="p2">2</p>
+                        <p class="numInactive" id="p3">3</p>
+                    </div>
+                    <div class="time" id="time">
+                    </div>
                 </div>
                 <span></span>
                 <button id="grabarBtn">COMENZAR</button>
             </div>
             <div class="pelicula">
-                <img src="assets/pelicula.svg" alt="">
+                <img src="assets/pelicula.svg" alt="pelicula.svg" id="cinta">
             </div>
         </section>
         <section class="trendingShown" id="trendings">
@@ -145,15 +147,16 @@
     <footer>
         <h5>Compartir en:</h5>
         <div class="icons">
-            <a href="https://www.facebook.com/" target="_blank"><img src="assets/icon_facebook.svg" alt=""></a>
-            <a href="https://twitter.com/" target="_blank"><img src="assets/icon-twitter.svg" alt=""></a>
-            <a href="https://www.instagram.com/" target="_blank"><img src="assets/icon_instagram.svg" alt=""></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="assets/icon_facebook.svg" alt="facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="assets/icon-twitter.svg" alt="twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="assets/icon_instagram.svg"
+                    alt="instagra"></a>
         </div>
         <p>© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <script src="scripts/Trends&Search.js"></script>
     <script src="scripts/transiciones.js"></script>
-    <script src="scripts/cards2.js"></script>
+    <script src="scripts/cards.js"></script>
     <script src="scripts/fav.js"></script>
     <script src="scripts/misGifos.js"></script>
     <!-- recommended -->

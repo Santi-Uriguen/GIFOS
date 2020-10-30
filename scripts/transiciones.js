@@ -5,8 +5,8 @@ let HeadID = headBtn.id;
 let searchBtn = document.getElementById("search");
 let SearchID = searchBtn.id;
 
-let favBtn = document.getElementById("fav");
-let FavID = favBtn.id;
+let favoritesBtn = document.getElementById("fav");
+let FavID = favoritesBtn.id;
 
 let misGifosBtn = document.getElementById("mis_gifos");
 let misGifosID = misGifosBtn.id;
@@ -18,6 +18,10 @@ let trendings = document.getElementById("trendings");
 
 //otras variables
 let searchContainer = document.getElementById("searchContainer");
+let myGifsContainer = document.getElementById("misGifosCtn");
+let state; //si está activo o inactiva la pestaña crear gifs
+let hambMenu = document.getElementById("checkbox");
+let header = document.querySelector("header");
 
 //función para mostrar la sección clickeada y ocultar las demás
 function showSection(ShowClase, HidClase1, HidClase2, HidClase3, HidClase4) {
@@ -27,6 +31,10 @@ function showSection(ShowClase, HidClase1, HidClase2, HidClase3, HidClase4) {
   let hideSection3 = document.getElementById(HidClase3 + "_section");
   let hideSection4 = document.getElementById(HidClase4 + "_section");
   restoreRecord();
+  restoreNormalLi();
+  state = "inactive";
+  hambMenu.checked = false;
+  header.className = "headerSticky";
   //condición: si el botón clickeado es search, no afecta a HEAD, caso contrario sí
   if (ShowClase === "search") {
     showSection.className = "searchShown";
@@ -52,18 +60,21 @@ headBtn.addEventListener("click", function () {
     top: 0,
     behavior: "smooth",
   });
-  favBtn.style.color = "var(--colorPricipal)";
 });
 
-favBtn.addEventListener("click", function () {
+favoritesBtn.addEventListener("click", function () {
   addFavorito(); //función para mostrar los favoritos(en archivo fav.js)
-  searchContainer.innerHTML = "";
+  searchContainer.innerHTML = ""; //orra los resultados de la busqueda
+  if (myGifsContainer != null) {
+    //borra los gifs mostrados en misgifos
+    myGifsContainer.innerHTML = "";
+  }
   showSection(FavID, HeadID, SearchID, misGifosID, createGifID);
   scroll({
     top: 0,
     behavior: "smooth",
   });
-  favBtn.style.color = "var(--colorSearchs)";
+  favoritesBtn.className = "li_active";
 });
 
 searchBtn.addEventListener("click", function () {
@@ -72,10 +83,18 @@ searchBtn.addEventListener("click", function () {
 
 misGifosBtn.addEventListener("click", function () {
   showSection(misGifosID, HeadID, FavID, SearchID, createGifID);
+  searchContainer.innerHTML = "";
+  let favContainer = document.getElementById("favDivCtn");
+  if (favContainer != null) {
+    //borra los gifs ostrados en favoritos
+    favContainer.innerHTML = "";
+  }
   scroll({
     top: 0,
     behavior: "smooth",
   });
+  showMisGifs(); //función en misGifos.js
+  misGifosBtn.className = "li_active";
 });
 
 createGifBtn.addEventListener("click", function () {
@@ -85,17 +104,29 @@ createGifBtn.addEventListener("click", function () {
     behavior: "smooth",
   });
   trendings.className = "trendingHidden";
+  createGifBtn.parentElement.className = "li_active";
+  state = "active";
+  header.className = "headerFix";
 });
 
+function restoreNormalLi() {
+  let lis = document.getElementById("menuUl").childNodes;
+  lis.forEach(function (child) {
+    child.className = "li_normal";
+  });
+}
 //--------------------------------------DARK MODE-----------------------------------
 let toggleModes = document.querySelector("#toggleModes");
 let preferedMode = localStorage.getItem("modo");
 let changeMode;
-let logo = document.getElementById("head");
+let logoMob = document.getElementById("logoMob");
+let logoDesk = document.getElementById("logoDesk");
 let btnCrear = document.getElementById("btn-crear");
+let camera = document.getElementById("cameraSvg");
+let cinta = document.getElementById("cinta");
 //verifica que haya un modo preferido y sino manda al light por default
 if (preferedMode === null) {
-  changeMode = "light";
+  changeMode = "dark";
 } else if (preferedMode === "dark") {
   changeMode = "light";
 } else {
@@ -108,7 +139,7 @@ function toggleMode() {
   if (changeMode === "light") {
     //se pone en modo oscuro
     imageToggle(changeMode);
-    toggleModes.innerHTML = "Modo Claro";
+    toggleModes.innerHTML = "Modo Diurno";
     localStorage.setItem("modo", "dark");
     changeMode = "dark";
     preferedMode = "dark";
@@ -117,7 +148,7 @@ function toggleMode() {
   } else {
     //se pone en modo claro
     imageToggle(changeMode);
-    toggleModes.innerHTML = "Modo Oscuro";
+    toggleModes.innerHTML = "Modo Nocturno";
     localStorage.setItem("modo", "light");
     preferedMode = "light";
     changeMode = "light";
@@ -138,19 +169,27 @@ function transicion() {
 function imageToggle(mode) {
   if (mode === "light") {
     //imágenes para el modo dark
+    logoMob.setAttribute("src", "assets/logo-mobile-modo-noct.svg");
+    logoDesk.setAttribute("src", "assets/logo-desktop-modo-noc.svg");
     closeImg.setAttribute("src", "assets/button-close-modo-noct.svg");
     searchLupa.setAttribute("src", "assets/icon-search-modo-noct.svg");
     btnLeft.setAttribute("src", "assets/button-left-modo-dark.svg");
     btnRight.setAttribute("src", "assets/button-right-modo-noc.svg");
     btnCrear.setAttribute("src", "assets/CTA-crear-gifo-modo-noc.svg");
+    camera.setAttribute("src", "assets/camara-modo-noc.svg");
+    cinta.setAttribute("src", "assets/pelicula-modo-noc.svg");
     toggleEvents(mode);
   } else {
     //imágenes modo claro
+    logoMob.setAttribute("src", "assets/logo-mobile.svg");
+    logoDesk.setAttribute("src", "assets/logo-desktop.svg");
     searchLupa.setAttribute("src", "assets/icon-search.svg");
     closeImg.setAttribute("src", "assets/close.svg");
     btnLeft.setAttribute("src", "assets/button-left.svg");
     btnRight.setAttribute("src", "assets/button-right.svg");
     btnCrear.setAttribute("src", "assets/button-crear-gifo.svg");
+    camera.setAttribute("src", "assets/camara.svg");
+    cinta.setAttribute("src", "assets/pelicula.svg");
     toggleEvents(mode);
   }
 }
@@ -204,12 +243,20 @@ function toggleEvents(mode) {
   createGifBtn.addEventListener("mouseover", () => {
     srcChange(btnCrearHvr, btnCrear);
   });
+
   createGifBtn.addEventListener("mouseout", () => {
-    srcChange(btnCrearSrc, btnCrear);
+    if (state === "active") {
+      //si estamos en la pestaña Crear Gifos
+      srcChange(btnCrearActive, btnCrear);
+    } else {
+      srcChange(btnCrearSrc, btnCrear);
+    }
   });
+  /*
   createGifBtn.addEventListener("click", () => {
+    createGifBtn.removeEventListener("mouseout", createMouseOut);
     srcChange(btnCrearActive, btnCrear);
-  });
+  });*/
 }
 
 function srcChange(src, target) {

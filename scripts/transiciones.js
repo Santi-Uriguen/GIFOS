@@ -155,6 +155,9 @@ function toggleMode() {
     document.documentElement.setAttribute("mode", "light");
     transicion();
   }
+  setTimeout(() => {
+    hambMenu.checked = false;
+  }, 300);
 }
 
 function transicion() {
@@ -187,7 +190,7 @@ function imageToggle(mode) {
     closeImg.setAttribute("src", "assets/close.svg");
     btnLeft.setAttribute("src", "assets/button-left.svg");
     btnRight.setAttribute("src", "assets/button-right.svg");
-    btnCrear.setAttribute("src", "assets/button-crear-gifo.svg");
+    btnCrear.setAttribute("src", "assets/CTA-crar-gifo.svg");
     camera.setAttribute("src", "assets/camara.svg");
     cinta.setAttribute("src", "assets/pelicula.svg");
     toggleEvents(mode);
@@ -221,7 +224,7 @@ function toggleEvents(mode) {
     btnLeftHoverSrc = "assets/button-slider-left-hover.svg";
     btnRightHover = "assets/Button-Slider-right-hover.svg";
     btnCrearHvr = "assets/CTA-crear-gifo-hover.svg";
-    btnCrearSrc = "assets/button-crear-gifo.svg";
+    btnCrearSrc = "assets/CTA-crar-gifo.svg";
     btnCrearActive = "assets/CTA-crear-gifo-active.svg";
   }
   //eventos

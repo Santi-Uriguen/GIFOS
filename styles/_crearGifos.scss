@@ -89,6 +89,9 @@ main {
                     img {
                         animation: rotateLoader 1.5s linear infinite;
                     }
+                    p {
+                        color: #ffffff;
+                    }
                 }
                 .textUploadHid {
                     display: none;
@@ -126,6 +129,9 @@ main {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                        p {
+                            color: #ffffff;
+                        }
                     }
                 }
             }
@@ -188,7 +194,7 @@ main {
                     width: 11.2vw;
                     border: none;
                     p {
-                        text-align: right;
+                        display: flex;
                         width: 8.9vw;
                         margin: 0;
                         color: var(--colorPrincipal);
@@ -246,5 +252,74 @@ main {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+/*-----------------VERSIÓN MOBILE-----------------*/
+@media (max-width: 850px) {
+    main {
+        .crateGifShown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5% 0 0 0;
+            margin: 0;
+            .camera {
+                display: none;
+            }
+            .recuadro {
+                width: 85%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 55vw;
+                padding: 10%;
+                .corner {
+                    display: none;
+                }
+                .videoSw {
+                    margin: 0;
+                    width: 73.33vw;
+                    justify-content: center;
+                    padding: 5%;
+                    .videoActive {
+                        width: 100%;
+                        height: auto;
+                    }
+                    .textUploadGif {
+                        width: 68vw;
+                        height: 45vw;
+                    }
+                    .textUploaded {
+                        width: 68vw;
+                        height: 45vw;
+                        .btns {
+                            margin-bottom: 10vw;
+                            img {
+                                margin: 7px 7px 0 0;
+                                width: 25px;
+                                height: 25px;
+                                padding: 4.5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .steps {
+                margin-bottom: 5%;
+                .nums {
+                    padding: 0 3.819vw 0 14vw;
+                    .time {
+                        .timeRepeat {
+                            font-size: 9px;
+                        }
+                    }
+                }
+            }
+            .pelicula {
+                display: none;
+            }
+        }
     }
 }

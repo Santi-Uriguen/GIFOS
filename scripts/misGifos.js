@@ -117,8 +117,8 @@ function getStreamAndRecord() {
         video.play();
         recorder = RecordRTC(stream, {
           type: "gif",
-          frameRate: 1,
-          quality: 10,
+          //frameRate: 15,
+          // quality: 10,
           width: 360,
         });
         recorder.camera = stream;

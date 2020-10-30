@@ -60,8 +60,27 @@ a {
     line-height: 60px;
     text-decoration: none;
 }
-li {
-    @extend a;
+.li_normal {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 60px;
+    text-decoration: none;
+    button {
+        background-color: var(--colorBackground);
+    }
+}
+.li_active {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--inputColor);
+    line-height: 60px;
+    text-decoration: none;
+    button {
+        background: none;
+    }
 }
 
 input::placeholder {

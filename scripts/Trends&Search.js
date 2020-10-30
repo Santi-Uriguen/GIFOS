@@ -344,7 +344,7 @@ function verMas(json, div) {
     }
   }
   cont2++;
-  if (cont2 >= endCont) {
+  if (cont2 > endCont) {
     //elimina el botón de ver más al mostrar los últimos gifs
     let button = document.getElementById("btnVerMas");
     button.remove();

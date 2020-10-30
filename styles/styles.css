@@ -221,9 +221,10 @@ header {
         header nav .menu ul li {
           display: flex;
           justify-content: center;
-          cursor: pointer; }
-          header nav .menu ul li:last-child {
-            display: none; }
+          cursor: pointer;
+          /*&:last-child {
+              display: none;
+          }*/ }
           header nav .menu ul li span {
             margin-top: -7px;
             display: flex;

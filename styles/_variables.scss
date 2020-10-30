@@ -101,7 +101,14 @@ html[mode="dark"] {
         margin-bottom: 47.7%;
     }
 }
-
+@mixin arrowBtn {
+    display: flex;
+    border: 1px solid var(--colorPrincipal);
+    width: 40px;
+    height: 40px;
+    padding: 12px 15px 12px 15px;
+    cursor: pointer;
+}
 @mixin gifCard($width, $height) {
     display: flex;
     flex-direction: column;
@@ -166,7 +173,7 @@ html[mode="dark"] {
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: var(--colorBackground);
     padding: $padding;
     img {
         display: none;
@@ -184,11 +191,20 @@ html[mode="dark"] {
     }
     #lftBtn {
         display: $sliderBtns;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 1/2;
         justify-self: end;
         align-self: center;
         margin-right: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer;
+        &:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0;
+        }
     }
     .gifMaxed {
         display: block;
@@ -198,11 +214,20 @@ html[mode="dark"] {
     }
     #rgtBtn {
         display: $sliderBtns;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         margin-left: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer;
+        &:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0;
+        }
     }
     .divText {
         align-self: start;
@@ -210,7 +235,7 @@ html[mode="dark"] {
         p {
             font-family: "Roboto";
             font-weight: bold;
-            color: #000000;
+            color: var(--letrasNegras);
             text-align: left;
         }
         &:first-child {
@@ -229,10 +254,15 @@ html[mode="dark"] {
         img {
             display: block;
             border: 1px solid #ced7e1;
+            opacity: 0.7;
+            background: #ffffff;
             border-radius: 6px;
             padding: 6%;
             margin-left: 1.458vw;
             cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 }

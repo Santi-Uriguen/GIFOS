@@ -419,7 +419,7 @@ main {
         width: 100vw;
         height: 100vh;
         z-index: 2;
-        background-color: #ffffff;
+        background-color: var(--colorBackground);
         padding: 0 5% 0 5%; }
         main .searchShown .resultsShown .maxed img {
           display: none; }
@@ -434,11 +434,19 @@ main {
           cursor: pointer; }
         main .searchShown .resultsShown .maxed #lftBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 1/2;
           justify-self: end;
           align-self: center;
           margin-right: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .searchShown .resultsShown .maxed #lftBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .searchShown .resultsShown .maxed .gifMaxed {
           display: block;
           width: 100%;
@@ -446,18 +454,26 @@ main {
           align-self: center; }
         main .searchShown .resultsShown .maxed #rgtBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 4/5;
           justify-self: start;
           align-self: center;
           margin-left: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .searchShown .resultsShown .maxed #rgtBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .searchShown .resultsShown .maxed .divText {
           align-self: start;
           justify-self: self-start; }
           main .searchShown .resultsShown .maxed .divText p {
             font-family: "Roboto";
             font-weight: bold;
-            color: #000000;
+            color: var(--letrasNegras);
             text-align: left; }
           main .searchShown .resultsShown .maxed .divText:first-child {
             font-weight: 400;
@@ -472,10 +488,14 @@ main {
           main .searchShown .resultsShown .maxed .divIcons img {
             display: block;
             border: 1px solid #ced7e1;
+            opacity: 0.7;
+            background: #ffffff;
             border-radius: 6px;
             padding: 6%;
             margin-left: 1.458vw;
             cursor: pointer; }
+            main .searchShown .resultsShown .maxed .divIcons img:hover {
+              opacity: 1; }
         main .searchShown .resultsShown .maxed .gifMaxed {
           grid-column: 1/5; }
         main .searchShown .resultsShown .maxed .divText {
@@ -549,7 +569,7 @@ main {
         width: 100vw;
         height: 100vh;
         z-index: 2;
-        background-color: #ffffff;
+        background-color: var(--colorBackground);
         padding: 0 5% 0 5%; }
         main .favShown .resultsShown .maxed img {
           display: none; }
@@ -564,11 +584,19 @@ main {
           cursor: pointer; }
         main .favShown .resultsShown .maxed #lftBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 1/2;
           justify-self: end;
           align-self: center;
           margin-right: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .favShown .resultsShown .maxed #lftBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .favShown .resultsShown .maxed .gifMaxed {
           display: block;
           width: 100%;
@@ -576,18 +604,26 @@ main {
           align-self: center; }
         main .favShown .resultsShown .maxed #rgtBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 4/5;
           justify-self: start;
           align-self: center;
           margin-left: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .favShown .resultsShown .maxed #rgtBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .favShown .resultsShown .maxed .divText {
           align-self: start;
           justify-self: self-start; }
           main .favShown .resultsShown .maxed .divText p {
             font-family: "Roboto";
             font-weight: bold;
-            color: #000000;
+            color: var(--letrasNegras);
             text-align: left; }
           main .favShown .resultsShown .maxed .divText:first-child {
             font-weight: 400;
@@ -602,10 +638,14 @@ main {
           main .favShown .resultsShown .maxed .divIcons img {
             display: block;
             border: 1px solid #ced7e1;
+            opacity: 0.7;
+            background: #ffffff;
             border-radius: 6px;
             padding: 6%;
             margin-left: 1.458vw;
             cursor: pointer; }
+            main .favShown .resultsShown .maxed .divIcons img:hover {
+              opacity: 1; }
         main .favShown .resultsShown .maxed .gifMaxed {
           grid-column: 1/5; }
         main .favShown .resultsShown .maxed .divText {
@@ -724,7 +764,7 @@ main {
         width: 100vw;
         height: 100vh;
         z-index: 2;
-        background-color: #ffffff;
+        background-color: var(--colorBackground);
         padding: 0 5% 0 5%; }
         main .trendingShown .gif_container .maxed img {
           display: none; }
@@ -739,11 +779,19 @@ main {
           cursor: pointer; }
         main .trendingShown .gif_container .maxed #lftBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 1/2;
           justify-self: end;
           align-self: center;
           margin-right: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .trendingShown .gif_container .maxed #lftBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .trendingShown .gif_container .maxed .gifMaxed {
           display: block;
           width: 100%;
@@ -751,18 +799,26 @@ main {
           align-self: center; }
         main .trendingShown .gif_container .maxed #rgtBtn {
           display: none;
+          border: 1px solid var(--colorPrincipal);
+          width: 40px;
+          height: 40px;
           grid-column: 4/5;
           justify-self: start;
           align-self: center;
           margin-left: 1.736vw;
+          padding: 12px 15px 12px 15px;
           cursor: pointer; }
+          main .trendingShown .gif_container .maxed #rgtBtn:hover {
+            border: none;
+            background-color: var(--colorPrincipal);
+            padding: 0; }
         main .trendingShown .gif_container .maxed .divText {
           align-self: start;
           justify-self: self-start; }
           main .trendingShown .gif_container .maxed .divText p {
             font-family: "Roboto";
             font-weight: bold;
-            color: #000000;
+            color: var(--letrasNegras);
             text-align: left; }
           main .trendingShown .gif_container .maxed .divText:first-child {
             font-weight: 400;
@@ -777,10 +833,14 @@ main {
           main .trendingShown .gif_container .maxed .divIcons img {
             display: block;
             border: 1px solid #ced7e1;
+            opacity: 0.7;
+            background: #ffffff;
             border-radius: 6px;
             padding: 6%;
             margin-left: 1.458vw;
             cursor: pointer; }
+            main .trendingShown .gif_container .maxed .divIcons img:hover {
+              opacity: 1; }
         main .trendingShown .gif_container .maxed .gifMaxed {
           grid-column: 1/5; }
         main .trendingShown .gif_container .maxed .divText {
@@ -972,7 +1032,7 @@ html[mode="dark"] {
       width: 100vw;
       height: 100vh;
       z-index: 2;
-      background-color: #ffffff;
+      background-color: var(--colorBackground);
       padding: 0; }
       main .searchShown .resultsShown .maxed img {
         display: none; }
@@ -987,11 +1047,19 @@ html[mode="dark"] {
         cursor: pointer; }
       main .searchShown .resultsShown .maxed #lftBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 1/2;
         justify-self: end;
         align-self: center;
         margin-right: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .searchShown .resultsShown .maxed #lftBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .searchShown .resultsShown .maxed .gifMaxed {
         display: block;
         width: 100%;
@@ -999,18 +1067,26 @@ html[mode="dark"] {
         align-self: center; }
       main .searchShown .resultsShown .maxed #rgtBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         margin-left: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .searchShown .resultsShown .maxed #rgtBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .searchShown .resultsShown .maxed .divText {
         align-self: start;
         justify-self: self-start; }
         main .searchShown .resultsShown .maxed .divText p {
           font-family: "Roboto";
           font-weight: bold;
-          color: #000000;
+          color: var(--letrasNegras);
           text-align: left; }
         main .searchShown .resultsShown .maxed .divText:first-child {
           font-weight: 400;
@@ -1025,10 +1101,14 @@ html[mode="dark"] {
         main .searchShown .resultsShown .maxed .divIcons img {
           display: block;
           border: 1px solid #ced7e1;
+          opacity: 0.7;
+          background: #ffffff;
           border-radius: 6px;
           padding: 6%;
           margin-left: 1.458vw;
           cursor: pointer; }
+          main .searchShown .resultsShown .maxed .divIcons img:hover {
+            opacity: 1; }
       main .searchShown .resultsShown .maxed .gifMaxed {
         grid-column: 2/4; }
       main .searchShown .resultsShown .maxed .divText {
@@ -1127,7 +1207,7 @@ html[mode="dark"] {
       width: 100vw;
       height: 100vh;
       z-index: 2;
-      background-color: #ffffff;
+      background-color: var(--colorBackground);
       padding: 0; }
       main .favShown .resultsShown .maxed img {
         display: none; }
@@ -1142,11 +1222,19 @@ html[mode="dark"] {
         cursor: pointer; }
       main .favShown .resultsShown .maxed #lftBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 1/2;
         justify-self: end;
         align-self: center;
         margin-right: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .favShown .resultsShown .maxed #lftBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .favShown .resultsShown .maxed .gifMaxed {
         display: block;
         width: 100%;
@@ -1154,18 +1242,26 @@ html[mode="dark"] {
         align-self: center; }
       main .favShown .resultsShown .maxed #rgtBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         margin-left: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .favShown .resultsShown .maxed #rgtBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .favShown .resultsShown .maxed .divText {
         align-self: start;
         justify-self: self-start; }
         main .favShown .resultsShown .maxed .divText p {
           font-family: "Roboto";
           font-weight: bold;
-          color: #000000;
+          color: var(--letrasNegras);
           text-align: left; }
         main .favShown .resultsShown .maxed .divText:first-child {
           font-weight: 400;
@@ -1180,10 +1276,14 @@ html[mode="dark"] {
         main .favShown .resultsShown .maxed .divIcons img {
           display: block;
           border: 1px solid #ced7e1;
+          opacity: 0.7;
+          background: #ffffff;
           border-radius: 6px;
           padding: 6%;
           margin-left: 1.458vw;
           cursor: pointer; }
+          main .favShown .resultsShown .maxed .divIcons img:hover {
+            opacity: 1; }
       main .favShown .resultsShown .maxed .gifMaxed {
         grid-column: 2/4; }
       main .favShown .resultsShown .maxed .divText {
@@ -1209,7 +1309,7 @@ html[mode="dark"] {
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: var(--colorBackground);
     padding: 0; }
     main .favShown .maxed img {
       display: none; }
@@ -1224,11 +1324,19 @@ html[mode="dark"] {
       cursor: pointer; }
     main .favShown .maxed #lftBtn {
       display: block;
+      border: 1px solid var(--colorPrincipal);
+      width: 40px;
+      height: 40px;
       grid-column: 1/2;
       justify-self: end;
       align-self: center;
       margin-right: 1.736vw;
+      padding: 12px 15px 12px 15px;
       cursor: pointer; }
+      main .favShown .maxed #lftBtn:hover {
+        border: none;
+        background-color: var(--colorPrincipal);
+        padding: 0; }
     main .favShown .maxed .gifMaxed {
       display: block;
       width: 100%;
@@ -1236,18 +1344,26 @@ html[mode="dark"] {
       align-self: center; }
     main .favShown .maxed #rgtBtn {
       display: block;
+      border: 1px solid var(--colorPrincipal);
+      width: 40px;
+      height: 40px;
       grid-column: 4/5;
       justify-self: start;
       align-self: center;
       margin-left: 1.736vw;
+      padding: 12px 15px 12px 15px;
       cursor: pointer; }
+      main .favShown .maxed #rgtBtn:hover {
+        border: none;
+        background-color: var(--colorPrincipal);
+        padding: 0; }
     main .favShown .maxed .divText {
       align-self: start;
       justify-self: self-start; }
       main .favShown .maxed .divText p {
         font-family: "Roboto";
         font-weight: bold;
-        color: #000000;
+        color: var(--letrasNegras);
         text-align: left; }
       main .favShown .maxed .divText:first-child {
         font-weight: 400;
@@ -1262,10 +1378,14 @@ html[mode="dark"] {
       main .favShown .maxed .divIcons img {
         display: block;
         border: 1px solid #ced7e1;
+        opacity: 0.7;
+        background: #ffffff;
         border-radius: 6px;
         padding: 6%;
         margin-left: 1.458vw;
         cursor: pointer; }
+        main .favShown .maxed .divIcons img:hover {
+          opacity: 1; }
     main .favShown .maxed .gifMaxed {
       grid-column: 2/4; }
     main .favShown .maxed .divText {
@@ -1349,7 +1469,7 @@ html[mode="dark"] {
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: var(--colorBackground);
     padding: 0; }
     main .mis_gifosShown .maxed img {
       display: none; }
@@ -1364,11 +1484,19 @@ html[mode="dark"] {
       cursor: pointer; }
     main .mis_gifosShown .maxed #lftBtn {
       display: block;
+      border: 1px solid var(--colorPrincipal);
+      width: 40px;
+      height: 40px;
       grid-column: 1/2;
       justify-self: end;
       align-self: center;
       margin-right: 1.736vw;
+      padding: 12px 15px 12px 15px;
       cursor: pointer; }
+      main .mis_gifosShown .maxed #lftBtn:hover {
+        border: none;
+        background-color: var(--colorPrincipal);
+        padding: 0; }
     main .mis_gifosShown .maxed .gifMaxed {
       display: block;
       width: 100%;
@@ -1376,18 +1504,26 @@ html[mode="dark"] {
       align-self: center; }
     main .mis_gifosShown .maxed #rgtBtn {
       display: block;
+      border: 1px solid var(--colorPrincipal);
+      width: 40px;
+      height: 40px;
       grid-column: 4/5;
       justify-self: start;
       align-self: center;
       margin-left: 1.736vw;
+      padding: 12px 15px 12px 15px;
       cursor: pointer; }
+      main .mis_gifosShown .maxed #rgtBtn:hover {
+        border: none;
+        background-color: var(--colorPrincipal);
+        padding: 0; }
     main .mis_gifosShown .maxed .divText {
       align-self: start;
       justify-self: self-start; }
       main .mis_gifosShown .maxed .divText p {
         font-family: "Roboto";
         font-weight: bold;
-        color: #000000;
+        color: var(--letrasNegras);
         text-align: left; }
       main .mis_gifosShown .maxed .divText:first-child {
         font-weight: 400;
@@ -1402,10 +1538,14 @@ html[mode="dark"] {
       main .mis_gifosShown .maxed .divIcons img {
         display: block;
         border: 1px solid #ced7e1;
+        opacity: 0.7;
+        background: #ffffff;
         border-radius: 6px;
         padding: 6%;
         margin-left: 1.458vw;
         cursor: pointer; }
+        main .mis_gifosShown .maxed .divIcons img:hover {
+          opacity: 1; }
     main .mis_gifosShown .maxed .gifMaxed {
       grid-column: 2/4; }
     main .mis_gifosShown .maxed .divText {
@@ -1497,7 +1637,7 @@ html[mode="dark"] {
       width: 100vw;
       height: 100vh;
       z-index: 2;
-      background-color: #ffffff;
+      background-color: var(--colorBackground);
       padding: 0; }
       main .trendingShown .gif_container .maxed img {
         display: none; }
@@ -1512,11 +1652,19 @@ html[mode="dark"] {
         cursor: pointer; }
       main .trendingShown .gif_container .maxed #lftBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 1/2;
         justify-self: end;
         align-self: center;
         margin-right: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .trendingShown .gif_container .maxed #lftBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .trendingShown .gif_container .maxed .gifMaxed {
         display: block;
         width: 100%;
@@ -1524,18 +1672,26 @@ html[mode="dark"] {
         align-self: center; }
       main .trendingShown .gif_container .maxed #rgtBtn {
         display: block;
+        border: 1px solid var(--colorPrincipal);
+        width: 40px;
+        height: 40px;
         grid-column: 4/5;
         justify-self: start;
         align-self: center;
         margin-left: 1.736vw;
+        padding: 12px 15px 12px 15px;
         cursor: pointer; }
+        main .trendingShown .gif_container .maxed #rgtBtn:hover {
+          border: none;
+          background-color: var(--colorPrincipal);
+          padding: 0; }
       main .trendingShown .gif_container .maxed .divText {
         align-self: start;
         justify-self: self-start; }
         main .trendingShown .gif_container .maxed .divText p {
           font-family: "Roboto";
           font-weight: bold;
-          color: #000000;
+          color: var(--letrasNegras);
           text-align: left; }
         main .trendingShown .gif_container .maxed .divText:first-child {
           font-weight: 400;
@@ -1550,10 +1706,14 @@ html[mode="dark"] {
         main .trendingShown .gif_container .maxed .divIcons img {
           display: block;
           border: 1px solid #ced7e1;
+          opacity: 0.7;
+          background: #ffffff;
           border-radius: 6px;
           padding: 6%;
           margin-left: 1.458vw;
           cursor: pointer; }
+          main .trendingShown .gif_container .maxed .divIcons img:hover {
+            opacity: 1; }
       main .trendingShown .gif_container .maxed .gifMaxed {
         grid-column: 2/4; }
       main .trendingShown .gif_container .maxed .divText {
@@ -1566,8 +1726,8 @@ html[mode="dark"] {
       width: 40px;
       height: 40px;
       padding: 12px 15px 12px 15px;
-      margin-left: 2.3%;
-      cursor: pointer; }
+      cursor: pointer;
+      margin-left: 2.3%; }
       main .trendingShown .gif_container .trendBtnRt:hover {
         border: none;
         background-color: var(--colorPrincipal);

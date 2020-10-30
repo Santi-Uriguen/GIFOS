@@ -179,8 +179,42 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   btn.lastChild.addEventListener("click", () =>
     downloadGif(gifMaxed, gifName.innerHTML)
   );
-  closeBtn.setAttribute("src", "assets/close.svg");
+  if (changeMode == "dark") {
+    //assets para modo dark
+    closeBtn.setAttribute("src", "assets/button-close-modo-noct.svg");
+    btnRight.setAttribute("src", "assets/button-right-modo-noc.svg");
+    btnLeft.setAttribute("src", "assets/button-left-modo-dark.svg");
+    btnRight.addEventListener("mouseover", () => {
+      btnRight.setAttribute("src", "assets/Button-Slider-right-hover-dark.svg");
+    });
+    btnRight.addEventListener("mouseout", () => {
+      btnRight.setAttribute("src", "assets/button-right-modo-noc.svg");
+    });
+    btnLeft.addEventListener("mouseover", () => {
+      btnLeft.setAttribute("src", "assets/button-slider-left-hvr-dark.svg");
+    });
+    btnLeft.addEventListener("mouseout", () => {
+      btnLeft.setAttribute("src", "assets/button-left-modo-dark.svg");
+    });
+  } else {
+    closeBtn.setAttribute("src", "assets/close.svg");
+    btnRight.setAttribute("src", "assets/button-right.svg");
+    btnLeft.setAttribute("src", "assets/button-left.svg");
+    btnRight.addEventListener("mouseover", () => {
+      btnRight.setAttribute("src", "assets/Button-Slider-right-hover.svg");
+    });
+    btnRight.addEventListener("mouseout", () => {
+      btnRight.setAttribute("src", "assets/button-right.svg");
+    });
+    btnLeft.addEventListener("mouseover", () => {
+      btnLeft.setAttribute("src", "assets/button-slider-left-hover.svg");
+    });
+    btnLeft.addEventListener("mouseout", () => {
+      btnLeft.setAttribute("src", "assets/button-left.svg");
+    });
+  }
   closeBtn.className = "close";
+  closeBtn.id = "closeMax";
   closeBtn.addEventListener("click", () => {
     //evento para cerrar la vista ampliada
     closeMaxed(containerDiv, btnRight, btnLeft, text, btn, gifMaxed, closeBtn);
@@ -188,8 +222,6 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
     gifMaxed.addEventListener("mouseover", desktopCard);
     gifMaxed.addEventListener("click", mobileCard);
   });
-
-  btnRight.setAttribute("src", "assets/button-slider-right.svg");
   btnRight.id = "rgtBtn";
   //evento al clickear la flecha de la derecha
   //tengo que agregarle la función del botón "ver más" para poder ver más de los 12 primeros gifs mostrados
@@ -225,7 +257,6 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
       gifMax(containerDiv, i, json, botones, desktopCard, mobileCard);
     });
   }
-  btnLeft.setAttribute("src", "assets/button-slider-left.svg");
   btnLeft.id = "lftBtn";
   btnLeft.addEventListener("click", () => {
     i--;

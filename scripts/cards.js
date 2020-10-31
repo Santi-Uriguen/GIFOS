@@ -173,7 +173,6 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   console.log(gifMaxed);
   console.log(json);
   console.log(desktopCard);
-  gifMaxed.removeEventListener("mouseover", desktopCard);
   gifMaxed.removeEventListener("click", mobileCard);
 
   btn.lastChild.remove(); //el boton de pantalla completa ya no está
@@ -228,8 +227,8 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   closeBtn.addEventListener("click", () => {
     //evento para cerrar la vista ampliada
     closeMaxed(containerDiv, btnRight, btnLeft, text, btn, gifMaxed, closeBtn);
-    //vuelve a poner los eventos de la card
-    gifMaxed.addEventListener("mouseover", desktopCard);
+    gifCardOut();
+    // //vuelve a poner los eventos de la card
     gifMaxed.addEventListener("click", mobileCard);
   });
   btnRight.id = "rgtBtn";

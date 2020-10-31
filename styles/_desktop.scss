@@ -189,17 +189,17 @@
                         background-color: var(--colorPrincipal);
                     }
                 }
-            }
-            .maxed {
-                @include maxed(block, 0, start, 27vw);
-                .gifMaxed {
-                    grid-column: 2/4;
-                }
-                .divText {
-                    grid-column: 2/3;
-                }
-                .divIcons {
-                    grid-column: 3/4;
+                .maxed {
+                    @include maxed(block, 0, start, 27vw);
+                    .gifMaxed {
+                        grid-column: 2/4;
+                    }
+                    .divText {
+                        grid-column: 2/3;
+                    }
+                    .divIcons {
+                        grid-column: 3/4;
+                    }
                 }
             }
         }

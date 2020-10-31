@@ -462,6 +462,18 @@ main {
             button {
                 @include button;
             }
+            .maxed {
+                @include maxed(none, (0 5% 0 5%), end, 70vmin);
+                .gifMaxed {
+                    grid-column: 1/5;
+                }
+                .divText {
+                    grid-column: 1/4;
+                }
+                .divIcons {
+                    grid-column: 4/5;
+                }
+            }
         }
         .noResultsHidden {
             display: none;

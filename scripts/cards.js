@@ -140,8 +140,14 @@ function addFav(ID) {
 //muestra el gif grande
 function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   containerDiv.className = "maxed"; //clases para mostrar el gif grande
-
-  let gifMaxed = document.getElementById("gif" + i);
+  let gifMaxed;
+  let idContainer = containerDiv.id;
+  //indico a qué gifs hace referencia para calcular la posición de la tarjeta
+  if (idContainer === "trendCtn") {
+    gifMaxed = document.getElementById("trendGif" + i);
+  } else {
+    gifMaxed = document.getElementById("gif" + i);
+  }
   if (gifMaxed == null) {
     return;
   }
@@ -163,7 +169,10 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   gifName.innerHTML =
     json.data[i].title.charAt(0).toUpperCase() + json.data[i].title.slice(1); //mayuscula primera letra
   //elimino funciones viejas
-
+  console.log(i);
+  console.log(gifMaxed);
+  console.log(json);
+  console.log(desktopCard);
   gifMaxed.removeEventListener("mouseover", desktopCard);
   gifMaxed.removeEventListener("click", mobileCard);
 
@@ -179,6 +188,7 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   btn.lastChild.addEventListener("click", () =>
     downloadGif(gifMaxed, gifName.innerHTML)
   );
+  //assets
   if (changeMode == "dark") {
     //assets para modo dark
     closeBtn.setAttribute("src", "assets/button-close-modo-noct.svg");
@@ -225,7 +235,7 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   btnRight.id = "rgtBtn";
   //evento al clickear la flecha de la derecha
   //tengo que agregarle la función del botón "ver más" para poder ver más de los 12 primeros gifs mostrados
-  if (i === 11 || i === 23 || i === 35) {
+  if (i === 11 || i === 23 || i === 35 || i === 47) {
     btnRight.addEventListener("click", () => {
       gifCardOut();
       verMas(json, containerDiv);
@@ -299,7 +309,7 @@ function closeMaxed(
     case "searchGifs":
       container.className = "searchGifs";
       break;
-    case ctn:
+    case "trendCtn":
       container.className = "trendCtn";
       break;
     case "misGifosCtn":

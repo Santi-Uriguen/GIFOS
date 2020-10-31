@@ -28,10 +28,19 @@ async function addTrending() {
       TrendingContainer.appendChild(ctn);
       TrendingContainer.appendChild(btnRight);
 
-      //agrego el evento de mostrar la gif card al hacer mouseover
-      gif.addEventListener("mouseover", () => {
-        gifCard(trend, ctn, i, mode);
-      });
+      function desktopCard() {
+        mode = "";
+        gifCard(trend, ctn, i, mode, desktopCard, mobileCard);
+      }
+      //función para mobiles
+      function mobileCard() {
+        if (gif.className != "gifMaxed") {
+          mode = "mobile";
+          gifCard(trend, ctn, i, mode, desktopCard, mobileCard);
+        }
+      }
+      gif.addEventListener("mouseover", desktopCard);
+      gif.addEventListener("click", mobileCard);
     }
     //EVENTOS
     //eventos para scrollear
@@ -297,18 +306,21 @@ function addSearchToDOM(json, name) {
     searchTitle.textContent = name;
     gif.setAttribute("src", json.data[i].images.downsized_medium.url);
     gif.id = "gif" + i;
+    gif.className = "gifos";
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
     //los eventos están definidos así para poder aplicarles removeEvent más adelante
     //función sólo para desktop
-    let desktopCard = () => {
+    function desktopCard() {
       mode = "";
+      gif.removeEventListener("click", mobileCard);
       gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
-    };
+    }
     //función para mobiles
-    let mobileCard = () => {
+    function mobileCard() {
       mode = "mobile";
+      gif.removeEventListener("mouseover", desktopCard);
       gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
-    };
+    }
     gif.addEventListener("mouseover", desktopCard);
     gif.addEventListener("click", mobileCard);
     btn.textContent = "Ver más";
@@ -322,7 +334,6 @@ function addSearchToDOM(json, name) {
 }
 
 let cont2 = 1;
-
 function verMas(json, div) {
   let endCont = Math.floor(json.data.length / 12);
   let base = 12 * cont2;

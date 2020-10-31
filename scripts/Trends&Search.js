@@ -344,7 +344,7 @@ function verMas(json, div) {
       });
       gif.addEventListener("click", () => {
         mode = "mobile"; //función para mobile
-        gifCard(json, searchGifCtn, j, mode);
+        gifCard(json, div, j, mode);
       });
       div.appendChild(gif);
     }

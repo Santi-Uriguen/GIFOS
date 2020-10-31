@@ -124,6 +124,9 @@ let logoDesk = document.getElementById("logoDesk");
 let btnCrear = document.getElementById("btn-crear");
 let camera = document.getElementById("cameraSvg");
 let cinta = document.getElementById("cinta");
+let facebook = document.getElementById("facebook");
+let twitter = document.getElementById("twitter");
+let instagram = document.getElementById("instagram");
 //verifica que haya un modo preferido y sino manda al light por default
 if (preferedMode === null) {
   changeMode = "dark";
@@ -206,6 +209,9 @@ function toggleEvents(mode) {
   let btnCrearHvr;
   let btnCrearSrc;
   let btnCrearActive;
+  let facebookHvr;
+  let twitterHvr;
+  let instaHvr;
   if (mode === "light") {
     //modo oscuro
     searchLupaSrc = "assets/icon-search-modo-noct.svg";
@@ -216,6 +222,9 @@ function toggleEvents(mode) {
     btnCrearHvr = "assets/CTA-crear-gifo-hover-modo-noc.svg";
     btnCrearSrc = "assets/CTA-crear-gifo-modo-noc.svg";
     btnCrearActive = "assets/CTA-crear-gifo-active-modo-noc.svg";
+    facebookHvr = "assets/icon_facebook_noc.svg";
+    twitterHvr = "assets/icon_twitter_noc.svg";
+    instaHvr = "assets/icon_instagram_noc.svg";
   } else {
     //modo claro
     searchLupaSrc = "assets/icon-search.svg";
@@ -226,6 +235,9 @@ function toggleEvents(mode) {
     btnCrearHvr = "assets/CTA-crear-gifo-hover.svg";
     btnCrearSrc = "assets/CTA-crar-gifo.svg";
     btnCrearActive = "assets/CTA-crear-gifo-active.svg";
+    facebookHvr = "assets/icon_facebook_hover.svg";
+    twitterHvr = "assets/icon-twitter-hover.svg";
+    instaHvr = "assets/icon_instagram-hover.svg";
   }
   //eventos
   closeImg.addEventListener("click", () => {
@@ -255,20 +267,27 @@ function toggleEvents(mode) {
       srcChange(btnCrearSrc, btnCrear);
     }
   });
-  /*
-  createGifBtn.addEventListener("click", () => {
-    createGifBtn.removeEventListener("mouseout", createMouseOut);
-    srcChange(btnCrearActive, btnCrear);
-  });*/
+  facebook.addEventListener("mouseover", () => {
+    srcChange(facebookHvr, facebook);
+  });
+  facebook.addEventListener("mouseout", () => {
+    srcChange("assets/icon_facebook.svg", facebook);
+  });
+  twitter.addEventListener("mouseover", () => {
+    srcChange(twitterHvr, twitter);
+  });
+  twitter.addEventListener("mouseout", () => {
+    srcChange("assets/icon-twitter.svg", twitter);
+  });
+  instagram.addEventListener("mouseover", () => {
+    srcChange(instaHvr, instagram);
+  });
+  instagram.addEventListener("mouseout", () => {
+    srcChange("assets/icon_instagram.svg", instagram);
+  });
 }
 
 function srcChange(src, target) {
   //función que cambia las src de img
   target.setAttribute("src", src);
 }
-
-/*anotaciones:
-cambiar el input al escribir
-cambiar estilos hover button
-
-*/

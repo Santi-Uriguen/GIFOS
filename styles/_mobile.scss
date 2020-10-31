@@ -492,6 +492,9 @@ main {
                 display: flex;
                 overflow-x: scroll;
                 width: 100%;
+                .cardDiv {
+                    display: none;
+                }
                 img {
                     margin: 0 0 0 5.867%;
                     width: 64.8%;

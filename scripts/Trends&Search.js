@@ -34,10 +34,8 @@ async function addTrending() {
       }
       //función para mobiles
       function mobileCard() {
-        if (gif.className != "gifMaxed") {
-          mode = "mobile";
-          gifCard(trend, ctn, i, mode, desktopCard, mobileCard);
-        }
+        mode = "mobile";
+        gifCard(trend, ctn, i, mode, desktopCard, mobileCard);
       }
       gif.addEventListener("mouseover", desktopCard);
       gif.addEventListener("click", mobileCard);
@@ -306,19 +304,16 @@ function addSearchToDOM(json, name) {
     searchTitle.textContent = name;
     gif.setAttribute("src", json.data[i].images.downsized_medium.url);
     gif.id = "gif" + i;
-    gif.className = "gifos";
     //creo el listener para el evento de las tarjetas, cuya función y demás está definido en styles/cards.js
     //los eventos están definidos así para poder aplicarles removeEvent más adelante
     //función sólo para desktop
     function desktopCard() {
       mode = "";
-      gif.removeEventListener("click", mobileCard);
       gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
     }
     //función para mobiles
     function mobileCard() {
       mode = "mobile";
-      gif.removeEventListener("mouseover", desktopCard);
       gifCard(json, searchGifCtn, i, mode, desktopCard, mobileCard);
     }
     gif.addEventListener("mouseover", desktopCard);

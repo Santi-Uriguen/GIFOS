@@ -287,7 +287,8 @@ main {
           height: 22px; }
           main .headShown .search_bar .busqueDiv .input_ctn input {
             border: none;
-            background-color: var(--colorBackground); }
+            background-color: var(--colorBackground);
+            color: var(--letrasNegras); }
           main .headShown .search_bar .busqueDiv .input_ctn input::placeholder {
             color: var(--inputColor); }
         main .headShown .search_bar .busqueDiv .lupaImgShow {
@@ -339,6 +340,7 @@ main {
           justify-content: center;
           height: 22px; }
           main .headShown .search_bar_clicked .busqueDiv .input_ctn input {
+            color: var(--letrasNegras);
             border: none;
             outline: none;
             background-color: var(--colorBackground); }
@@ -757,6 +759,8 @@ main {
         display: flex;
         overflow-x: scroll;
         width: 100%; }
+        main .trendingShown .gif_container .trendCtn .cardDiv {
+          display: none; }
         main .trendingShown .gif_container .trendCtn img {
           margin: 0 0 0 5.867%;
           width: 64.8%;

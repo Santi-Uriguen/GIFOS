@@ -6,7 +6,23 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-thumb:horizontal {
+        background-color: var(--colorPrincipal);
+        border-radius: 10px;
+        width: 3px;
+    }
+    ::-webkit-scrollbar-thumb:vertical {
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: none;
+    }
 }
+
 html.transicion * {
     //transición entre un modo y el otro
     transition: all 250ms;
@@ -355,7 +371,7 @@ main {
                 }
             }
             .maxed {
-                @include maxed(none, (0 5% 0 5%), end);
+                @include maxed(none, (0 5% 0 5%), end, 70vmin);
                 .gifMaxed {
                     grid-column: 1/5;
                 }
@@ -411,7 +427,7 @@ main {
                 @include button;
             }
             .maxed {
-                @include maxed(none, (0 5% 0 5%), end);
+                @include maxed(none, (0 5% 0 5%), end, 70vmin);
                 .gifMaxed {
                     grid-column: 1/5;
                 }
@@ -466,7 +482,7 @@ main {
             padding-top: 12%;
         }
         p {
-            margin: 2% 0 8.6% 0;
+            margin: 2% 0 2.5vmin 0;
             font-family: "Roboto", sans-serif;
             font-weight: 400;
             font-size: 16px;
@@ -503,7 +519,7 @@ main {
                 }
             }
             .maxed {
-                @include maxed(none, (0 5% 0 5%), end);
+                @include maxed(none, (0 5% 0 5%), end, 70vmin);
                 .gifMaxed {
                     grid-column: 1/5;
                 }

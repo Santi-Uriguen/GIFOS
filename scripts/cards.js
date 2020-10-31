@@ -139,7 +139,8 @@ function addFav(ID) {
 }
 //muestra el gif grande
 function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
-  containerDiv.className = "maxed"; //clases para mostrar el gif grande
+  containerDiv.className = "maxed";
+  //clases para mostrar el gif grande
   let gifMaxed;
   let idContainer = containerDiv.id;
   //indico a qué gifs hace referencia para calcular la posición de la tarjeta
@@ -161,7 +162,7 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   let gifName = document.createElement("p");
   let btn = botones.cloneNode(true);
   let next = i + 4;
-
+  console.log(containerDiv);
   text.className = "divText";
   username.innerHTML =
     json.data[i].username.charAt(0).toUpperCase() +
@@ -169,10 +170,6 @@ function gifMax(containerDiv, i, json, botones, desktopCard, mobileCard) {
   gifName.innerHTML =
     json.data[i].title.charAt(0).toUpperCase() + json.data[i].title.slice(1); //mayuscula primera letra
   //elimino funciones viejas
-  console.log(i);
-  console.log(gifMaxed);
-  console.log(json);
-  console.log(desktopCard);
   gifMaxed.removeEventListener("click", mobileCard);
 
   btn.lastChild.remove(); //el boton de pantalla completa ya no está
@@ -311,8 +308,8 @@ function closeMaxed(
     case "trendCtn":
       container.className = "trendCtn";
       break;
-    case "misGifosCtn":
-      container.className = "resultsShown";
+    case "gifosContainer":
+      container.className = "misGifosCtn";
       break;
     case "favDivCtn":
       container.className = "favDivCtn";

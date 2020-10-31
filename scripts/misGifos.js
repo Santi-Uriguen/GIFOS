@@ -116,9 +116,10 @@ function getStreamAndRecord() {
       video.play();
       recorder = RecordRTC(stream, {
         type: "gif",
-        //frameRate: 15,
-        // quality: 10,
+        frameRate: 1,
+        quality: 10,
         width: 360,
+        hidden: 240,
       });
       recorder.camera = stream;
     })
@@ -262,6 +263,7 @@ async function showMisGifs() {
       misGifosResults.innerHTML = "";
       let misGifosCtn = document.createElement("div");
       misGifosCtn.className = "misGifosCtn";
+      misGifosCtn.id = "gifosContainer";
       cont2 = 1; //usado en botón ver más
       for (let i = 0; i < 12; i++) {
         if (json.data[i] != undefined) {

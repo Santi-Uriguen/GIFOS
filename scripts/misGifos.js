@@ -101,42 +101,41 @@ function restoreRecord() {
 
 //función para pedir permiso de activar la cámara y empezar a mostrar el video
 function getStreamAndRecord() {
-  try {
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: false,
-        video: {
-          height: { max: 480 },
-        },
-      })
-      .then(function (stream) {
-        video.srcObject = stream;
-        video.setAttribute("autoplay", true);
-        video.setAttribute("loop", true);
-        videoCtn.insertBefore(video, texto3);
-        video.play();
-        recorder = RecordRTC(stream, {
-          type: "gif",
-          //frameRate: 15,
-          // quality: 10,
-          width: 360,
-        });
-        recorder.camera = stream;
-      })
-      .then(function () {
-        texto2.className = "textCrearHid";
-        videoCtn.className = "videoSw";
-        video.className = "videoActive";
-        p1.className = "numInactive";
-        p2.className = "numActive";
-        startBtn.innerHTML = "GRABAR";
-        startBtn.style.display = "block";
-        numeroPaso++;
+  navigator.mediaDevices
+    .getUserMedia({
+      audio: false,
+      video: {
+        height: { max: 480 },
+      },
+    })
+    .then(function (stream) {
+      video.srcObject = stream;
+      video.setAttribute("autoplay", true);
+      video.setAttribute("loop", true);
+      videoCtn.insertBefore(video, texto3);
+      video.play();
+      recorder = RecordRTC(stream, {
+        type: "gif",
+        //frameRate: 15,
+        // quality: 10,
+        width: 360,
       });
-  } catch (err) {
-    alert("Ha ocurrido un error al intentar prender la cámara");
-    console.log(err);
-  }
+      recorder.camera = stream;
+    })
+    .then(function () {
+      texto2.className = "textCrearHid";
+      videoCtn.className = "videoSw";
+      video.className = "videoActive";
+      p1.className = "numInactive";
+      p2.className = "numActive";
+      startBtn.innerHTML = "GRABAR";
+      startBtn.style.display = "block";
+      numeroPaso++;
+    })
+    .catch((error) => {
+      alert("No pudimos acceder a la cámara");
+      console.log(error);
+    });
 }
 //funciones para mostrar el tiempo de grabado
 function timer() {

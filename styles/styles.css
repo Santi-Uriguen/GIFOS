@@ -238,8 +238,9 @@ header {
               display: flex;
               justify-content: center;
               align-items: center;
-              margin-top: 15px;
               background: none; }
+        header nav .menu ul #lastSpan {
+          margin-bottom: 15px; }
 
 .headerFix {
   position: relative; }
@@ -1970,8 +1971,8 @@ main .crateGifShown {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 55vw;
-      padding: 10%; }
+      height: auto;
+      padding: 5%; }
       main .crateGifShown .recuadro .corner {
         display: none; }
       main .crateGifShown .recuadro .videoSw {

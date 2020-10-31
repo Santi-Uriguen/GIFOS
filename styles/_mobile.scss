@@ -120,10 +120,12 @@ header {
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            margin-top: 15px;
                             background: none;
                         }
                     }
+                }
+                #lastSpan {
+                    margin-bottom: 15px;
                 }
             }
         }
@@ -181,6 +183,7 @@ main {
                     input {
                         border: none;
                         background-color: var(--colorBackground);
+                        color: var(--letrasNegras);
                     }
                     input::placeholder {
                         color: var(--inputColor);
@@ -245,6 +248,7 @@ main {
                     justify-content: center;
                     height: 22px;
                     input {
+                        color: var(--letrasNegras);
                         border: none;
                         outline: none;
                         background-color: var(--colorBackground);
